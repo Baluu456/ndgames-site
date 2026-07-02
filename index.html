@@ -351,7 +351,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);min-hei
 <section class="catalog" id="catalog">
   <div class="catalog-header">
     <h2 class="catalog-title" id="catalog-title">// <span>КАТАЛОГ</span></h2>
-    <span class="catalog-count" id="catalog-count">0 игр</span>
+    
   </div>
   <div class="filters">
     <button class="filter-btn active" id="fb-all" onclick="setFilter('all')">ВСЕ</button>
@@ -702,10 +702,11 @@ function openProduct(keyOrEvent, key2){
     +'<div class="pm-platform">'+(grp.platform||'')+'</div>'
     +'<div class="pm-title">'+(grp.title||'—')+'</div>'
     +'<div class="pm-info-block">'+infoRows+'</div>'
-    +'<div><div class="pm-info-label" style="margin-bottom:8px">'+variantLabel+'</div>'
-    +'<div class="pm-variants">'+variantRows+'</div></div>'
+    +(grp.items.length>1
+    ?'<div><div class="pm-info-label" style="margin-bottom:8px">'+variantLabel+'</div><div class="pm-variants">'+variantRows+'</div></div>'
+    :'')
     +'<button class="pm-add-btn'+(selInCart?' added':'')+'" data-pmaddkey="'+safeKey+'" style="margin-top:auto">'
-    +(selInCart?('✓ '+t('added')):('+ '+t('add')))
+    +(selInCart?('✓ '+t('added')):('+ '+t('add')+(grp.items.length===1&&selItem.price?' — '+selItem.price+' ₾':'')))
     +'</button>';
 
   document.getElementById('product-modal-overlay').classList.add('open');
@@ -826,8 +827,7 @@ function renderGames(){
   });
 
   var grid=document.getElementById('game-grid');
-  var countEl=document.getElementById('catalog-count');
-  if(countEl)countEl.textContent=t('games_count')(groupOrder.length);
+
 
   if(!groupOrder.length){
     grid.innerHTML='<div class="empty-state"><div class="empty-icon">🎮</div><div class="empty-text">'+t('empty')+'</div></div>';
