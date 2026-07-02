@@ -474,7 +474,7 @@ var T={
     contact:'КОНТАКТЫ',delivery_title:'ДОСТАВКА',
     delivery_text:'По Батуми — самовывоз или привозим сами. По Грузии — маршруткой. Оплата наличными.',
     games_count:function(n){return n+' игр'},
-    write:'НАПИСАТЬ НАМ',whatsapp:'НАПИСАТЬ НАМ',browse:'СМОТРЕТЬ ИГРЫ',
+    write:'НАПИСАТЬ НАМ',whatsapp:'НАПИСАТЬ НАМ',all:'ВСЕ',browse:'СМОТРЕТЬ ИГРЫ',
     cart_empty:'КОРЗИНА ПУСТА',fill:'Добавьте игры из каталога',
     new_badge:'НОВЫЙ',used_badge:'Б/У',
     fill_req:'Заполните имя и телефон'
@@ -494,7 +494,7 @@ var T={
     contact:'კონტაქტი',delivery_title:'მიტანა',
     delivery_text:'ბათუმში — თვითგატანა ან ჩვენ მოვიტანთ. საქართველოში — მარშრუტკით. გადახდა ნაღდით.',
     games_count:function(n){return n+' თამაში'},
-    write:'მოგვწერეთ',whatsapp:'მოგვწერეთ',browse:'თამაშების ნახვა',
+    write:'მოგვწერეთ',whatsapp:'მოგვწერეთ',all:'ყველა',browse:'თამაშების ნახვა',
     cart_empty:'კალათა ცარიელია',fill:'დაამატე თამაშები კატალოგიდან',
     new_badge:'ახალი',used_badge:'მეორადი',
     fill_req:'შეავსეთ სახელი და ტელეფონი'
@@ -514,7 +514,7 @@ var T={
     contact:'CONTACTS',delivery_title:'DELIVERY',
     delivery_text:'Batumi — pickup or we deliver. Georgia — by marshrutka. Cash payment.',
     games_count:function(n){return n+' games'},
-    write:'CONTACT US',whatsapp:'CONTACT US',browse:'BROWSE GAMES',
+    write:'CONTACT US',whatsapp:'CONTACT US',all:'ALL',browse:'BROWSE GAMES',
     cart_empty:'CART IS EMPTY',fill:'Add games from the catalog',
     new_badge:'NEW',used_badge:'USED',
     fill_req:'Please fill name and phone'
@@ -544,6 +544,11 @@ function applyLang(){
   document.getElementById('footer-delivery-title').textContent=t('delivery_title');
   document.getElementById('footer-delivery-text').textContent=t('delivery_text');
   var wt=document.getElementById('wa-btn-text');if(wt)wt.textContent=t('write');
+  var fbAll=document.getElementById('fb-all');if(fbAll)fbAll.textContent=lang==='ka'?'ყველა':lang==='en'?'ALL':'ВСЕ';
+  var fbPs5=document.getElementById('fb-ps5');if(fbPs5)fbPs5.textContent='PS5';
+  var fbPs4=document.getElementById('fb-ps4');if(fbPs4)fbPs4.textContent='PS4';
+  var si=document.getElementById('search-inp');if(si)si.placeholder=t('search');
+  var ct=document.getElementById('catalog-title');if(ct)ct.innerHTML='// '+(lang==='ka'?'კატალოგი':lang==='en'?'CATALOG':'КАТАЛОГ')+'<span></span>';
   var gt=document.getElementById('genres-title');
   if(gt)gt.innerHTML='// '+(lang==='ka'?'ჟან<span style="color:var(--pink)">რები</span>':lang==='en'?'GEN<span style="color:var(--pink)">RES</span>':'ЖА<span style="color:var(--pink)">НРЫ</span>');
   document.getElementById('checkout-btn').textContent=t('checkout');
@@ -678,15 +683,28 @@ function openProduct(keyOrEvent, key2){
   else infoRows+='<div class="pm-info-row"><span class="pm-info-label">'+langLabel+'</span><span style="color:var(--text3);font-size:12px">—</span></div>';
   if(grp.discCode)infoRows+='<div class="pm-info-row"><span class="pm-info-label">'+codeLabel+'</span><span class="pm-code">'+grp.discCode+'</span></div>';
 
-  // Variant rows
-  var variantRows='';
+  // Variant rows - group by condition (new/used) to avoid duplicate rows
+  var condGroups={};
   grp.items.forEach(function(item){
+    var cond=item.condition==='new'?'new':'used';
+    if(!condGroups[cond]){condGroups[cond]={cond:cond,item:item,count:0};}
+    condGroups[cond].count++;
+    // prefer item not already in cart as representative
+    if(!cart.some(function(c){return c.id===item.id;}))condGroups[cond].item=item;
+  });
+  var condOrder=Object.keys(condGroups).sort(function(a,b){return a==='new'?-1:1;});
+  var variantRows='';
+  var multiCond=condOrder.length>1;
+  condOrder.forEach(function(cond){
+    var g=condGroups[cond];
+    var item=g.item;
     var isSel=pmSelectedVariant[key]===item.id;
-    var isInCart=cart.some(function(c){return c.id===item.id;});
-    var condLabel=item.condition==='new'?t('new_badge'):t('used_badge');
-    var condClass=item.condition==='new'?'new':'used';
-    variantRows+='<div class="pm-variant-row'+(isSel?' sel':'')+'" data-pmkey="'+key.replace(/"/g,'&quot;')+'" data-pmitem="'+item.id+'">';
-    variantRows+='<span class="pm-variant-cond '+condClass+'">'+condLabel+'</span>';
+    var isInCart=grp.items.filter(function(i){return (i.condition===cond||( cond==='used'&&i.condition!=='new'));}).some(function(i){return cart.some(function(c){return c.id===i.id;});});
+    var condLabel=cond==='new'?t('new_badge'):t('used_badge');
+    var condClass=cond==='new'?'new':'used';
+    var qty=g.count;
+    variantRows+='<div class="pm-variant-row'+(isSel||(!multiCond)?' sel':'')+'" data-pmkey="'+key.replace(/"/g,'&quot;')+'" data-pmitem="'+item.id+'">';
+    variantRows+='<div style="display:flex;align-items:center;gap:8px"><span class="pm-variant-cond '+condClass+'">'+condLabel+'</span>'+(qty>1?'<span style="font-size:10px;color:var(--text3)">×'+qty+'</span>':'')+'</div>';
     variantRows+=isInCart
       ?'<span style="font-size:11px;color:var(--cyan)">✓ '+t('added')+'</span>'
       :'<span class="pm-variant-price">'+(item.price?item.price+' ₾':'—')+'</span>';
