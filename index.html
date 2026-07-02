@@ -44,7 +44,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);min-hei
 .nav-logo span{color:var(--pink)}
 .nav-spacer{flex:1}
 .lang-switcher{display:flex;gap:4px}
-.lang-btn{background:none;border:1px solid var(--border);border-radius:6px;color:var(--text2);font-size:18px;padding:4px 7px;cursor:pointer;transition:all .2s;line-height:1}
+.lang-btn{background:none;border:1px solid var(--border);border-radius:6px;color:var(--text2);font-size:20px;padding:3px 6px;cursor:pointer;transition:all .2s;line-height:1;font-family:'Segoe UI Emoji','Apple Color Emoji','Noto Color Emoji',sans-serif}
 .lang-btn.active{border-color:var(--cyan);color:var(--cyan);background:rgba(0,212,255,0.08)}
 .cart-btn{position:relative;background:linear-gradient(135deg,var(--cyan),#0088ff);border:none;border-radius:var(--radius-sm);color:#000;font-family:var(--font-display);font-size:11px;font-weight:700;padding:9px 16px;cursor:pointer;display:flex;align-items:center;gap:6px;transition:all .2s;letter-spacing:1px}
 .cart-btn:hover{transform:translateY(-1px);box-shadow:var(--glow-cyan)}
@@ -96,9 +96,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);min-hei
 .game-cover-wrap{position:relative;width:100%;padding-bottom:140%;overflow:hidden;background:var(--bg3)}
 .game-cover{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .4s cubic-bezier(.25,.46,.45,.94)}
 .game-card:hover .game-cover{transform:scale(1.04) translateY(-4px)}
-.disc-wrap{position:absolute;bottom:-80px;left:50%;transform:translateX(-50%);width:70%;transition:bottom .4s cubic-bezier(.25,.46,.45,.94);z-index:2}
-.game-card:hover .disc-wrap{bottom:-10px}
-.disc-svg{width:100%;filter:drop-shadow(0 8px 24px rgba(0,0,0,0.6))}
+.disc-wrap{display:none}
 .game-card-glow{position:absolute;inset:0;opacity:0;transition:opacity .4s;background:radial-gradient(ellipse at 50% 100%,rgba(0,212,255,0.15) 0%,transparent 70%);pointer-events:none;z-index:1}
 .game-card:hover .game-card-glow{opacity:1}
 .platform-badge{position:absolute;top:10px;left:10px;background:rgba(0,0,0,0.75);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.15);border-radius:6px;font-family:var(--font-display);font-size:9px;font-weight:700;color:var(--cyan);padding:4px 8px;letter-spacing:1px;z-index:3}
@@ -217,6 +215,32 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);min-hei
   .cart-sidebar{width:100vw}
   .modal{padding:24px}
 }
+
+.card-hover-info{position:absolute;bottom:0;left:0;right:0;padding:10px 10px 8px;background:linear-gradient(to top,rgba(0,0,0,0.92) 0%,rgba(0,0,0,0.6) 60%,transparent 100%);transform:translateY(100%);transition:transform .35s cubic-bezier(.25,.46,.45,.94);z-index:4;display:flex;flex-wrap:wrap;gap:4px}
+.game-card:hover .card-hover-info{transform:translateY(0)}
+.info-badge{font-size:9px;font-weight:700;border-radius:5px;padding:3px 7px;letter-spacing:.5px;white-space:nowrap}
+.badge-lang-ru{background:rgba(0,212,255,0.2);border:1px solid rgba(0,212,255,0.4);color:#00d4ff}
+.badge-lang-en{background:rgba(255,200,0,0.15);border:1px solid rgba(255,200,0,0.35);color:#ffc800}
+.badge-genre{background:rgba(255,0,110,0.15);border:1px solid rgba(255,0,110,0.35);color:#ff006e}
+
+/* ── GENRES SECTION ── */
+.genres-section{padding:60px 24px;max-width:1400px;margin:0 auto}
+.genres-title{font-family:var(--font-display);font-size:18px;font-weight:700;color:var(--text);letter-spacing:2px;margin-bottom:8px}
+.genres-title span{color:var(--pink)}
+.genres-sub{font-size:13px;color:var(--text3);font-family:var(--font-mono);margin-bottom:32px;letter-spacing:1px}
+.genres-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:12px}
+@media(max-width:480px){.genres-grid{grid-template-columns:repeat(3,1fr);gap:8px}}
+.genre-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:20px 12px 16px;text-align:center;cursor:pointer;transition:all .25s cubic-bezier(.25,.46,.45,.94);position:relative;overflow:hidden;user-select:none}
+.genre-card::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 120%,var(--genre-color,rgba(0,212,255,0.2)) 0%,transparent 70%);opacity:0;transition:opacity .3s}
+.genre-card:hover::before{opacity:1}
+.genre-card:hover{border-color:var(--genre-color,var(--cyan));transform:translateY(-4px);box-shadow:0 8px 32px rgba(0,0,0,0.4)}
+.genre-card.active{border-color:var(--genre-color,var(--cyan));background:rgba(0,212,255,0.06);box-shadow:0 0 20px rgba(0,212,255,0.15)}
+.genre-icon{font-size:32px;margin-bottom:10px;display:block;transition:transform .3s cubic-bezier(.34,1.56,.64,1)}
+.genre-card:hover .genre-icon{transform:scale(1.25) rotate(-5deg)}
+.genre-name{font-family:var(--font-display);font-size:10px;font-weight:700;color:var(--text2);letter-spacing:1.5px;transition:color .2s}
+.genre-card:hover .genre-name,.genre-card.active .genre-name{color:var(--text)}
+.genre-count{font-family:var(--font-mono);font-size:9px;color:var(--text3);margin-top:4px;transition:color .2s}
+.genre-card:hover .genre-count,.genre-card.active .genre-count{color:var(--genre-color,var(--cyan))}
 </style>
 </head>
 <body>
@@ -268,6 +292,13 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);min-hei
   </div>
 </section>
 
+
+<!-- GENRES -->
+<section class="genres-section" id="genres">
+  <div class="genres-title" id="genres-title">// ЖА<span>НРЫ</span></div>
+  <div class="genres-sub">// SELECT GENRE TO FILTER</div>
+  <div class="genres-grid" id="genres-grid"></div>
+</section>
 <!-- CATALOG -->
 <section class="catalog" id="catalog">
   <div class="catalog-header">
@@ -441,6 +472,7 @@ function setLang(l){
   document.querySelectorAll('.lang-btn')[idx].classList.add('active');
   applyLang();
   renderGames();
+  renderGenres();
   renderCart();
 }
 function applyLang(){
@@ -453,11 +485,85 @@ function applyLang(){
   document.getElementById('footer-contact-title').textContent=t('contact');
   document.getElementById('footer-delivery-title').textContent=t('delivery_title');
   document.getElementById('footer-delivery-text').textContent=t('delivery_text');
+  var gt=document.getElementById('genres-title');
+  if(gt)gt.innerHTML='// '+(lang==='ka'?'ჟან<span style="color:var(--pink)">რები</span>':lang==='en'?'GEN<span style="color:var(--pink)">RES</span>':'ЖА<span style="color:var(--pink)">НРЫ</span>');
   document.getElementById('checkout-btn').textContent=t('checkout');
   document.getElementById('cart-total-label').textContent=t('total');
   var sc=document.getElementById('scroll-hint-text');if(sc)sc.textContent='SCROLL';
 }
 
+
+function getLangBadges(g){
+  var langs=g.langs||[];
+  var badges='';
+  if(langs.indexOf('ru_full')!==-1)badges+='<span class="info-badge badge-lang-ru">🎙 РУС</span>';
+  if(langs.indexOf('ru_sub')!==-1)badges+='<span class="info-badge badge-lang-ru">💬 РУС суб</span>';
+  if(langs.indexOf('en')!==-1)badges+='<span class="info-badge badge-lang-en">🎙 ENG</span>';
+  return badges;
+}
+function getGenreBadge(g){
+  if(!g.genre)return '';
+  return '<span class="info-badge badge-genre">'+g.genre+'</span>';
+}
+
+// ── GENRE DATA ────────────────────────────────────────
+var GENRE_DATA = [
+  {id:'Action',    icon:'⚔️',  name:{ka:'აქშენი',  ru:'Экшен',    en:'Action'},    color:'rgba(255,80,80,0.5)'},
+  {id:'RPG',       icon:'🧙',  name:{ka:'RPG',      ru:'РПГ',      en:'RPG'},       color:'rgba(180,100,255,0.5)'},
+  {id:'Sports',    icon:'⚽',  name:{ka:'სპორტი',  ru:'Спорт',    en:'Sports'},    color:'rgba(0,220,100,0.5)'},
+  {id:'Racing',    icon:'🏎️',  name:{ka:'რბოლა',   ru:'Гонки',    en:'Racing'},    color:'rgba(255,200,0,0.5)'},
+  {id:'Horror',    icon:'💀',  name:{ka:'ჰორორი',  ru:'Хоррор',   en:'Horror'},    color:'rgba(100,200,255,0.4)'},
+  {id:'Adventure', icon:'🗺️',  name:{ka:'თავგად.', ru:'Приключ.', en:'Adventure'}, color:'rgba(0,212,255,0.5)'},
+  {id:'Fighting',  icon:'🥊',  name:{ka:'ბრძოლა',  ru:'Файтинг',  en:'Fighting'},  color:'rgba(255,120,0,0.5)'},
+  {id:'Shooter',   icon:'🔫',  name:{ka:'შუთერი',  ru:'Шутер',    en:'Shooter'},   color:'rgba(200,50,50,0.5)'},
+  {id:'Puzzle',    icon:'🧩',  name:{ka:'პაზლი',   ru:'Головол.', en:'Puzzle'},    color:'rgba(80,220,180,0.5)'},
+  {id:'Simulation',icon:'🕹️', name:{ka:'სიმულ.',  ru:'Симулятор',en:'Simulation'},color:'rgba(150,150,255,0.5)'},
+  {id:'Strategy',  icon:'♟️',  name:{ka:'სტრატ.',  ru:'Стратегия',en:'Strategy'},  color:'rgba(100,180,100,0.5)'},
+  {id:'Platform',  icon:'🎮',  name:{ka:'პლატფ.',  ru:'Платформер',en:'Platform'}, color:'rgba(255,150,200,0.5)'},
+];
+
+var activeGenre = '';
+
+function renderGenres(){
+  var grid = document.getElementById('genres-grid');
+  if(!grid) return;
+  var gamesByGenre = {};
+  Object.values(games).forEach(function(g){
+    if(g.status !== 'available') return;
+    var genre = g.genre || '';
+    if(genre) gamesByGenre[genre] = (gamesByGenre[genre]||0) + 1;
+  });
+  var html = '';
+  GENRE_DATA.forEach(function(g){
+    var count = gamesByGenre[g.id] || 0;
+    var isActive = activeGenre === g.id;
+    var countLabel = lang==='ka'?'თამაში':lang==='ru'?'игр':'games';
+    html += '<div class="genre-card'+(isActive?' active':'')+'" data-genre="'+g.id+'" style="--genre-color:'+g.color+'">';
+    html += '<span class="genre-icon">'+g.icon+'</span>';
+    html += '<div class="genre-name">'+(g.name[lang]||g.id)+'</div>';
+    html += '<div class="genre-count">'+(count ? count+' '+countLabel : '—')+'</div>';
+    html += '</div>';
+  });
+  grid.innerHTML = html;
+  // Event delegation
+  grid.onclick = function(e){
+    var card = e.target.closest('.genre-card');
+    if(card) filterByGenre(card.dataset.genre);
+  };
+}
+
+function filterByGenre(genreId){
+  if(activeGenre === genreId){
+    activeGenre = '';
+  } else {
+    activeGenre = genreId;
+    // Scroll to catalog
+    var cat = document.getElementById('catalog');
+    if(cat) cat.scrollIntoView({behavior:'smooth', block:'start'});
+  }
+  renderGenres();
+  renderGames();
+}
 // ── FILTER ────────────────────────────────────────────
 function setFilter(f){
   filter=f;
@@ -506,6 +612,7 @@ function renderGames(){
     if(filter==='ps5'&&!(g.platform||'').toUpperCase().includes('PS5'))return false;
     if(filter==='ps4'&&!(g.platform||'').toUpperCase().includes('PS4'))return false;
     if(q&&!(g.title||'').toLowerCase().includes(q))return false;
+    if(activeGenre&&g.genre!==activeGenre)return false;
     return true;
   }).sort(function(a,b){return (b.addedAt||0)-(a.addedAt||0);});
 
@@ -528,7 +635,7 @@ function renderGames(){
       +'<div class="game-cover-wrap">'
       +(g.cover?'<img class="game-cover" src="'+g.cover+'" alt="'+g.title+'" loading="lazy">':'<div class="game-cover" style="background:linear-gradient(135deg,var(--bg3),var(--bg4))"></div>')
       +'</div>'
-      +'<div class="disc-wrap">'+discSVG(g.cover,g.id)+'</div>'
+      +'<div class="card-hover-info">'+getGenreBadge(g)+getLangBadges(g)+'</div>'
       +'<div class="game-card-glow"></div>'
       +'<div class="platform-badge '+platClass+'">'+(g.platform||'PS5')+'</div>'
       +'<div class="cond-badge '+condClass+'">'+condLabel+'</div>'
@@ -740,6 +847,7 @@ function initReveal(){
 db.ref('games').on('value',function(snap){
   games=snap.val()||{};
   renderGames();
+  renderGenres();
   updateCartCount();
   setTimeout(function(){
     var loader=document.getElementById('loader');
