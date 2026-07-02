@@ -704,7 +704,7 @@ function openProduct(keyOrEvent, key2){
     var condClass=cond==='new'?'new':'used';
     var qty=g.count;
     variantRows+='<div class="pm-variant-row'+(isSel||(!multiCond)?' sel':'')+'" data-pmkey="'+key.replace(/"/g,'&quot;')+'" data-pmitem="'+item.id+'">';
-    variantRows+='<div style="display:flex;align-items:center;gap:8px"><span class="pm-variant-cond '+condClass+'">'+condLabel+'</span>'+(qty>1?'<span style="font-size:10px;color:var(--text3)">×'+qty+'</span>':'')+'</div>';
+    variantRows+='<div style="display:flex;align-items:center;gap:8px"><span class="pm-variant-cond '+condClass+'">'+condLabel+'</span>'+'</div>';
     variantRows+=isInCart
       ?'<span style="font-size:11px;color:var(--cyan)">✓ '+t('added')+'</span>'
       :'<span class="pm-variant-price">'+(item.price?item.price+' ₾':'—')+'</span>';
