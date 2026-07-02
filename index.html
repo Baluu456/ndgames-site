@@ -44,7 +44,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);min-hei
 .nav-logo span{color:var(--pink)}
 .nav-spacer{flex:1}
 .lang-switcher{display:flex;gap:4px}
-.lang-btn{background:none;border:1px solid var(--border);border-radius:6px;color:var(--text2);font-size:11px;font-weight:600;padding:5px 8px;cursor:pointer;transition:all .2s;font-family:var(--font-body);letter-spacing:.5px}
+.lang-btn{background:none;border:1px solid var(--border);border-radius:6px;color:var(--text2);font-size:18px;padding:4px 7px;cursor:pointer;transition:all .2s;line-height:1}
 .lang-btn.active{border-color:var(--cyan);color:var(--cyan);background:rgba(0,212,255,0.08)}
 .cart-btn{position:relative;background:linear-gradient(135deg,var(--cyan),#0088ff);border:none;border-radius:var(--radius-sm);color:#000;font-family:var(--font-display);font-size:11px;font-weight:700;padding:9px 16px;cursor:pointer;display:flex;align-items:center;gap:6px;transition:all .2s;letter-spacing:1px}
 .cart-btn:hover{transform:translateY(-1px);box-shadow:var(--glow-cyan)}
@@ -232,9 +232,9 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);min-hei
   <a href="#" class="nav-logo">ND<span>GAMES</span></a>
   <div class="nav-spacer"></div>
   <div class="lang-switcher">
-    <button class="lang-btn active" onclick="setLang('ru')">РУС</button>
-    <button class="lang-btn" onclick="setLang('ka')">ქАР</button>
-    <button class="lang-btn" onclick="setLang('en')">ENG</button>
+    <button class="lang-btn active" onclick="setLang('ka')" title="ქართული">🇬🇪</button>
+    <button class="lang-btn" onclick="setLang('ru')" title="Русский">🇷🇺</button>
+    <button class="lang-btn" onclick="setLang('en')" title="English">🇬🇧</button>
   </div>
   <button class="cart-btn" onclick="openCart()">
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
@@ -365,7 +365,7 @@ var db=firebase.database();
 // ── STATE ─────────────────────────────────────────────
 var games={};
 var cart=JSON.parse(localStorage.getItem('ndgames_cart')||'[]');
-var lang='ru';
+var lang='ka';
 var filter='all';
 
 // ── TRANSLATIONS ──────────────────────────────────────
@@ -437,7 +437,7 @@ function t(k){return (T[lang]&&T[lang][k])||k;}
 function setLang(l){
   lang=l;
   document.querySelectorAll('.lang-btn').forEach(function(b){b.classList.remove('active');});
-  var idx={ru:0,ka:1,en:2}[l]||0;
+  var idx={ka:0,ru:1,en:2}[l]||0;
   document.querySelectorAll('.lang-btn')[idx].classList.add('active');
   applyLang();
   renderGames();
@@ -468,25 +468,33 @@ function setFilter(f){
 }
 
 // ── DISC SVG ──────────────────────────────────────────
-function discSVG(){
-  return '<svg class="disc-svg" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">'
+function discSVG(cover,id){
+  var uid='dg'+( id||Math.random().toString(36).slice(2,7));
+  var hasImg=cover?'true':'false';
+  return '<svg class="disc-svg" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">'
     +'<defs>'
-    +'<radialGradient id="dg" cx="40%" cy="35%">'
+    +(cover
+      ?'<pattern id="cp'+uid+'" patternUnits="objectBoundingBox" width="1" height="1"><image href="'+cover+'" x="-10" y="-10" width="140" height="140" preserveAspectRatio="xMidYMid slice"/></pattern>'
+      :'')
+    +'<radialGradient id="dg'+uid+'" cx="40%" cy="35%">'
     +'<stop offset="0%" stop-color="#888"/>'
     +'<stop offset="40%" stop-color="#333"/>'
     +'<stop offset="100%" stop-color="#111"/>'
     +'</radialGradient>'
-    +'<radialGradient id="shine" cx="35%" cy="30%">'
-    +'<stop offset="0%" stop-color="rgba(255,255,255,0.4)"/>'
+    +'<radialGradient id="shine'+uid+'" cx="35%" cy="30%">'
+    +'<stop offset="0%" stop-color="rgba(255,255,255,0.35)"/>'
     +'<stop offset="100%" stop-color="rgba(255,255,255,0)"/>'
     +'</radialGradient>'
+    +'<clipPath id="clip'+uid+'"><circle cx="60" cy="60" r="57"/></clipPath>'
     +'</defs>'
-    +'<circle cx="60" cy="60" r="58" fill="url(#dg)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>'
-    +'<circle cx="60" cy="60" r="48" fill="none" stroke="rgba(0,212,255,0.15)" stroke-width="1"/>'
-    +'<circle cx="60" cy="60" r="36" fill="none" stroke="rgba(0,212,255,0.1)" stroke-width="1"/>'
-    +'<circle cx="60" cy="60" r="10" fill="#1a1a2e" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>'
-    +'<circle cx="60" cy="60" r="4" fill="#333"/>'
-    +'<circle cx="60" cy="60" r="58" fill="url(#shine)" opacity="0.6"/>'
+    +(cover
+      ?'<circle cx="60" cy="60" r="57" fill="url(#cp'+uid+')" clip-path="url(#clip'+uid+')"/>'
+      :'<circle cx="60" cy="60" r="57" fill="url(#dg'+uid+')"/>')
+    +'<circle cx="60" cy="60" r="57" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>'
+    +'<circle cx="60" cy="60" r="44" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>'
+    +'<circle cx="60" cy="60" r="12" fill="rgba(0,0,0,0.85)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>'
+    +'<circle cx="60" cy="60" r="5" fill="#222"/>'
+    +'<circle cx="60" cy="60" r="57" fill="url(#shine'+uid+')" opacity="0.5"/>'
     +'</svg>';
 }
 
@@ -520,7 +528,7 @@ function renderGames(){
       +'<div class="game-cover-wrap">'
       +(g.cover?'<img class="game-cover" src="'+g.cover+'" alt="'+g.title+'" loading="lazy">':'<div class="game-cover" style="background:linear-gradient(135deg,var(--bg3),var(--bg4))"></div>')
       +'</div>'
-      +'<div class="disc-wrap">'+discSVG()+'</div>'
+      +'<div class="disc-wrap">'+discSVG(g.cover,g.id)+'</div>'
       +'<div class="game-card-glow"></div>'
       +'<div class="platform-badge '+platClass+'">'+(g.platform||'PS5')+'</div>'
       +'<div class="cond-badge '+condClass+'">'+condLabel+'</div>'
