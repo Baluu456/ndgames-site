@@ -523,6 +523,9 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);min-hei
       </div>
       <button class="auth-submit" id="auth-submit-btn" onclick="submitEmailAuth()">ВОЙТИ</button>
     </div>
+    <div id="auth-forgot-wrap" style="text-align:right;margin:-4px 0 10px">
+      <a onclick="sendPasswordReset()" id="auth-forgot-link" style="font-size:11px;color:var(--text3);cursor:pointer">Забыли пароль?</a>
+    </div>
     <div class="auth-toggle">
       <span id="auth-toggle-text">Нет аккаунта?</span>
       <a onclick="toggleAuthMode()" id="auth-toggle-link"> Зарегистрироваться</a>
@@ -672,6 +675,8 @@ function applyLang(){
   document.getElementById('footer-delivery-title').textContent=t('delivery_title');
   document.getElementById('footer-delivery-text').textContent=t('delivery_text');
   var wt=document.getElementById('wa-btn-text');if(wt)wt.textContent=t('write');
+  var fl=document.getElementById('auth-forgot-link');
+  if(fl)fl.textContent=lang==='ka'?'პაროლი დაგავიწყდით?':lang==='en'?'Forgot password?':'Забыли пароль?';
   updateNavAuth();
   var fbAll=document.getElementById('fb-all');if(fbAll)fbAll.textContent=lang==='ka'?'ყველა':lang==='en'?'ALL':'ВСЕ';
   var fbPs5=document.getElementById('fb-ps5');if(fbPs5)fbPs5.textContent='PS5';
@@ -1049,6 +1054,7 @@ function updateAuthModalUI(){
   if(sub)sub.textContent=isReg?(lang==='ka'?'შექმენი ანგარიში სადისკაუნტო ბარათისთვის':lang==='en'?'Create account to get your discount card':'Создайте аккаунт для получения скидочной карты'):(lang==='ka'?'შედი სადისკაუნტო ბარათზე წვდომისთვის':lang==='en'?'Sign in to access your discount card':'Войдите для доступа к скидочной карте');
   if(submitBtn)submitBtn.textContent=isReg?(lang==='ka'?'რეგისტრაცია':lang==='en'?'REGISTER':'ЗАРЕГИСТРИРОВАТЬСЯ'):(lang==='ka'?'შესვლა':lang==='en'?'SIGN IN':'ВОЙТИ');
   if(nameWrap)nameWrap.style.display=isReg?'block':'none';
+  var fw=document.getElementById('auth-forgot-wrap');if(fw)fw.style.display=isReg?'none':'block';
   if(toggleText)toggleText.textContent=isReg?(lang==='ka'?'უკვე გაქვს ანგარიში?':lang==='en'?'Already have account?':'Уже есть аккаунт?'):(lang==='ka'?'არ გაქვს ანგარიში?':lang==='en'?'No account?':'Нет аккаунта?');
   if(toggleLink)toggleLink.textContent=isReg?(lang==='ka'?' შესვლა':lang==='en'?' Sign in':' Войти'):(lang==='ka'?' რეგისტრაცია':lang==='en'?' Register':' Зарегистрироваться');
   if(divider)divider.textContent=lang==='ka'?'ან':lang==='en'?'or':'или';
@@ -1098,10 +1104,19 @@ function submitEmailAuth(){
       closeAuthModal();
       showToast('✓ '+(lang==='ka'?'კეთილი იყოს':lang==='en'?'Welcome back!':'С возвращением!'));
     }).catch(function(e){
-      var msg=e.code==='auth/wrong-password'?(lang==='ka'?'არასწორი პაროლი':lang==='en'?'Wrong password':'Неверный пароль'):e.code==='auth/user-not-found'?(lang==='ka'?'მომხმარებელი ვერ მოიძებნა':lang==='en'?'User not found':'Пользователь не найден'):e.message;
+      var msg=(e.code==='auth/wrong-password'||e.code==='auth/invalid-login-credentials'||e.code==='auth/invalid-credential')?(lang==='ka'?'არასწორი ლოგინი ან პაროლი':lang==='en'?'Incorrect login or password':'Неверный логин или пароль'):e.code==='auth/user-not-found'?(lang==='ka'?'მომხმარებელი ვერ მოიძებნა':lang==='en'?'User not found':'Пользователь не найден'):(lang==='ka'?'დააფიქსირეთ და სცადეთ სცად':lang==='en'?'Please try again':'Попробуйте ещё раз');
       showAuthError(msg);
     });
   }
+}
+
+function sendPasswordReset(){
+  var email=(document.getElementById('auth-email')||{}).value.trim();
+  if(!email){showAuthError(lang==='ka'?'Email შეიყვანეთ':lang==='en'?'Enter your email':'Введите email');return;}
+  auth.sendPasswordResetEmail(email).then(function(){
+    var err=document.getElementById('auth-error');
+    if(err){err.style.cssText='background:rgba(0,255,136,0.1);border-color:rgba(0,255,136,0.3);color:#00ff88;display:block';err.textContent=lang==='ka'?'გაიგზავნა! Email შეამოწმეთ':lang==='en'?'Sent! Check your email':'Отправлено! Проверьте email';}
+  }).catch(function(e){showAuthError(e.message);});
 }
 
 function signOut(){
