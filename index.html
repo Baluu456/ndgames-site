@@ -44,7 +44,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);min-hei
 .nav-logo span{color:var(--pink)}
 .nav-spacer{flex:1}
 .lang-switcher{display:flex;gap:4px}
-.lang-btn{background:none;border:1px solid var(--border);border-radius:6px;color:var(--text2);font-size:20px;padding:3px 6px;cursor:pointer;transition:all .2s;line-height:1;font-family:'Segoe UI Emoji','Apple Color Emoji','Noto Color Emoji',sans-serif}
+.lang-btn{background:none;border:1px solid var(--border);border-radius:6px;color:var(--text2);font-size:22px;padding:2px 6px;cursor:pointer;transition:all .2s;line-height:1.2;font-family:'Twemoji','Segoe UI Emoji','Apple Color Emoji','Noto Color Emoji','EmojiOne Color','Android Emoji',sans-serif!important}
 .lang-btn.active{border-color:var(--cyan);color:var(--cyan);background:rgba(0,212,255,0.08)}
 .cart-btn{position:relative;background:linear-gradient(135deg,var(--cyan),#0088ff);border:none;border-radius:var(--radius-sm);color:#000;font-family:var(--font-display);font-size:11px;font-weight:700;padding:9px 16px;cursor:pointer;display:flex;align-items:center;gap:6px;transition:all .2s;letter-spacing:1px}
 .cart-btn:hover{transform:translateY(-1px);box-shadow:var(--glow-cyan)}
@@ -228,8 +228,8 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);min-hei
 .genres-title{font-family:var(--font-display);font-size:18px;font-weight:700;color:var(--text);letter-spacing:2px;margin-bottom:8px}
 .genres-title span{color:var(--pink)}
 .genres-sub{font-size:13px;color:var(--text3);font-family:var(--font-mono);margin-bottom:32px;letter-spacing:1px}
-.genres-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:12px}
-@media(max-width:480px){.genres-grid{grid-template-columns:repeat(3,1fr);gap:8px}}
+.genres-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+@media(max-width:480px){.genres-grid{grid-template-columns:repeat(2,1fr);gap:8px}}
 .genre-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:20px 12px 16px;text-align:center;cursor:pointer;transition:all .25s cubic-bezier(.25,.46,.45,.94);position:relative;overflow:hidden;user-select:none}
 .genre-card::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 120%,var(--genre-color,rgba(0,212,255,0.2)) 0%,transparent 70%);opacity:0;transition:opacity .3s}
 .genre-card:hover::before{opacity:1}
@@ -237,7 +237,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);min-hei
 .genre-card.active{border-color:var(--genre-color,var(--cyan));background:rgba(0,212,255,0.06);box-shadow:0 0 20px rgba(0,212,255,0.15)}
 .genre-icon{font-size:32px;margin-bottom:10px;display:block;transition:transform .3s cubic-bezier(.34,1.56,.64,1)}
 .genre-card:hover .genre-icon{transform:scale(1.25) rotate(-5deg)}
-.genre-name{font-family:var(--font-display);font-size:10px;font-weight:700;color:var(--text2);letter-spacing:1.5px;transition:color .2s}
+.genre-name{font-family:var(--font-display);font-size:10px;font-weight:700;color:var(--text2);letter-spacing:1px;transition:color .2s;word-break:keep-all;white-space:nowrap}
 .genre-card:hover .genre-name,.genre-card.active .genre-name{color:var(--text)}
 .genre-count{font-family:var(--font-mono);font-size:9px;color:var(--text3);margin-top:4px;transition:color .2s}
 .genre-card:hover .genre-count,.genre-card.active .genre-count{color:var(--genre-color,var(--cyan))}
@@ -282,7 +282,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);min-hei
       </a>
       <a href="https://wa.me/995597956320" class="btn-outline" target="_blank" id="hero-btn2">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        НАПИСАТЬ НАМ
+        <span id="wa-btn-text">მოგვწერეთ</span>
       </a>
     </div>
   </div>
@@ -416,7 +416,7 @@ var T={
     contact:'КОНТАКТЫ',delivery_title:'ДОСТАВКА',
     delivery_text:'По Батуми — самовывоз или привозим сами. По Грузии — маршруткой. Оплата наличными.',
     games_count:function(n){return n+' игр'},
-    write:'НАПИСАТЬ НАМ',browse:'СМОТРЕТЬ ИГРЫ',
+    write:'НАПИСАТЬ НАМ',whatsapp:'НАПИСАТЬ НАМ',browse:'СМОТРЕТЬ ИГРЫ',
     cart_empty:'КОРЗИНА ПУСТА',fill:'Добавьте игры из каталога',
     new_badge:'НОВЫЙ',used_badge:'Б/У',
     fill_req:'Заполните имя и телефон'
@@ -436,7 +436,7 @@ var T={
     contact:'კონტაქტი',delivery_title:'მიტანა',
     delivery_text:'ბათუმში — თვითგატანა ან ჩვენ მოვიტანთ. საქართველოში — მარშრუტკით. გადახდა ნაღდით.',
     games_count:function(n){return n+' თამაში'},
-    write:'მოგვწერეთ',browse:'თამაშების ნახვა',
+    write:'მოგვწერეთ',whatsapp:'მოგვწერეთ',browse:'თამაშების ნახვა',
     cart_empty:'კალათა ცარიელია',fill:'დაამატე თამაშები კატალოგიდან',
     new_badge:'ახალი',used_badge:'მეორადი',
     fill_req:'შეავსეთ სახელი და ტელეფონი'
@@ -456,7 +456,7 @@ var T={
     contact:'CONTACTS',delivery_title:'DELIVERY',
     delivery_text:'Batumi — pickup or we deliver. Georgia — by marshrutka. Cash payment.',
     games_count:function(n){return n+' games'},
-    write:'CONTACT US',browse:'BROWSE GAMES',
+    write:'CONTACT US',whatsapp:'CONTACT US',browse:'BROWSE GAMES',
     cart_empty:'CART IS EMPTY',fill:'Add games from the catalog',
     new_badge:'NEW',used_badge:'USED',
     fill_req:'Please fill name and phone'
@@ -485,6 +485,7 @@ function applyLang(){
   document.getElementById('footer-contact-title').textContent=t('contact');
   document.getElementById('footer-delivery-title').textContent=t('delivery_title');
   document.getElementById('footer-delivery-text').textContent=t('delivery_text');
+  var wt=document.getElementById('wa-btn-text');if(wt)wt.textContent=t('write');
   var gt=document.getElementById('genres-title');
   if(gt)gt.innerHTML='// '+(lang==='ka'?'ჟან<span style="color:var(--pink)">რები</span>':lang==='en'?'GEN<span style="color:var(--pink)">RES</span>':'ЖА<span style="color:var(--pink)">НРЫ</span>');
   document.getElementById('checkout-btn').textContent=t('checkout');
@@ -508,7 +509,7 @@ function getGenreBadge(g){
 
 // ── GENRE DATA ────────────────────────────────────────
 var GENRE_DATA = [
-  {id:'Action',    icon:'⚔️',  name:{ka:'აქშენი',  ru:'Экшен',    en:'Action'},    color:'rgba(255,80,80,0.5)'},
+  {id:'Action',    icon:'⚔️',  name:{ka:'ექშენი',  ru:'Экшен',    en:'Action'},    color:'rgba(255,80,80,0.5)'},
   {id:'RPG',       icon:'🧙',  name:{ka:'RPG',      ru:'РПГ',      en:'RPG'},       color:'rgba(180,100,255,0.5)'},
   {id:'Sports',    icon:'⚽',  name:{ka:'სპორტი',  ru:'Спорт',    en:'Sports'},    color:'rgba(0,220,100,0.5)'},
   {id:'Racing',    icon:'🏎️',  name:{ka:'რბოლა',   ru:'Гонки',    en:'Racing'},    color:'rgba(255,200,0,0.5)'},
