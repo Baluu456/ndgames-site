@@ -393,13 +393,8 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);min-hei
       </div>
     </div>
     <div>
-      <div class="footer-title" id="footer-delivery-title">მიტანის პირობები</div>
-      <p class="footer-desc" id="footer-delivery-text" style="line-height:1.8">
-        <span style="color:var(--cyan);font-weight:600">ბათუმის ფარგლებში</span><br>
-        ბათუმი — ადგილზე მოსვლა ან მიტანა<br>
-        <span style="color:var(--cyan);font-weight:600;margin-top:6px;display:inline-block">რეგიონები და თბილისი</span><br>
-        მიწოდება საქართველოს ფოსტის/ტრანსპორტის მეშვეობით
-      </p>
+      <div class="footer-title" id="footer-delivery-title">ДОСТАВКА</div>
+      <p class="footer-desc" id="footer-delivery-text">По Батуми — самовывоз или привозим сами. По Грузии — маршруткой между городами. Оплата наличными.</p>
     </div>
   </div>
   <div class="footer-bottom">
@@ -476,8 +471,8 @@ var T={
     success_title:'ЗАКАЗ ПРИНЯТ!',
     success_sub:'Мы свяжемся с вами в ближайшее время для подтверждения заказа.',
     hero_sub:'Buy Better. Play Better. Be Better.',
-    contact:'КОНТАКТЫ',delivery_title:'ДОСТАВКА',
-    delivery_text:'По Батуми — самовывоз или привозим сами. По Грузии — маршруткой. Оплата наличными.',
+    contact:'КОНТАКТЫ',delivery_title:'Условия доставки',
+    delivery_text:'Батуми — самовывоз или доставляем сами. Регионы и Тбилиси — доставка почтой Грузии или транспортом.',
     games_count:function(n){return n+' игр'},
     write:'НАПИСАТЬ НАМ',whatsapp:'НАПИСАТЬ НАМ',all:'ВСЕ',browse:'СМОТРЕТЬ ИГРЫ',
     cart_empty:'КОРЗИНА ПУСТА',fill:'Добавьте игры из каталога',
@@ -496,8 +491,8 @@ var T={
     success_title:'შეკვეთა მიღებულია!',
     success_sub:'ჩვენ დაგიკავშირდებით უახლოეს მომავალში.',
     hero_sub:'Buy Better. Play Better. Be Better.',
-    contact:'კონტაქტი',delivery_title:'მიტანა',
-    delivery_text:'ბათუმში — თვითგატანა ან ჩვენ მოვიტანთ. საქართველოში — მარშრუტკით. გადახდა ნაღდით.',
+    contact:'კონტაქტი',delivery_title:'მიტანის პირობები',
+    delivery_text:'ბათუმის ფარგლებში: ადგილზე მოსვლა ან მიტანა. რეგიონები და თბილისი: მიწოდება საქართველოს ფოსტის/ტრანსპორტის მეშვებით.',
     games_count:function(n){return n+' თამაში'},
     write:'მოგვწერეთ',whatsapp:'მოგვწერეთ',all:'ყველა',browse:'თამაშების ნახვა',
     cart_empty:'კალათა ცარიელია',fill:'დაამატე თამაშები კატალოგიდან',
@@ -516,8 +511,8 @@ var T={
     success_title:'ORDER PLACED!',
     success_sub:'We will contact you shortly to confirm your order.',
     hero_sub:'Buy Better. Play Better. Be Better.',
-    contact:'CONTACTS',delivery_title:'DELIVERY',
-    delivery_text:'Batumi — pickup or we deliver. Georgia — by marshrutka. Cash payment.',
+    contact:'CONTACTS',delivery_title:'DELIVERY CONDITIONS',
+    delivery_text:'Within Batumi: pickup or we deliver to you. Regions & Tbilisi: delivery via Georgia Post or transport.',
     games_count:function(n){return n+' games'},
     write:'CONTACT US',whatsapp:'CONTACT US',all:'ALL',browse:'BROWSE GAMES',
     cart_empty:'CART IS EMPTY',fill:'Add games from the catalog',
@@ -554,6 +549,7 @@ function applyLang(){
   var fbPs4=document.getElementById('fb-ps4');if(fbPs4)fbPs4.textContent='PS4';
   var si=document.getElementById('search-inp');if(si)si.placeholder=t('search');
   var ct=document.getElementById('catalog-title');if(ct)ct.innerHTML='// '+(lang==='ka'?'კატალოგი':lang==='en'?'CATALOG':'КАТАЛОГ')+'<span></span>';
+  var fdt=document.getElementById('footer-delivery-title');if(fdt)fdt.textContent=t('delivery_title');
   var gt=document.getElementById('genres-title');
   if(gt)gt.innerHTML='// '+(lang==='ka'?'ჟან<span style="color:var(--pink)">რები</span>':lang==='en'?'GEN<span style="color:var(--pink)">RES</span>':'ЖА<span style="color:var(--pink)">НРЫ</span>');
   document.getElementById('checkout-btn').textContent=t('checkout');
