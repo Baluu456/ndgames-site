@@ -253,13 +253,13 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);min-hei
 /* ── PRODUCT MODAL ── */
 .product-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:300;display:flex;align-items:center;justify-content:center;padding:16px;opacity:0;pointer-events:none;transition:opacity .3s;backdrop-filter:blur(10px)}
 .product-modal-overlay.open{opacity:1;pointer-events:all}
-.product-modal{background:var(--bg2);border:1px solid var(--border2);border-radius:20px;width:100%;max-width:760px;max-height:92vh;overflow-y:auto;display:flex;flex-direction:column}
-@media(min-width:600px){.product-modal{flex-direction:row;max-height:80vh;overflow:hidden}}
-.pm-cover{width:100%;max-height:280px;object-fit:cover;border-radius:20px 20px 0 0;flex-shrink:0}
-@media(min-width:600px){.pm-cover{width:280px;height:100%;max-height:none;border-radius:20px 0 0 20px;object-fit:cover}}
-.pm-cover-placeholder{width:100%;height:200px;background:linear-gradient(135deg,var(--bg3),var(--bg4));border-radius:20px 20px 0 0;flex-shrink:0}
-@media(min-width:600px){.pm-cover-placeholder{width:280px;height:auto;border-radius:20px 0 0 20px}}
-.pm-body{flex:1;padding:24px;overflow-y:auto;display:flex;flex-direction:column;gap:14px}
+.product-modal{background:var(--bg2);border:1px solid var(--border2);border-radius:20px;width:100%;max-width:800px;max-height:95vh;overflow:hidden;display:flex;flex-direction:column}
+@media(min-width:640px){.product-modal{flex-direction:row;max-height:85vh}}
+.pm-cover-wrap{flex-shrink:0;overflow:hidden;border-radius:20px 20px 0 0;width:100%;height:260px}
+@media(min-width:640px){.pm-cover-wrap{width:260px;height:auto;border-radius:20px 0 0 20px;min-height:400px}}
+.pm-cover{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+.pm-cover-placeholder{width:100%;height:100%;background:linear-gradient(135deg,var(--bg3),var(--bg4))}
+.pm-body{flex:1;padding:22px;overflow-y:auto;display:flex;flex-direction:column;gap:12px;min-width:0}
 .pm-close{position:absolute;top:12px;right:12px;background:rgba(0,0,0,0.6);border:1px solid var(--border);border-radius:8px;color:var(--text);width:36px;height:36px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:18px;transition:all .2s;z-index:1}
 .pm-close:hover{border-color:var(--pink);color:var(--pink)}
 .pm-platform{font-family:var(--font-mono);font-size:11px;color:var(--cyan);letter-spacing:2px}
@@ -269,6 +269,11 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);min-hei
 .pm-badge.genre{background:rgba(255,0,110,0.15);border:1px solid rgba(255,0,110,0.3);color:#ff006e}
 .pm-badge.lang-ru{background:rgba(0,212,255,0.12);border:1px solid rgba(0,212,255,0.3);color:#00d4ff}
 .pm-badge.lang-en{background:rgba(255,200,0,0.12);border:1px solid rgba(255,200,0,0.3);color:#ffc800}
+
+.pm-info-block{display:flex;flex-direction:column;gap:8px;background:var(--bg3);border-radius:var(--radius-sm);padding:12px}
+.pm-info-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.pm-info-label{font-size:11px;font-weight:700;color:var(--text3);letter-spacing:.5px;min-width:80px;flex-shrink:0}
+
 .pm-code{font-family:var(--font-mono);font-size:11px;color:var(--text3);letter-spacing:1px}
 .pm-variants{display:flex;flex-direction:column;gap:8px}
 .pm-variant-row{display:flex;align-items:center;justify-content:space-between;background:var(--bg3);border:1.5px solid var(--border);border-radius:var(--radius-sm);padding:10px 14px;cursor:pointer;transition:all .2s}
@@ -401,9 +406,11 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);min-hei
 
 <!-- PRODUCT MODAL -->
 <div class="product-modal-overlay" id="product-modal-overlay" onclick="pmOverlayClick(event)">
-  <div class="product-modal" id="product-modal" style="position:relative">
-    <button class="pm-close" onclick="closeProduct()">✕</button>
-    <div id="product-modal-body"></div>
+  <div class="product-modal" id="product-modal">
+    <div class="pm-cover-wrap" id="pm-cover-wrap"></div>
+    <div class="pm-body" id="product-modal-body" style="position:relative">
+      <button class="pm-close" onclick="closeProduct()" style="position:absolute;top:12px;right:12px">✕</button>
+    </div>
   </div>
 </div>
 <!-- CART SIDEBAR -->
@@ -642,15 +649,36 @@ function openProduct(keyOrEvent, key2){
     pmSelectedVariant[key]=grp.items[0].id;
   }
 
+    var coverWrap=document.getElementById('pm-cover-wrap');
   var body=document.getElementById('product-modal-body');
-  if(!body)return;
+  if(!body||!coverWrap)return;
 
-  var langBadges='';
+  // Cover
+  coverWrap.innerHTML=grp.cover
+    ?'<img class="pm-cover" src="'+grp.cover+'" alt="'+grp.title+'">'
+    :'<div class="pm-cover-placeholder"></div>';
+
+  // Translations
   var langs=grp.langs||[];
-  if(langs.indexOf('ru_full')!==-1)langBadges+='<span class="pm-badge lang-ru">🎙 '+( lang==='ka'?'რუს (ხმა+სუბ)':lang==='en'?'RUS (voice+sub)':'РУС (озвучка+суб)')+'</span>';
-  if(langs.indexOf('ru_sub')!==-1)langBadges+='<span class="pm-badge lang-ru">💬 '+(lang==='ka'?'რუს (სუბ)':lang==='en'?'RUS (sub)':'РУС (суб)')+'</span>';
-  if(langs.indexOf('en')!==-1)langBadges+='<span class="pm-badge lang-en">🎙 English</span>';
+  var genreLabel=lang==='ka'?'ჯანრი':lang==='en'?'Genre':'Жанр';
+  var langLabel=lang==='ka'?'ენა':lang==='en'?'Language':'Язык';
+  var codeLabel=lang==='ka'?'კოდი':lang==='en'?'Disc Code':'Код диска';
+  var variantLabel=lang==='ka'?'ვარიანტი':lang==='en'?'Options':'Варианты';
 
+  // Lang values
+  var langVals=[];
+  if(langs.indexOf('ru_full')!==-1)langVals.push(lang==='ka'?'რუს (ხმა+სუბ)':lang==='en'?'RUS (voice+sub)':'Рус (озвучка+суб)');
+  if(langs.indexOf('ru_sub')!==-1)langVals.push(lang==='ka'?'რუს (სუბ)':lang==='en'?'RUS (sub only)':'Рус (только суб)');
+  if(langs.indexOf('en')!==-1)langVals.push('English');
+
+  // Info rows
+  var infoRows='';
+  if(grp.genre)infoRows+='<div class="pm-info-row"><span class="pm-info-label">'+genreLabel+'</span><span class="pm-badge genre">'+grp.genre+'</span></div>';
+  if(langVals.length)infoRows+='<div class="pm-info-row"><span class="pm-info-label">'+langLabel+'</span><div style="display:flex;flex-wrap:wrap;gap:4px">'+langVals.map(function(l){return '<span class="pm-badge lang-ru">'+l+'</span>';}).join('')+'</div></div>';
+  else infoRows+='<div class="pm-info-row"><span class="pm-info-label">'+langLabel+'</span><span style="color:var(--text3);font-size:12px">—</span></div>';
+  if(grp.discCode)infoRows+='<div class="pm-info-row"><span class="pm-info-label">'+codeLabel+'</span><span class="pm-code">'+grp.discCode+'</span></div>';
+
+  // Variant rows
   var variantRows='';
   grp.items.forEach(function(item){
     var isSel=pmSelectedVariant[key]===item.id;
@@ -659,23 +687,26 @@ function openProduct(keyOrEvent, key2){
     var condClass=item.condition==='new'?'new':'used';
     variantRows+='<div class="pm-variant-row'+(isSel?' sel':'')+'" data-pmkey="'+key.replace(/"/g,'&quot;')+'" data-pmitem="'+item.id+'">';
     variantRows+='<span class="pm-variant-cond '+condClass+'">'+condLabel+'</span>';
-    variantRows+=isInCart?'<span style="font-size:11px;color:var(--cyan)">✓ '+t('added')+'</span>':'<span class="pm-variant-price">'+(item.price?item.price+' ₾':'—')+'</span>';
+    variantRows+=isInCart
+      ?'<span style="font-size:11px;color:var(--cyan)">✓ '+t('added')+'</span>'
+      :'<span class="pm-variant-price">'+(item.price?item.price+' ₾':'—')+'</span>';
     variantRows+='</div>';
   });
 
   var selItem=grp.items.find(function(i){return i.id===pmSelectedVariant[key];})||grp.items[0];
   var selInCart=cart.some(function(c){return c.id===selItem.id;});
+  var safeKey=key.replace(/"/g,'&quot;');
 
   body.innerHTML=
-    (grp.cover?'<img class="pm-cover" src="'+grp.cover+'" alt="'+grp.title+'">':'<div class="pm-cover-placeholder"></div>')
-    +'<div class="pm-body">'
-    +'<div class="pm-platform">'+(grp.platform||'PS5')+'</div>'
+    '<div style="padding-top:44px"></div>'
+    +'<div class="pm-platform">'+(grp.platform||'')+'</div>'
     +'<div class="pm-title">'+(grp.title||'—')+'</div>'
-    +(langBadges||grp.genre?'<div class="pm-badges">'+(grp.genre?'<span class="pm-badge genre">'+grp.genre+'</span>':'')+langBadges+'</div>':'')
-    +(grp.discCode?'<div class="pm-code">'+grp.discCode+'</div>':'')
-    +'<div class="pm-variants">'+variantRows+'</div>'
-    +'<button class="pm-add-btn'+(selInCart?' added':'')+' data-pmaddkey="'+key.replace(/"/g,'&quot;')+'" id="pm-add-btn">'+(selInCart?('✓ '+t('added')):('+ '+t('add')))+'</button>'
-    +'</div>';
+    +'<div class="pm-info-block">'+infoRows+'</div>'
+    +'<div><div class="pm-info-label" style="margin-bottom:8px">'+variantLabel+'</div>'
+    +'<div class="pm-variants">'+variantRows+'</div></div>'
+    +'<button class="pm-add-btn'+(selInCart?' added':'')+'" data-pmaddkey="'+safeKey+'" style="margin-top:auto">'
+    +(selInCart?('✓ '+t('added')):('+ '+t('add')))
+    +'</button>';
 
   document.getElementById('product-modal-overlay').classList.add('open');
   document.body.style.overflow='hidden';
