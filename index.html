@@ -577,11 +577,6 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);min-hei
     <div class="auth-sub" id="auth-modal-sub">Войдите чтобы получить скидочную карту и историю заказов</div>
     <div class="auth-error" id="auth-error"></div>
 
-    <button class="auth-social-btn" onclick="signInFacebook()">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-      Facebook
-    </button>
-    <div class="auth-divider">или</div>
     <div id="auth-email-form">
       <input class="auth-inp" id="auth-email" type="email" placeholder="Email">
       <input class="auth-inp" id="auth-password" type="password" placeholder="Пароль (мин. 6 символов)">
@@ -692,7 +687,6 @@ firebase.initializeApp({
 });
 var db=firebase.database();
 var auth=firebase.auth();
-var fbProvider=new firebase.auth.FacebookAuthProvider();
 
 // ── STATE ─────────────────────────────────────────────
 var games={};
@@ -1066,21 +1060,6 @@ function genCardNumber(){
 }
 
 // ── AUTH STATE LISTENER ───────────────────────────────────────
-// Handle redirect result (for mobile Facebook login)
-auth.getRedirectResult().then(function(result){
-  if(result&&result.user){
-    closeAuthModal();
-    showToast('✓ '+(lang==='ka'?'კეთილი იყოს თქვენი მობრძანება':lang==='en'?'Welcome!':'Добро пожаловать!'));
-  }
-}).catch(function(e){if(e.code!=='auth/no-auth-event')console.log('redirect err',e.code);});
-
-auth.getRedirectResult().then(function(result){
-  if(result&&result.user&&localStorage.getItem('ndgames_auth_pending')){
-    localStorage.removeItem('ndgames_auth_pending');
-    showToast('✓ '+(lang==='ka'?'კეთილი იყოს':lang==='en'?'Welcome!':'Добро пожаловать!'));
-  }
-}).catch(function(){});
-
 auth.onAuthStateChanged(function(user){
   currentUser=user;
   updateNavAuth();
@@ -1190,25 +1169,6 @@ function updateAuthModalUI(){
 function showAuthError(msg){
   var el=document.getElementById('auth-error');
   if(el){el.textContent=msg;el.classList.add('show');}
-}
-
-function signInGoogle(){
-  auth.signInWithPopup(googleProvider).then(function(){
-    closeAuthModal();
-    showToast('✓ '+(lang==='ka'?'კეთილი იყოს თქვენი მობრძანება':lang==='en'?'Welcome!':'Добро пожаловать!'));
-  }).catch(function(e){showAuthError(e.message);});
-}
-
-function signInFacebook(){
-  var isMobile=/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
-  if(isMobile){
-    auth.signInWithRedirect(fbProvider).catch(function(e){showAuthError(e.message);});
-  } else {
-    auth.signInWithPopup(fbProvider).then(function(){
-      closeAuthModal();
-      showToast('✓ '+(lang==='ka'?'კეთილი იყოს თქვენი მობრძანება':lang==='en'?'Welcome!':'Добро пожаловать!'));
-    }).catch(function(e){showAuthError(e.message);});
-  }
 }
 
 function submitEmailAuth(){
@@ -1488,6 +1448,109 @@ function sendChatMsg(text){
   },500);
 }
 
+// ═══════════════════════════════════════════════════════════════
+// FUZZY GAME SEARCH: normalization + multilingual alias dictionary
+// ═══════════════════════════════════════════════════════════════
+function normTxt(s){
+  return (s||'').toLowerCase()
+    .replace(/['’´`]/g,'')
+    .replace(/[-:–—_.,!?()]/g,' ')
+    .replace(/\s+/g,' ')
+    .trim();
+}
+
+// canonical (normalized substring that appears in real titles) -> alternate spellings
+// (Georgian phonetic, Russian, abbreviations, no-space forms, etc.)
+var GAME_ALIASES = {
+  'spider man':['სპაიდერმენი','სპაიდერ მენი','человек паук','человекпаук','spiderman','спайдермен','спайдер мен'],
+  'god of war':['ღმერთთა ომი','гоу','god war','gow','гад оф вор'],
+  'grand theft auto':['გრანდ თეფთ აუტო','гта','gta','grand theft','гранд тефт авто'],
+  'call of duty':['ქოლ ოფ დიუთი','кол оф дьюти','код','cod','кал оф дьюти'],
+  'fifa':['ფიფა','фифа'],
+  'ea sports fc':['ფისი','фифа','fc25','fc 25','фс 25'],
+  'mortal kombat':['მორტალ კომბატი','мортал комбат','мк','мк1','мк11','мкx','мортал','мортал комбад'],
+  'resident evil':['რეზიდენტ ივილი','резидент ивил','рэ','ре','резидент эвил'],
+  'silent hill':['სილენტ ჰილი','сайлент хилл','сайлент','сайлент хил'],
+  'gran turismo':['გრან ტურიზმო','гран туризмо','грантуризмо','гт7','гт 7'],
+  'the last of us':['ლასთ ოფ აზ','ласт оф ас','tlou','ласт оф юс','ласт'],
+  'uncharted':['ანჩარტედი','анчартед','анчартид'],
+  'ghost of tsushima':['გოსტ ოფ ცუშიმა','гост оф цушима','гост цусима','ghost tsushima','гоуст оф цушима'],
+  'death stranding':['დეთ სთრენდინგი','дэс стрендинг','death stranding','дэс страндинг'],
+  'cyberpunk':['ციბერპანკი','киберпанк','киберпанк 2077','сайберпанк'],
+  'red dead redemption':['რედ დედ რედემფშენი','рдр','рдр2','red dead','ред дед редемпшн'],
+  'assassin':['ასასინი','ассасин крид','ассасинс крид','ac','ассасин'],
+  'hogwarts legacy':['ჰოგვარტსის მემკვიდრეობა','хогвартс','хогвартс легаси','хогвартс наследие'],
+  'ea sports ufc':['უფსი','уфс','уфс 5','ufc5','юфс'],
+  'nba 2k':['ნბა','нба 2к','нба2к','нба'],
+  'tekken':['ტეკენი','теккен','тэккен'],
+  'street fighter':['სტრიტ ფაითერი','стрит файтер','стрит файтэр'],
+  'elden ring':['ელდენ რინგი','элден ринг','елден ринг','елдэн ринг'],
+  'horizon':['ჰორიზონტი','горайзон','горизонт'],
+  'final fantasy':['ფაინალ ფენტეზი','файнал фэнтези','финалка','ff','финал фэнтези'],
+  'marvel':['მარველი','марвел','марвэл'],
+  'batman':['ბეთმენი','батман','бэтмен'],
+  'miles morales':['მაილს მორალესი','майлз моралес','майлс моралес'],
+  'it takes two':['იტ ტეიქს ტუ','ит тейкс ту','ит тейкс ту'],
+  'minecraft':['მაინკრაფტი','майнкрафт'],
+  'fortnite':['ფორთნაითი','фортнайт','фортнайт'],
+  'wwe 2k':['ვვე','дабл ю дабл ю и','вве'],
+  'dragon ball':['დრაგონ ბოლი','драгон бол','дракон бол'],
+  'star wars':['სტარ ვორსი','стар варс','звёздные войны'],
+  'lego':['ლეგო','лего'],
+  'crash bandicoot':['კრეშ ბანდიკუტი','краш бандикут','краш'],
+  'gta':['გთა','гта','джита','джи ти эй'],
+  'nfs':['ნეფესი','нфс','нид фор спид','need for speed'],
+  'ea sports':['ია სპორტს','иа спортс','еа спортс'],
+  'mario':['მარიო','марио'],
+  'sonic':['სონიკი','соник'],
+  'persona':['პერსონა','персона'],
+  'demon s souls':['დემონსოულსი','демон соулс','демонс соулс'],
+  'dark souls':['დარკ სოულსი','дарк соулс'],
+  'until dawn':['ანთილ დაუნი','антил давн','антилдаун'],
+  'rachet and clank':['რეჩეტ ენდ კლენკი','рэтчет энд кланк','рачет кланк'],
+  'sackboy':['სეკბოი','сэкбой'],
+  'returnal':['რითურნალი','ретёрнал','ретернал'],
+  'monster hunter':['მონსტერ ჰანთერი','монстер хантер','монстр хантер']
+};
+
+var PLATFORM_WORDS=['ps4','ps5','пс4','пс5','пс','ps','playstation','плейстейшен','плейстейшн'];
+var STOP_WORDS=['რა','ღირს','სად','არის','ფასი','რამდენი','გვაქვს','გაქვს','მაქვს','გვაქვს',
+  'сколько','стоит','цена','есть','ли','по','как','и','что','у','вас','цену',
+  'how','much','does','cost','price','is','the','a','of','have','you','got','for'];
+
+function buildHaystack(title){
+  var norm=normTxt(title);
+  var extra=[];
+  Object.keys(GAME_ALIASES).forEach(function(key){
+    if(norm.indexOf(key)!==-1){
+      extra=extra.concat(GAME_ALIASES[key].map(normTxt));
+    }
+  });
+  return norm+' '+extra.join(' ');
+}
+
+function searchGames(msg,avail){
+  var qNorm=normTxt(msg);
+  var rawTokens=qNorm.split(' ').filter(function(w){return w.length>=2||/^\d+$/.test(w);});
+  var tokens=rawTokens.filter(function(w){return STOP_WORDS.indexOf(w)===-1;});
+  if(!tokens.length)tokens=rawTokens;
+  var contentTokens=tokens.filter(function(w){return PLATFORM_WORDS.indexOf(w)===-1;});
+  var platformTokens=tokens.filter(function(w){return PLATFORM_WORDS.indexOf(w)!==-1;});
+  if(!contentTokens.length)return [];
+
+  var scored=avail.map(function(g){
+    var hay=buildHaystack(g.title||'');
+    var platHay=normTxt(g.platform||'');
+    var score=0;
+    contentTokens.forEach(function(w){if(hay.indexOf(w)!==-1)score++;});
+    if(score>0)platformTokens.forEach(function(w){if(platHay.indexOf(w)!==-1)score+=0.5;});
+    return {g:g,score:score};
+  }).filter(function(x){return x.score>0;});
+
+  scored.sort(function(a,b){return b.score-a.score;});
+  return scored.map(function(x){return x.g;});
+}
+
 function getBotReply(msg,l){
   var q=msg.toLowerCase().trim();
   var avail=Object.values(games).filter(function(g){return g.status==='available';});
@@ -1530,11 +1593,7 @@ function getBotReply(msg,l){
   }
 
   // Game search
-  var words=q.split(' ').filter(function(w){return w.length>2;});
-  var found=avail.filter(function(g){
-    var t=(g.title||'').toLowerCase();
-    return words.some(function(w){return t.includes(w);});
-  });
+  var found=searchGames(q,avail);
   if(found.length){
     var seen2={};var uniq=[];
     found.forEach(function(g){if(!seen2[g.title]){seen2[g.title]=true;uniq.push(g);}});
