@@ -1462,7 +1462,7 @@ function normTxt(s){
 // canonical (normalized substring that appears in real titles) -> alternate spellings
 // (Georgian phonetic, Russian, abbreviations, no-space forms, etc.)
 var GAME_ALIASES = {
-  'spider man':['სპაიდერმენი','სპაიდერ მენი','человек паук','человекпаук','spiderman','спайдермен','спайдер мен'],
+  'spider man':['სპაიდერმენი','სპაიდერ მენი','საიდერმენი','საიდელ მენი','საიდერ მენი','человек паук','человекпаук','spiderman','спайдермен','спайдер мен'],
   'god of war':['ღმერთთა ომი','гоу','god war','gow','гад оф вор'],
   'grand theft auto':['გრანდ თეფთ აუტო','гта','gta','grand theft','гранд тефт авто'],
   'call of duty':['ქოლ ოფ დიუთი','кол оф дьюти','код','cod','кал оф дьюти'],
@@ -1538,17 +1538,30 @@ function searchGames(msg,avail){
   var platformTokens=tokens.filter(function(w){return PLATFORM_WORDS.indexOf(w)!==-1;});
   if(!contentTokens.length)return [];
 
+  var wordTokens=contentTokens.filter(function(w){return !/^\d+$/.test(w);});
+  var numTokens=contentTokens.filter(function(w){return /^\d+$/.test(w);});
+
   var scored=avail.map(function(g){
     var hay=buildHaystack(g.title||'');
     var platHay=normTxt(g.platform||'');
-    var score=0;
-    contentTokens.forEach(function(w){if(hay.indexOf(w)!==-1)score++;});
+    var wordScore=0,numScore=0;
+    wordTokens.forEach(function(w){if(hay.indexOf(w)!==-1)wordScore++;});
+    numTokens.forEach(function(w){
+      var re=new RegExp('(^|[^0-9])'+w+'($|[^0-9])');
+      if(re.test(' '+hay+' '))numScore++;
+    });
+    // require at least one real word match when the query has words;
+    // a bare number (e.g. "2") is too weak to qualify a game on its own
+    var qualifies=wordTokens.length?wordScore>0:numScore>0;
+    var score=qualifies?wordScore+numScore*0.5:0;
     if(score>0)platformTokens.forEach(function(w){if(platHay.indexOf(w)!==-1)score+=0.5;});
     return {g:g,score:score};
   }).filter(function(x){return x.score>0;});
 
   scored.sort(function(a,b){return b.score-a.score;});
-  return scored.map(function(x){return x.g;});
+  if(!scored.length)return [];
+  var topScore=scored[0].score;
+  return scored.filter(function(x){return x.score===topScore;}).map(function(x){return x.g;});
 }
 
 function getBotReply(msg,l){
