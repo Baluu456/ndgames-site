@@ -1166,7 +1166,7 @@ auth.onAuthStateChanged(function(user){
         // Create new loyalty record
         var loyaltyData={
           uid:user.uid,
-          name:user.displayName||user.email.split('@')[0],
+          name:(pendingRegData&&pendingRegData.name)||user.displayName||user.email.split('@')[0],
           email:user.email,
           cardNumber:genCardNumber(),
           totalSpent:0,
@@ -1327,7 +1327,7 @@ function submitEmailAuth(){
         showAuthError(lang==='ka'?'ეს ტელეფონის ნომერი უკვე რეგისტრირებულია':lang==='en'?'This phone number is already registered':'Этот номер телефона уже зарегистрирован');
         return;
       }
-      pendingRegData={phone:phone,city:city,district:district,address:address,postal:postal};
+      pendingRegData={name:name,phone:phone,city:city,district:district,address:address,postal:postal};
       auth.createUserWithEmailAndPassword(email,password).then(function(cred){
         return cred.user.updateProfile({displayName:name}).then(function(){
           closeAuthModal();
