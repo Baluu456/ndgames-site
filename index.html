@@ -445,6 +445,19 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);min-hei
 </head>
 <body>
 
+<!-- MAINTENANCE OVERLAY -->
+<div id="maintenance-overlay" style="display:none;position:fixed;inset:0;z-index:99999;background:#0f0f13;color:#fff;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;font-family:'Inter',sans-serif">
+  <div style="font-family:'Orbitron',sans-serif;font-size:22px;letter-spacing:2px;margin-bottom:22px;color:#00d4ff">ND<span style="color:#7c6df0">GAMES</span></div>
+  <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#f06060" stroke-width="1.6" stroke-linecap="round" style="margin-bottom:20px">
+    <path d="M18.36 6.64a9 9 0 11-12.73 0"/><line x1="12" y1="2" x2="12" y2="12"/>
+  </svg>
+  <div style="max-width:480px;display:flex;flex-direction:column;gap:14px;font-size:15px;line-height:1.5;color:#c8c8d4">
+    <div>🇬🇪 საიტზე მიმდინარეობს ტექნიკური სამუშაოები. მალე დავბრუნდებით!</div>
+    <div>🇷🇺 На сайте ведутся технические работы. Скоро вернёмся!</div>
+    <div>🇬🇧 The site is under maintenance. We'll be back shortly!</div>
+  </div>
+</div>
+
 <!-- LOADER -->
 <div id="loader">
   <div class="loader-logo">ND<span>GAMES</span></div>
@@ -704,6 +717,14 @@ firebase.initializeApp({
 });
 var db=firebase.database();
 var auth=firebase.auth();
+
+// ── MAINTENANCE MODE ──────────────────────────────────
+db.ref('site/maintenance').on('value',function(s){
+  var ov=document.getElementById('maintenance-overlay');
+  if(!ov)return;
+  ov.style.display=s.val()?'flex':'none';
+});
+
 
 // ── STATE ─────────────────────────────────────────────
 var games={};
