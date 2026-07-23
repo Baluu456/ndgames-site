@@ -1,0 +1,2265 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="NDGames — Buy Better. Play Better. Be Better. PS4 & PS5 games in Georgia.">
+<title>NDGames — PS4 & PS5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0a0a0f;
+  --bg2:#0f0f1a;
+  --bg3:#1a1a2e;
+  --bg4:#252540;
+  --cyan:#00d4ff;
+  --pink:#ff006e;
+  --text:#ffffff;
+  --text2:#8888aa;
+  --text3:#555570;
+  --border:rgba(255,255,255,0.06);
+  --border2:rgba(0,212,255,0.2);
+  --radius:12px;
+  --radius-sm:8px;
+  --font-display:'Orbitron',sans-serif;
+  --font-body:'Inter',sans-serif;
+  --font-mono:'JetBrains Mono',monospace;
+  --glow-cyan:0 0 20px rgba(0,212,255,0.4),0 0 60px rgba(0,212,255,0.15);
+  --glow-pink:0 0 20px rgba(255,0,110,0.4),0 0 60px rgba(255,0,110,0.15);
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);min-height:100vh;overflow-x:hidden}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg2)}
+::-webkit-scrollbar-thumb{background:var(--cyan);border-radius:2px}
+
+/* ── NAV ── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,15,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border2);height:64px;display:flex;align-items:center;padding:0 24px;gap:16px}
+.nav-logo{font-family:var(--font-display);font-size:20px;font-weight:900;letter-spacing:2px;color:var(--cyan);text-shadow:var(--glow-cyan);text-decoration:none;flex-shrink:0}
+.nav-logo span{color:var(--pink)}
+.nav-spacer{flex:1}
+.lang-switcher{display:flex;gap:4px}
+.lang-btn{background:none;border:1px solid var(--border);border-radius:6px;color:var(--text2);font-size:22px;padding:2px 6px;cursor:pointer;transition:all .2s;line-height:1.2;font-family:'Twemoji','Segoe UI Emoji','Apple Color Emoji','Noto Color Emoji','EmojiOne Color','Android Emoji',sans-serif!important}
+.lang-btn.active{border-color:var(--cyan);color:var(--cyan);background:rgba(0,212,255,0.08)}
+.cart-btn{position:relative;background:linear-gradient(135deg,var(--cyan),#0088ff);border:none;border-radius:var(--radius-sm);color:#000;font-family:var(--font-display);font-size:11px;font-weight:700;padding:9px 16px;cursor:pointer;display:flex;align-items:center;gap:6px;transition:all .2s;letter-spacing:1px}
+.cart-btn:hover{transform:translateY(-1px);box-shadow:var(--glow-cyan)}
+.cart-count{position:absolute;top:-6px;right:-6px;background:var(--pink);color:#fff;font-size:10px;font-weight:700;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;display:none}
+.cart-count.show{display:flex}
+
+/* ── HERO ── */
+.hero{height:100vh;min-height:600px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;text-align:center}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 40%,rgba(0,212,255,0.08) 0%,transparent 70%),radial-gradient(ellipse 60% 40% at 80% 70%,rgba(255,0,110,0.05) 0%,transparent 60%)}
+#hero-canvas{position:absolute;inset:0;opacity:.6}
+.hero-content{position:relative;z-index:1;max-width:700px;padding:0 24px}
+.hero-eyebrow{font-family:var(--font-mono);font-size:12px;color:var(--cyan);letter-spacing:3px;margin-bottom:20px;opacity:.8}
+.hero-title{font-family:var(--font-display);font-size:clamp(36px,7vw,80px);font-weight:900;line-height:1;letter-spacing:-1px;margin-bottom:20px}
+.hero-title .nd{color:var(--cyan);text-shadow:var(--glow-cyan)}
+.hero-title .games{color:var(--text)}
+.hero-sub{font-size:16px;color:var(--text2);line-height:1.6;margin-bottom:36px;max-width:480px;margin-left:auto;margin-right:auto}
+.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-primary{background:linear-gradient(135deg,var(--cyan),#0088ff);border:none;border-radius:var(--radius-sm);color:#000;font-family:var(--font-display);font-size:12px;font-weight:700;padding:14px 28px;cursor:pointer;letter-spacing:1.5px;transition:all .2s;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:var(--glow-cyan)}
+.btn-outline{background:none;border:1px solid var(--border2);border-radius:var(--radius-sm);color:var(--cyan);font-family:var(--font-display);font-size:12px;font-weight:700;padding:14px 28px;cursor:pointer;letter-spacing:1.5px;transition:all .2s;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.btn-outline:hover{background:rgba(0,212,255,0.08);transform:translateY(-2px)}
+.scroll-hint{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--text3);font-size:11px;letter-spacing:2px;font-family:var(--font-mono);animation:bounce 2s infinite}
+.scroll-hint-line{width:1px;height:40px;background:linear-gradient(to bottom,var(--cyan),transparent)}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
+
+/* ── CATALOG ── */
+.catalog{padding:80px 24px 60px;max-width:1400px;margin:0 auto}
+.catalog-header{display:flex;align-items:center;gap:16px;margin-bottom:40px;flex-wrap:wrap}
+.catalog-title{font-family:var(--font-display);font-size:22px;font-weight:700;color:var(--text);letter-spacing:2px}
+.catalog-title span{color:var(--cyan)}
+.catalog-count{font-family:var(--font-mono);font-size:12px;color:var(--text3);border:1px solid var(--border);border-radius:20px;padding:4px 12px}
+.filters{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:32px}
+.filter-btn{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text2);font-size:12px;font-weight:600;padding:8px 16px;cursor:pointer;transition:all .2s;letter-spacing:.5px;font-family:var(--font-body)}
+.filter-btn.active{border-color:var(--cyan);color:var(--cyan);background:rgba(0,212,255,0.08);box-shadow:0 0 12px rgba(0,212,255,0.15)}
+.filter-sep{width:1px;height:20px;background:var(--border)}
+.search-wrap{flex:1;min-width:200px;max-width:300px;position:relative}
+.search-inp{width:100%;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text);padding:8px 12px 8px 36px;font-size:13px;font-family:var(--font-body);outline:none;transition:border-color .2s}
+.search-inp:focus{border-color:var(--border2)}
+.search-icon{position:absolute;left:11px;top:50%;transform:translateY(-50%);color:var(--text3);font-size:14px;pointer-events:none}
+
+/* ── GAME GRID ── */
+.game-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:20px}
+@media(max-width:500px){.game-grid{grid-template-columns:repeat(2,1fr);gap:12px}}
+
+/* ── GAME CARD ── */
+.game-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;cursor:pointer;transition:border-color .3s,transform .3s;position:relative;display:flex;flex-direction:column}
+.game-card:hover{border-color:rgba(0,212,255,0.3);transform:translateY(-4px)}
+.game-card-inner{position:relative;overflow:hidden}
+.game-cover-wrap{position:relative;width:100%;padding-bottom:140%;overflow:hidden;background:var(--bg3)}
+.game-cover{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:3%;box-sizing:border-box;transition:transform .4s cubic-bezier(.25,.46,.45,.94)}
+.game-card:hover .game-cover{transform:scale(1.04) translateY(-4px)}
+.acc-cover-wrap{position:relative;width:100%;padding-bottom:100%;overflow:hidden;background:radial-gradient(ellipse at 50% 50%,var(--bg4),var(--bg3))}
+.acc-cover{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:4%;box-sizing:border-box;transition:transform .4s cubic-bezier(.25,.46,.45,.94)}
+.game-card:hover .acc-cover{transform:scale(1.06)}
+.disc-wrap{display:none}
+.game-card-glow{position:absolute;inset:0;opacity:0;transition:opacity .4s;background:radial-gradient(ellipse at 50% 100%,rgba(0,212,255,0.15) 0%,transparent 70%);pointer-events:none;z-index:1}
+.game-card:hover .game-card-glow{opacity:1}
+.cond-badges-wrap{position:absolute;top:10px;right:10px;display:flex;flex-direction:column;align-items:flex-end;gap:6px;z-index:3}
+.cond-badge{background:rgba(0,0,0,0.78);backdrop-filter:blur(8px);border-radius:6px;font-size:9px;font-weight:700;padding:4px 8px;letter-spacing:.5px;white-space:nowrap}
+.cond-badge.new{color:#00ff88;border:1px solid rgba(0,255,136,0.35)}
+.cond-badge.used{color:#c7ccdb;border:1px solid rgba(199,204,219,0.3)}
+.game-info{padding:14px;flex:1;display:flex;flex-direction:column;gap:8px}
+.game-title{font-size:13px;font-weight:600;line-height:1.3;color:var(--text);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.game-price{font-family:var(--font-mono);font-size:18px;font-weight:600;color:var(--cyan)}
+.game-price-orig{font-size:11px;color:var(--text3);text-decoration:line-through;margin-left:6px}
+.add-btn{width:100%;background:linear-gradient(135deg,rgba(0,212,255,0.15),rgba(0,136,255,0.1));border:1px solid var(--border2);border-radius:var(--radius-sm);color:var(--cyan);font-family:var(--font-display);font-size:10px;font-weight:700;padding:10px;cursor:pointer;letter-spacing:1.5px;transition:all .2s;margin-top:auto}
+.add-btn:hover{background:linear-gradient(135deg,var(--cyan),#0088ff);color:#000;border-color:transparent}
+.add-btn.added{background:linear-gradient(135deg,var(--pink),#cc0055);border-color:transparent;color:#fff}
+
+/* ── EMPTY STATE ── */
+.empty-state{grid-column:1/-1;text-align:center;padding:80px 20px;color:var(--text3)}
+.empty-icon{font-size:48px;margin-bottom:16px;opacity:.4}
+.empty-text{font-family:var(--font-display);font-size:14px;letter-spacing:2px}
+
+/* ── CART SIDEBAR ── */
+.cart-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:200;opacity:0;pointer-events:none;transition:opacity .3s;backdrop-filter:blur(4px)}
+.cart-overlay.open{opacity:1;pointer-events:all}
+.cart-sidebar{position:fixed;top:0;right:-420px;width:420px;max-width:100vw;height:100vh;background:var(--bg2);border-left:1px solid var(--border2);z-index:201;display:flex;flex-direction:column;transition:right .35s cubic-bezier(.25,.46,.45,.94)}
+.cart-sidebar.open{right:0}
+.cart-head{padding:20px 24px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px}
+.cart-head-title{font-family:var(--font-display);font-size:14px;font-weight:700;letter-spacing:2px;color:var(--cyan);flex:1}
+.cart-close{background:none;border:1px solid var(--border);border-radius:6px;color:var(--text2);width:32px;height:32px;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.cart-close:hover{border-color:var(--pink);color:var(--pink)}
+.cart-items{flex:1;overflow-y:auto;padding:16px}
+.cart-item{display:flex;gap:12px;padding:12px;background:var(--bg3);border-radius:var(--radius-sm);margin-bottom:10px;align-items:center}
+.cart-item-cover{width:48px;height:68px;object-fit:cover;border-radius:6px;background:var(--bg4);flex-shrink:0}
+.cart-item-info{flex:1;min-width:0}
+.cart-item-title{font-size:13px;font-weight:600;margin-bottom:4px;white-space:normal;line-height:1.3;overflow:hidden;text-overflow:ellipsis}
+.cart-item-plat{font-size:11px;color:var(--text3);font-family:var(--font-mono)}
+.cart-item-price{font-family:var(--font-mono);font-size:14px;font-weight:600;color:var(--cyan);white-space:nowrap}
+.cart-item-remove{background:none;border:none;color:var(--text3);cursor:pointer;font-size:16px;padding:4px;transition:color .2s;flex-shrink:0}
+.cart-item-remove:hover{color:var(--pink)}
+.cart-empty{text-align:center;padding:60px 20px;color:var(--text3)}
+.cart-empty-icon{font-size:40px;margin-bottom:12px;opacity:.4}
+.cart-empty-text{font-family:var(--font-display);font-size:12px;letter-spacing:2px}
+.cart-footer{padding:20px 24px;border-top:1px solid var(--border)}
+.cart-total{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.cart-total-label{font-size:13px;color:var(--text2)}
+.cart-total-val{font-family:var(--font-mono);font-size:22px;font-weight:600;color:var(--cyan)}
+.checkout-btn{width:100%;background:linear-gradient(135deg,var(--cyan),#0088ff);border:none;border-radius:var(--radius-sm);color:#000;font-family:var(--font-display);font-size:12px;font-weight:700;padding:14px;cursor:pointer;letter-spacing:2px;transition:all .2s}
+.checkout-btn:hover{box-shadow:var(--glow-cyan);transform:translateY(-1px)}
+
+/* ── ORDER MODAL ── */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.8);z-index:300;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .3s;backdrop-filter:blur(8px)}
+.modal-overlay.open{opacity:1;pointer-events:all}
+.modal{background:var(--bg2);border:1px solid var(--border2);border-radius:16px;width:100%;max-width:500px;max-height:90vh;overflow-y:auto;padding:32px}
+.modal-title{font-family:var(--font-display);font-size:18px;font-weight:700;color:var(--cyan);letter-spacing:2px;margin-bottom:24px}
+.form-field{margin-bottom:16px}
+.form-label{display:block;font-size:12px;font-weight:600;color:var(--text2);letter-spacing:.5px;margin-bottom:6px}
+.form-inp{width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text);padding:12px 14px;font-size:14px;font-family:var(--font-body);outline:none;transition:border-color .2s}
+.form-inp:focus{border-color:var(--border2)}
+.form-inp::placeholder{color:var(--text3)}
+.form-select{width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text);padding:12px 14px;font-size:14px;font-family:var(--font-body);outline:none;cursor:pointer}
+.delivery-opts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.delivery-opt{background:var(--bg3);border:1.5px solid var(--border);border-radius:var(--radius-sm);padding:12px;cursor:pointer;transition:all .2s;text-align:center}
+.delivery-opt.sel{border-color:var(--cyan);background:rgba(0,212,255,0.08)}
+.delivery-opt-icon{font-size:20px;margin-bottom:4px}
+.delivery-opt-label{font-size:11px;font-weight:600;color:var(--text2)}
+.delivery-opt.sel .delivery-opt-label{color:var(--cyan)}
+.order-summary{background:var(--bg3);border-radius:var(--radius-sm);padding:14px;margin-bottom:20px}
+.order-sum-title{font-size:11px;color:var(--text3);letter-spacing:1px;margin-bottom:10px;font-family:var(--font-mono)}
+.order-sum-item{display:flex;justify-content:space-between;font-size:13px;margin-bottom:6px}
+.order-sum-item:last-child{margin-bottom:0;border-top:1px solid var(--border);padding-top:8px;font-weight:700;color:var(--cyan);font-family:var(--font-mono)}
+.submit-btn{width:100%;background:linear-gradient(135deg,var(--cyan),#0088ff);border:none;border-radius:var(--radius-sm);color:#000;font-family:var(--font-display);font-size:12px;font-weight:700;padding:14px;cursor:pointer;letter-spacing:2px;transition:all .2s;margin-top:8px}
+.submit-btn:hover{box-shadow:var(--glow-cyan)}
+.modal-close{float:right;background:none;border:1px solid var(--border);border-radius:6px;color:var(--text2);width:32px;height:32px;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;margin-top:-8px;transition:all .2s}
+.modal-close:hover{border-color:var(--pink);color:var(--pink)}
+
+/* ── SUCCESS ── */
+.success-screen{text-align:center;padding:20px}
+.success-icon{font-size:60px;margin-bottom:20px;animation:popIn .4s cubic-bezier(.34,1.56,.64,1)}
+@keyframes popIn{0%{transform:scale(0)}100%{transform:scale(1)}}
+.success-title{font-family:var(--font-display);font-size:18px;font-weight:700;color:var(--cyan);letter-spacing:2px;margin-bottom:12px}
+.success-sub{font-size:14px;color:var(--text2);line-height:1.6}
+
+/* ── FOOTER ── */
+.footer{background:var(--bg2);border-top:1px solid var(--border);padding:40px 24px 32px;margin-top:80px}
+.footer-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:32px}
+.footer-logo{font-family:var(--font-display);font-size:18px;font-weight:900;letter-spacing:2px;color:var(--cyan);margin-bottom:8px}
+.footer-logo span{color:var(--pink)}
+.footer-desc{font-size:13px;color:var(--text2);line-height:1.6}
+.footer-title{font-family:var(--font-display);font-size:11px;font-weight:700;color:var(--text3);letter-spacing:2px;margin-bottom:14px}
+.footer-links{display:flex;flex-direction:column;gap:8px}
+.footer-link{color:var(--text2);font-size:13px;text-decoration:none;transition:color .2s;display:flex;align-items:center;gap:8px}
+.footer-link:hover{color:var(--cyan)}
+.footer-bottom{max-width:1400px;margin:32px auto 0;padding-top:20px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-copy{font-size:12px;color:var(--text3);font-family:var(--font-mono)}
+
+/* ── LOADER ── */
+#loader{position:fixed;inset:0;background:var(--bg);z-index:999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;transition:opacity .5s}
+#loader.hide{opacity:0;pointer-events:none}
+.loader-logo{font-family:var(--font-display);font-size:32px;font-weight:900;color:var(--cyan);letter-spacing:4px;text-shadow:var(--glow-cyan)}
+.loader-logo span{color:var(--pink)}
+.loader-bar{width:200px;height:2px;background:var(--bg3);border-radius:1px;overflow:hidden}
+.loader-fill{height:100%;background:linear-gradient(90deg,var(--cyan),var(--pink));border-radius:1px;animation:load 1.2s ease-in-out forwards}
+@keyframes load{0%{width:0}100%{width:100%}}
+
+/* ── REVEAL ANIMATION ── */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .5s,transform .5s}
+.reveal.visible{opacity:1;transform:none}
+
+/* ── TOAST ── */
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--bg3);border:1px solid var(--border2);border-radius:var(--radius-sm);padding:12px 20px;font-size:13px;font-weight:600;color:var(--cyan);z-index:500;transition:transform .3s;white-space:nowrap;box-shadow:var(--glow-cyan)}
+.toast.show{transform:translateX(-50%) translateY(0)}
+
+/* ── MEDIA ── */
+@media(max-width:768px){
+  .nav{padding:0 16px}
+  .catalog{padding:80px 16px 40px}
+  .cart-sidebar{width:100vw}
+  .modal{padding:24px}
+}
+
+.card-hover-info{position:absolute;bottom:0;left:0;right:0;padding:10px 10px 8px;background:linear-gradient(to top,rgba(0,0,0,0.92) 0%,rgba(0,0,0,0.6) 60%,transparent 100%);transform:translateY(100%);transition:transform .35s cubic-bezier(.25,.46,.45,.94);z-index:4;display:flex;flex-wrap:wrap;gap:4px}
+.game-card:hover .card-hover-info{transform:translateY(0)}
+.info-badge{font-size:9px;font-weight:700;border-radius:5px;padding:3px 7px;letter-spacing:.5px;white-space:nowrap}
+.badge-lang-ru{background:rgba(0,212,255,0.2);border:1px solid rgba(0,212,255,0.4);color:#00d4ff}
+.badge-lang-en{background:rgba(255,200,0,0.15);border:1px solid rgba(255,200,0,0.35);color:#ffc800}
+.badge-genre{background:rgba(255,0,110,0.15);border:1px solid rgba(255,0,110,0.35);color:#ff006e}
+
+/* ── GENRES SECTION ── */
+.genres-section{padding:60px 24px;max-width:1400px;margin:0 auto}
+.genres-title{font-family:var(--font-display);font-size:18px;font-weight:700;color:var(--text);letter-spacing:2px;margin-bottom:8px}
+.genres-title span{color:var(--pink)}
+.genres-sub{font-size:13px;color:var(--text3);font-family:var(--font-mono);margin-bottom:32px;letter-spacing:1px}
+.genres-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:12px}
+@media(max-width:480px){.genres-grid{grid-template-columns:repeat(2,1fr);gap:8px}}
+.genre-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:20px 12px 16px;text-align:center;cursor:pointer;transition:all .25s cubic-bezier(.25,.46,.45,.94);position:relative;overflow:hidden;user-select:none}
+.genre-card::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 120%,var(--genre-color,rgba(0,212,255,0.2)) 0%,transparent 70%);opacity:0;transition:opacity .3s}
+.genre-card:hover::before{opacity:1}
+.genre-card:hover{border-color:var(--genre-color,var(--cyan));transform:translateY(-4px);box-shadow:0 8px 32px rgba(0,0,0,0.4)}
+.genre-card.active{border-color:var(--genre-color,var(--cyan));background:rgba(0,212,255,0.06);box-shadow:0 0 20px rgba(0,212,255,0.15)}
+.genre-icon{font-size:32px;margin-bottom:10px;display:block;transition:transform .3s cubic-bezier(.34,1.56,.64,1)}
+.genre-card:hover .genre-icon{transform:scale(1.25) rotate(-5deg)}
+.genre-name{font-family:var(--font-display);font-size:10px;font-weight:700;color:var(--text2);letter-spacing:1px;transition:color .2s;word-break:keep-all;white-space:nowrap}
+.genre-card:hover .genre-name,.genre-card.active .genre-name{color:var(--text)}
+.genre-count{font-family:var(--font-mono);font-size:9px;color:var(--text3);margin-top:4px;transition:color .2s}
+.genre-card:hover .genre-count,.genre-card.active .genre-count{color:var(--genre-color,var(--cyan))}
+
+/* ── VARIANTS (new/used on same card) ── */
+.variants-row{display:flex;gap:6px;margin-bottom:8px;flex-wrap:wrap}
+.variant-chip{border-radius:6px;padding:4px 10px;font-size:10px;font-weight:700;cursor:pointer;border:1.5px solid var(--border);background:var(--bg3);color:var(--text2);transition:all .15s;letter-spacing:.5px}
+.variant-chip.new-chip{border-color:rgba(0,255,136,0.4);color:#00ff88}
+.variant-chip.used-chip{border-color:rgba(136,136,170,0.3);color:#8888aa}
+.variant-chip.sel{background:var(--bg4);transform:scale(1.05)}
+.multi-price{font-size:11px;color:var(--text3);margin-left:4px;text-decoration:line-through}
+
+/* ── PRODUCT MODAL ── */
+.product-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:300;display:flex;align-items:center;justify-content:center;padding:16px;opacity:0;pointer-events:none;transition:opacity .3s;backdrop-filter:blur(10px)}
+.product-modal-overlay.open{opacity:1;pointer-events:all}
+.product-modal{background:var(--bg2);border:1px solid var(--border2);border-radius:20px;width:100%;max-width:800px;max-height:95vh;overflow:hidden;display:flex;flex-direction:column}
+@media(min-width:640px){.product-modal{flex-direction:row;max-height:85vh}}
+.pm-cover-wrap{flex-shrink:0;overflow:hidden;border-radius:20px 20px 0 0;width:100%;height:260px}
+@media(min-width:640px){.pm-cover-wrap{width:260px;height:auto;border-radius:20px 0 0 20px;min-height:400px}}
+.pm-cover{width:100%;height:100%;object-fit:contain;object-position:center center;padding:3%;box-sizing:border-box;background:var(--bg3);display:block}
+.pm-cover.pm-cover-acc{object-fit:contain;object-position:center center;padding:8px;box-sizing:border-box;background:radial-gradient(ellipse at 50% 50%,var(--bg4),var(--bg3))}
+.pm-cover-placeholder{width:100%;height:100%;background:linear-gradient(135deg,var(--bg3),var(--bg4))}
+.pm-body{flex:1;padding:22px;overflow-y:auto;display:flex;flex-direction:column;gap:12px;min-width:0}
+.pm-close{position:absolute;top:12px;right:12px;background:rgba(0,0,0,0.6);border:1px solid var(--border);border-radius:8px;color:var(--text);width:36px;height:36px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:18px;transition:all .2s;z-index:1}
+.pm-close:hover{border-color:var(--pink);color:var(--pink)}
+.pm-platform{font-family:var(--font-mono);font-size:11px;color:var(--cyan);letter-spacing:2px}
+.pm-title{font-family:var(--font-display);font-size:20px;font-weight:700;line-height:1.2;color:var(--text)}
+.pm-badges{display:flex;flex-wrap:wrap;gap:6px}
+.pm-badge{font-size:10px;font-weight:700;border-radius:5px;padding:3px 9px;letter-spacing:.5px}
+.pm-badge.genre{background:rgba(255,0,110,0.15);border:1px solid rgba(255,0,110,0.3);color:#ff006e}
+.pm-badge.lang-ru{background:rgba(0,212,255,0.12);border:1px solid rgba(0,212,255,0.3);color:#00d4ff}
+.pm-badge.lang-en{background:rgba(255,200,0,0.12);border:1px solid rgba(255,200,0,0.3);color:#ffc800}
+
+.pm-info-block{display:flex;flex-direction:column;gap:8px;background:var(--bg3);border-radius:var(--radius-sm);padding:12px}
+.pm-info-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.pm-info-label{font-size:11px;font-weight:700;color:var(--text3);letter-spacing:.5px;min-width:80px;flex-shrink:0}
+
+.pm-code{font-family:var(--font-mono);font-size:11px;color:var(--text3);letter-spacing:1px}
+.pm-variants{display:flex;flex-direction:column;gap:8px}
+.pm-variant-row{display:flex;align-items:center;justify-content:space-between;background:var(--bg3);border:1.5px solid var(--border);border-radius:var(--radius-sm);padding:10px 14px;cursor:pointer;transition:all .2s}
+.pm-variant-row:hover{border-color:var(--border2)}
+.pm-variant-row.sel{border-color:var(--cyan);background:rgba(0,212,255,0.06)}
+.pm-variant-cond{font-size:12px;font-weight:700}
+.pm-variant-cond.new{color:#00ff88}
+.pm-variant-cond.used{color:#8888aa}
+.pm-variant-price{font-family:var(--font-mono);font-size:18px;font-weight:700;color:var(--cyan)}
+.pm-add-btn{width:100%;background:linear-gradient(135deg,var(--cyan),#0088ff);border:none;border-radius:var(--radius-sm);color:#000;font-family:var(--font-display);font-size:12px;font-weight:700;padding:14px;cursor:pointer;letter-spacing:2px;transition:all .2s;margin-top:auto}
+.pm-add-btn:hover{box-shadow:var(--glow-cyan);transform:translateY(-1px)}
+.pm-add-btn.added{background:linear-gradient(135deg,var(--pink),#cc0055);color:#fff}
+.pm-add-btn:disabled{opacity:.5;cursor:default;transform:none}
+
+/* ── ORDERS TAB in portal is separate - site just shows confirmation ── */
+
+/* ── AUTH ── */
+.auth-btn{background:none;border:1px solid var(--border2);border-radius:var(--radius-sm);color:var(--cyan);font-family:var(--font-display);font-size:10px;font-weight:700;padding:7px 14px;cursor:pointer;letter-spacing:1px;transition:all .2s;white-space:nowrap}
+.auth-btn:hover{background:rgba(0,212,255,0.08)}
+.auth-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:400;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .3s;backdrop-filter:blur(10px)}
+.auth-modal-overlay.open{opacity:1;pointer-events:all}
+.auth-modal{background:var(--bg2);border:1px solid var(--border2);border-radius:20px;width:100%;max-width:420px;padding:32px}
+.auth-title{font-family:var(--font-display);font-size:18px;font-weight:700;color:var(--cyan);letter-spacing:2px;margin-bottom:6px}
+.auth-sub{font-size:12px;color:var(--text3);margin-bottom:24px}
+.auth-social-btn{width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text);font-size:13px;font-weight:600;padding:12px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;transition:all .2s;margin-bottom:10px}
+.auth-social-btn:hover{border-color:var(--border2);background:var(--bg4)}
+.auth-divider{display:flex;align-items:center;gap:12px;margin:16px 0;color:var(--text3);font-size:11px}
+.auth-divider::before,.auth-divider::after{content:'';flex:1;height:1px;background:var(--border)}
+.auth-inp{width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text);padding:12px 14px;font-size:14px;font-family:var(--font-body);outline:none;transition:border-color .2s;margin-bottom:10px}
+.auth-inp:focus{border-color:var(--border2)}
+.auth-inp::placeholder{color:var(--text3)}
+.auth-submit{width:100%;background:linear-gradient(135deg,var(--cyan),#0088ff);border:none;border-radius:var(--radius-sm);color:#000;font-family:var(--font-display);font-size:12px;font-weight:700;padding:13px;cursor:pointer;letter-spacing:2px;transition:all .2s;margin-top:4px}
+.auth-submit:hover{box-shadow:var(--glow-cyan)}
+.auth-toggle{text-align:center;margin-top:14px;font-size:12px;color:var(--text3)}
+.auth-toggle a{color:var(--cyan);cursor:pointer;text-decoration:none}
+.auth-error{background:rgba(240,96,96,0.1);border:1px solid rgba(240,96,96,0.3);border-radius:var(--radius-sm);color:#f06060;font-size:12px;padding:10px 12px;margin-bottom:10px;display:none}
+.auth-error.show{display:block}
+
+/* ── USER MENU ── */
+.user-menu-wrap{position:relative}
+.user-avatar-btn{background:linear-gradient(135deg,var(--cyan),#0088ff);border:none;border-radius:50%;width:36px;height:36px;cursor:pointer;font-size:14px;font-weight:700;color:#000;display:flex;align-items:center;justify-content:center;transition:all .2s;font-family:var(--font-display)}
+.user-avatar-btn:hover{box-shadow:var(--glow-cyan)}
+.user-dropdown{position:absolute;right:0;top:44px;background:var(--bg2);border:1px solid var(--border2);border-radius:var(--radius);padding:8px;min-width:180px;z-index:200;display:none;box-shadow:0 8px 32px rgba(0,0,0,0.4)}
+.user-dropdown.open{display:block}
+.user-dd-name{font-size:13px;font-weight:700;color:var(--text);padding:8px 10px;border-bottom:1px solid var(--border);margin-bottom:6px}
+.user-dd-item{display:flex;align-items:center;gap:8px;padding:9px 10px;border-radius:var(--radius-sm);cursor:pointer;font-size:13px;color:var(--text2);transition:all .15s}
+.user-dd-item:hover{background:var(--bg3);color:var(--text)}
+.user-dd-item.red:hover{color:#f06060}
+
+/* ── LOYALTY CARD PAGE ── */
+.profile-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.9);z-index:350;opacity:0;pointer-events:none;transition:opacity .3s;backdrop-filter:blur(12px);overflow-y:auto;padding:24px 16px}
+.profile-overlay.open{opacity:1;pointer-events:all}
+.profile-inner{max-width:480px;margin:0 auto;padding-bottom:40px}
+.profile-back{background:none;border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text2);font-size:12px;padding:8px 14px;cursor:pointer;margin-bottom:24px;display:flex;align-items:center;gap:6px;transition:all .2s;font-family:var(--font-display);letter-spacing:1px}
+.profile-back:hover{border-color:var(--cyan);color:var(--cyan)}
+
+/* ── LOYALTY CARD VISUAL ── */
+.loyalty-card{width:100%;aspect-ratio:1.586;border-radius:18px;background:linear-gradient(135deg,#0a0a1a 0%,#1a1a3e 40%,#0d1535 100%);border:1px solid rgba(0,212,255,0.3);padding:28px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.6),0 0 40px rgba(0,212,255,0.1);margin-bottom:24px}
+.loyalty-card::before{content:'';position:absolute;top:-50%;right:-20%;width:300px;height:300px;background:radial-gradient(circle,rgba(0,212,255,0.08) 0%,transparent 70%);pointer-events:none}
+.loyalty-card::after{content:'';position:absolute;bottom:-30%;left:-10%;width:250px;height:250px;background:radial-gradient(circle,rgba(255,0,110,0.06) 0%,transparent 70%);pointer-events:none}
+.lc-logo{font-family:var(--font-display);font-size:18px;font-weight:900;color:var(--cyan);letter-spacing:3px;text-shadow:0 0 20px rgba(0,212,255,0.5)}
+.lc-logo span{color:var(--pink)}
+.lc-chip{width:42px;height:32px;background:linear-gradient(135deg,#c8a850,#f0d080);border-radius:5px;position:relative;overflow:hidden}
+.lc-chip::after{content:'';position:absolute;inset:4px;border:1px solid rgba(0,0,0,0.2);border-radius:3px}
+.lc-mid{display:flex;align-items:center;gap:12px}
+.lc-discount{font-family:var(--font-display);font-size:36px;font-weight:900;color:var(--cyan);text-shadow:0 0 20px rgba(0,212,255,0.4);line-height:1}
+.lc-discount-label{font-size:11px;color:var(--text2);letter-spacing:1px;font-family:var(--font-mono)}
+.lc-number{font-family:var(--font-mono);font-size:14px;color:rgba(255,255,255,0.6);letter-spacing:3px}
+.lc-bottom{display:flex;justify-content:space-between;align-items:flex-end}
+.lc-name{font-size:13px;font-weight:600;color:var(--text);letter-spacing:1px;text-transform:uppercase}
+.lc-level{font-size:9px;color:var(--cyan);letter-spacing:2px;font-family:var(--font-mono)}
+
+/* ── PROGRESS BAR ── */
+.progress-wrap{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+.progress-title{font-family:var(--font-display);font-size:11px;color:var(--text3);letter-spacing:2px;margin-bottom:16px}
+.progress-bar-outer{background:var(--bg3);border-radius:10px;height:8px;position:relative;overflow:hidden;margin-bottom:8px}
+.progress-bar-fill{height:100%;border-radius:10px;background:linear-gradient(90deg,var(--cyan),#0088ff);transition:width .8s cubic-bezier(.25,.46,.45,.94)}
+.progress-steps{display:flex;justify-content:space-between;margin-top:6px}
+.progress-step{font-size:9px;font-family:var(--font-mono);color:var(--text3)}
+.progress-step.done{color:var(--cyan)}
+.progress-info{display:flex;justify-content:space-between;align-items:center;margin-top:12px;padding-top:12px;border-top:1px solid var(--border)}
+.progress-spent{font-size:13px;color:var(--text2)}
+.progress-spent span{color:var(--cyan);font-weight:700;font-family:var(--font-mono)}
+.progress-next{font-size:11px;color:var(--text3);text-align:right}
+.progress-next span{color:var(--text2)}
+
+/* ── ORDER HISTORY ── */
+.order-history-wrap{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:20px}
+.order-history-title{font-family:var(--font-display);font-size:11px;color:var(--text3);letter-spacing:2px;margin-bottom:14px}
+.order-hist-item{border-bottom:1px solid var(--border);padding:12px 0}
+.order-hist-item:last-child{border-bottom:none}
+.order-hist-date{font-size:10px;color:var(--text3);font-family:var(--font-mono);margin-bottom:4px}
+.order-hist-games{font-size:13px;color:var(--text);margin-bottom:3px}
+.order-hist-total{font-family:var(--font-mono);font-size:13px;color:var(--cyan)}
+.order-hist-status{font-size:10px;font-weight:700;border-radius:20px;padding:2px 8px;border:1px solid;display:inline-block;margin-top:4px}
+.order-hist-status.new{color:#00d4ff;border-color:rgba(0,212,255,0.3)}
+.order-hist-status.confirmed{color:#00ff88;border-color:rgba(0,255,136,0.3)}
+.order-hist-status.delivered{color:#8888aa;border-color:var(--border)}
+
+/* ── CHATBOT ── */
+.chat-fab{position:fixed;bottom:24px;right:24px;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--cyan),#0088ff);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,212,255,0.4);z-index:500;transition:all .3s;font-size:22px}
+.chat-fab:hover{transform:scale(1.1);box-shadow:0 6px 30px rgba(0,212,255,0.6)}
+.chat-fab.open{background:linear-gradient(135deg,#ff006e,#cc0055);box-shadow:0 4px 20px rgba(255,0,110,0.4)}
+.chat-window{position:fixed;bottom:92px;right:24px;width:360px;max-width:calc(100vw - 32px);height:520px;max-height:calc(100vh - 120px);background:var(--bg2);border:1px solid var(--border2);border-radius:20px;display:flex;flex-direction:column;z-index:499;box-shadow:0 20px 60px rgba(0,0,0,0.6);transform:scale(0.9) translateY(20px);opacity:0;pointer-events:none;transition:all .3s cubic-bezier(.34,1.56,.64,1)}
+.chat-window.open{transform:scale(1) translateY(0);opacity:1;pointer-events:all}
+.chat-head{padding:16px 18px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;flex-shrink:0}
+.chat-head-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--cyan),#0088ff);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.chat-head-info{flex:1}
+.chat-head-name{font-family:var(--font-display);font-size:13px;font-weight:700;color:var(--cyan);letter-spacing:1px}
+.chat-head-status{font-size:10px;color:var(--text3);display:flex;align-items:center;gap:4px}
+.chat-head-dot{width:6px;height:6px;border-radius:50%;background:#00ff88;animation:pulse 2s infinite}
+.chat-lang-pick{padding:16px 18px;border-bottom:1px solid var(--border);flex-shrink:0;display:none}
+.chat-lang-pick.show{display:block}
+.chat-lang-title{font-size:12px;color:var(--text2);margin-bottom:10px;font-family:var(--font-mono)}
+.chat-lang-btns{display:flex;gap:8px}
+.chat-lang-btn{flex:1;background:var(--bg3);border:1.5px solid var(--border);border-radius:var(--radius-sm);padding:9px;font-size:18px;text-align:center;cursor:pointer;transition:all .2s}
+.chat-lang-btn:hover,.chat-lang-btn.sel{border-color:var(--cyan);background:rgba(0,212,255,0.1)}
+.chat-messages{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px}
+.chat-msg{max-width:80%;display:flex;flex-direction:column;gap:3px}
+.chat-msg.bot{align-self:flex-start}
+.chat-msg.user{align-self:flex-end}
+.chat-bubble{padding:10px 14px;border-radius:14px;font-size:13px;line-height:1.5}
+.chat-msg.bot .chat-bubble{background:var(--bg3);border:1px solid var(--border);color:var(--text);border-bottom-left-radius:4px}
+.chat-msg.user .chat-bubble{background:linear-gradient(135deg,var(--cyan),#0088ff);color:#000;font-weight:500;border-bottom-right-radius:4px}
+.chat-time{font-size:9px;color:var(--text3);font-family:var(--font-mono)}
+.chat-msg.user .chat-time{text-align:right}
+.chat-typing{display:flex;gap:4px;padding:12px 14px;background:var(--bg3);border:1px solid var(--border);border-radius:14px;border-bottom-left-radius:4px;width:fit-content}
+.chat-typing span{width:6px;height:6px;background:var(--text3);border-radius:50%;animation:typing 1.2s infinite}
+.chat-typing span:nth-child(2){animation-delay:.2s}
+.chat-typing span:nth-child(3){animation-delay:.4s}
+@keyframes typing{0%,60%,100%{transform:translateY(0);opacity:.4}30%{transform:translateY(-6px);opacity:1}}
+.chat-input-wrap{padding:12px 14px;border-top:1px solid var(--border);display:flex;gap:8px;flex-shrink:0}
+.chat-inp{flex:1;background:var(--bg3);border:1px solid var(--border);border-radius:20px;color:var(--text);padding:10px 14px;font-size:13px;font-family:var(--font-body);outline:none;resize:none;transition:border-color .2s}
+.chat-inp:focus{border-color:var(--border2)}
+.chat-send{background:linear-gradient(135deg,var(--cyan),#0088ff);border:none;border-radius:50%;width:38px;height:38px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s}
+.chat-send:hover{transform:scale(1.1)}
+.chat-quick-btns{padding:0 14px 10px;display:flex;flex-wrap:wrap;gap:6px}
+.chat-quick-btn{background:var(--bg3);border:1px solid var(--border2);border-radius:20px;color:var(--cyan);font-size:11px;padding:5px 12px;cursor:pointer;transition:all .15s;white-space:nowrap}
+.chat-quick-btn:hover{background:rgba(0,212,255,0.1)}
+
+/* ── WISHLIST ── */
+.wish-fab{position:fixed;bottom:90px;right:24px;width:44px;height:44px;border-radius:50%;background:var(--bg2);border:1px solid var(--border2);cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:498;font-size:18px;transition:all .2s;box-shadow:0 4px 16px rgba(0,0,0,0.3)}
+.wish-fab:hover{transform:scale(1.1);border-color:var(--pink)}
+.wish-fab-count{position:absolute;top:-4px;right:-4px;background:var(--pink);color:#fff;font-size:9px;font-weight:700;width:16px;height:16px;border-radius:50%;display:flex;align-items:center;justify-content:center;display:none}
+.wish-fab-count.show{display:flex}
+.wish-panel{position:fixed;bottom:92px;right:92px;width:300px;max-width:calc(100vw - 32px);max-height:400px;background:var(--bg2);border:1px solid var(--border2);border-radius:var(--radius);overflow:hidden;z-index:497;box-shadow:0 20px 60px rgba(0,0,0,0.6);transform:scale(0.9) translateY(10px);opacity:0;pointer-events:none;transition:all .25s cubic-bezier(.34,1.56,.64,1)}
+.wish-panel.open{transform:scale(1) translateY(0);opacity:1;pointer-events:all}
+.wish-panel-head{padding:14px 16px;border-bottom:1px solid var(--border);font-family:var(--font-display);font-size:12px;font-weight:700;color:var(--pink);letter-spacing:2px;display:flex;align-items:center;justify-content:space-between}
+.wish-panel-body{overflow-y:auto;max-height:300px}
+.wish-panel-item{display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid var(--border);transition:background .15s}
+.wish-panel-item:hover{background:var(--bg3)}
+.wish-panel-item:last-child{border-bottom:none}
+.wish-panel-cover{width:32px;height:46px;object-fit:cover;border-radius:4px;background:var(--bg3);flex-shrink:0}
+.wish-panel-title{flex:1;font-size:12px;font-weight:600;line-height:1.3}
+.wish-panel-status{font-size:10px;font-weight:700}
+.wish-panel-status.available{color:#00ff88}
+.wish-panel-status.unavailable{color:var(--text3)}
+.wish-panel-del{background:none;border:none;color:var(--text3);cursor:pointer;font-size:14px;padding:2px;transition:color .15s;flex-shrink:0}
+.wish-panel-del:hover{color:var(--pink)}
+.wish-heart-btn{background:none;border:none;cursor:pointer;font-size:16px;padding:4px;transition:transform .2s;line-height:1}
+.wish-heart-btn:hover{transform:scale(1.2)}
+.wish-heart-btn.wished{color:var(--pink)}
+.wish-heart-btn.not-wished{color:var(--text3)}
+</style>
+</head>
+<body>
+
+<!-- MAINTENANCE OVERLAY -->
+<div id="maintenance-overlay" style="display:none;position:fixed;inset:0;z-index:99999;background:#0f0f13;color:#fff;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;font-family:'Inter',sans-serif">
+  <div style="font-family:'Orbitron',sans-serif;font-size:22px;letter-spacing:2px;margin-bottom:22px;color:#00d4ff">ND<span style="color:#7c6df0">GAMES</span></div>
+  <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#f06060" stroke-width="1.6" stroke-linecap="round" style="margin-bottom:20px">
+    <path d="M18.36 6.64a9 9 0 11-12.73 0"/><line x1="12" y1="2" x2="12" y2="12"/>
+  </svg>
+  <div style="max-width:480px;display:flex;flex-direction:column;gap:14px;font-size:15px;line-height:1.5;color:#c8c8d4">
+    <div>🇬🇪 საიტზე მიმდინარეობს ტექნიკური სამუშაოები. მალე დავბრუნდებით!</div>
+    <div>🇷🇺 На сайте ведутся технические работы. Скоро вернёмся!</div>
+    <div>🇬🇧 The site is under maintenance. We'll be back shortly!</div>
+  </div>
+</div>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-logo">ND<span>GAMES</span></div>
+  <div class="loader-bar"><div class="loader-fill"></div></div>
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="#" class="nav-logo">ND<span>GAMES</span></a>
+  <div class="nav-spacer"></div>
+  <div class="lang-switcher">
+    <button class="lang-btn active" onclick="setLang('ka')" title="ქართული">🇬🇪</button>
+    <button class="lang-btn" onclick="setLang('ru')" title="Русский">🇷🇺</button>
+    <button class="lang-btn" onclick="setLang('en')" title="English">🇬🇧</button>
+  </div>
+  <div id="auth-nav-area">
+    <button class="auth-btn" onclick="openAuthModal()" id="auth-login-btn">ВОЙТИ</button>
+  </div>
+  <button class="cart-btn" onclick="openCart()">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+    <span id="cart-label">КОРЗИНА</span>
+    <span class="cart-count" id="cart-count">0</span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-content">
+    <div class="hero-eyebrow" id="hero-eyebrow">ND GAMES — BUY BETTER. PLAY BETTER. BE BETTER.</div>
+    <h1 class="hero-title"><span class="nd">ND</span><br><span class="games">GAMES</span></h1>
+    <p class="hero-sub" id="hero-sub">Покупай игры быстро и выгодно. Доставка по всей Грузии маршруткой.</p>
+    <div class="hero-btns">
+      <a href="#catalog" class="btn-primary" id="hero-btn1">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        СМОТРЕТЬ ИГРЫ
+      </a>
+      <a href="#catalog" class="btn-primary" id="hero-btn-acc" onclick="setSection('accessories')" style="background:transparent;border:1px solid var(--cyan);color:var(--cyan)">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 8a6 6 0 0112 0v3a6 6 0 01-12 0V8z"/><path d="M6 11H4a2 2 0 00-2 2v1a2 2 0 002 2h1"/><path d="M18 11h2a2 2 0 012 2v1a2 2 0 01-2 2h-1"/></svg>
+        <span id="hero-btn-acc-label">АКСЕССУАРЫ</span>
+      </a>
+      <a href="https://wa.me/995597956320" class="btn-outline" target="_blank" id="hero-btn2">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <span id="wa-btn-text">მოგვწერეთ</span>
+      </a>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <div class="scroll-hint-line"></div>
+    <span id="scroll-hint-text">SCROLL</span>
+  </div>
+</section>
+
+
+<!-- GENRES -->
+<section class="genres-section" id="genres">
+  <div class="genres-title" id="genres-title">// ЖА<span>НРЫ</span></div>
+  <div class="genres-sub">// SELECT GENRE TO FILTER</div>
+  <div class="genres-grid" id="genres-grid"></div>
+</section>
+<!-- CATALOG -->
+<section class="catalog" id="catalog">
+  <div class="catalog-header">
+    <h2 class="catalog-title" id="catalog-title">// <span>КАТАЛОГ</span></h2>
+    
+  </div>
+  <div class="filters" id="section-tabs" style="margin-bottom:14px">
+    <button class="filter-btn active" id="sec-games" onclick="setSection('games')">🎮 <span id="sec-games-label">ИГРЫ</span></button>
+    <button class="filter-btn" id="sec-accessories" onclick="setSection('accessories')">🎧 <span id="sec-acc-label">АКСЕССУАРЫ</span></button>
+  </div>
+  <div class="filters">
+    <button class="filter-btn active" id="fb-all" onclick="setFilter('all')">ყველა</button>
+    <button class="filter-btn" id="fb-ps5" onclick="setFilter('ps5')">PS5</button>
+    <button class="filter-btn" id="fb-ps4" onclick="setFilter('ps4')">PS4</button>
+    <div class="filter-sep"></div>
+    <button class="filter-btn" id="fb-az" onclick="setSort('az')">A-Z</button>
+    <button class="filter-btn" id="fb-za" onclick="setSort('za')">Z-A</button>
+    <button class="filter-btn" id="fb-pasc" onclick="setSort('pasc')">₾↑</button>
+    <button class="filter-btn" id="fb-pdesc" onclick="setSort('pdesc')">₾↓</button>
+    <div class="filter-sep"></div>
+    <div class="search-wrap">
+      <span class="search-icon">⌕</span>
+      <input class="search-inp" id="search-inp" type="text" placeholder="Поиск..." oninput="renderGames()">
+    </div>
+  </div>
+  <div class="game-grid" id="game-grid">
+    <div class="empty-state"><div class="empty-icon">🎮</div><div class="empty-text" id="loading-text">ЗАГРУЗКА...</div></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">ND<span>GAMES</span></div>
+      <p class="footer-desc" id="footer-desc" id="footer-main-desc">PS4 და PS5 თამაშების მაღაზია. ბათუმი, საქართველო.</p>
+    </div>
+    <div>
+      <div class="footer-title" id="footer-contact-title">КОНТАКТЫ</div>
+      <div class="footer-links">
+        <a href="https://wa.me/995597956320" class="footer-link" target="_blank">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61591467959010" class="footer-link" target="_blank">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          Facebook
+        </a>
+        <a href="https://www.instagram.com/ndgames.ge" class="footer-link" target="_blank">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          Instagram
+        </a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-title" id="footer-delivery-title">ДОСТАВКА</div>
+      <p class="footer-desc" id="footer-delivery-text">По Батуми — самовывоз или привозим сами. По Грузии — маршруткой между городами. Оплата наличными.</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 NDGames.ge — All rights reserved</div>
+    <div class="footer-copy" style="color:var(--text3)" id="footer-city">ბათუმი, საქართველო 🇬🇪</div>
+  </div>
+</footer>
+
+
+<!-- PRODUCT MODAL -->
+<div class="product-modal-overlay" id="product-modal-overlay" onclick="pmOverlayClick(event)">
+  <div class="product-modal" id="product-modal">
+    <div class="pm-cover-wrap" id="pm-cover-wrap"></div>
+    <div class="pm-body" id="product-modal-body" style="position:relative">
+      <button class="pm-close" onclick="closeProduct()" style="position:absolute;top:12px;right:12px">✕</button>
+    </div>
+  </div>
+</div>
+
+<!-- AUTH MODAL -->
+<div class="auth-modal-overlay" id="auth-modal-overlay" onclick="authOverlayClick(event)">
+  <div class="auth-modal" id="auth-modal">
+    <div class="auth-title" id="auth-modal-title">ВХОД</div>
+    <div class="auth-sub" id="auth-modal-sub">Войдите чтобы получить скидочную карту и историю заказов</div>
+    <div class="auth-error" id="auth-error"></div>
+
+    <div id="auth-email-form">
+      <input class="auth-inp" id="auth-email" type="email" placeholder="Email">
+      <input class="auth-inp" id="auth-password" type="password" placeholder="Пароль (мин. 6 символов)">
+      <div id="auth-name-wrap" style="display:none">
+        <input class="auth-inp" id="auth-name" type="text" placeholder="Ваше имя">
+        <input class="auth-inp" id="auth-phone" type="tel" placeholder="Телефон +995...">
+        <input class="auth-inp" id="auth-city" type="text" placeholder="Город">
+        <input class="auth-inp" id="auth-district" type="text" placeholder="Район">
+        <input class="auth-inp" id="auth-address" type="text" placeholder="Адрес (улица, дом, кв.)">
+        <input class="auth-inp" id="auth-postal" type="text" placeholder="Почтовый индекс (необязательно)">
+      </div>
+      <button class="auth-submit" id="auth-submit-btn" onclick="submitEmailAuth()">ВОЙТИ</button>
+    </div>
+    <div id="auth-forgot-wrap" style="text-align:right;margin:-4px 0 10px">
+      <a onclick="sendPasswordReset()" id="auth-forgot-link" style="font-size:11px;color:var(--text3);cursor:pointer">დაგავიწყდათ პაროლი?</a>
+    </div>
+    <div class="auth-toggle">
+      <span id="auth-toggle-text">Нет аккаунта?</span>
+      <a onclick="toggleAuthMode()" id="auth-toggle-link"> Зарегистрироваться</a>
+    </div>
+  </div>
+</div>
+
+<!-- PROFILE / LOYALTY CARD PAGE -->
+<div class="profile-overlay" id="profile-overlay">
+  <div class="profile-inner">
+    <button class="profile-back" onclick="closeProfile()">← НАЗАД</button>
+    <div id="profile-content"></div>
+  </div>
+</div>
+
+<!-- CHATBOT FAB -->
+<button class="chat-fab" id="chat-fab" onclick="toggleChat()" title="NDGames Assistant">🤖</button>
+
+<!-- CHATBOT WINDOW -->
+<div class="chat-window" id="chat-window">
+  <div class="chat-head">
+    <div class="chat-head-avatar">🎮</div>
+    <div class="chat-head-info">
+      <div class="chat-head-name">ND ASSISTANT</div>
+      <div class="chat-head-status"><div class="chat-head-dot"></div><span id="chat-status-text">Online</span></div>
+    </div>
+    <button onclick="toggleChat()" style="background:none;border:none;color:var(--text3);cursor:pointer;font-size:18px;padding:4px">✕</button>
+  </div>
+  <div class="chat-lang-pick show" id="chat-lang-pick">
+    <div class="chat-lang-title" id="chat-lang-title">// SELECT LANGUAGE</div>
+    <div class="chat-lang-btns">
+      <div class="chat-lang-btn" onclick="setChatLang('ka')">🇬🇪<br><span style="font-size:10px">ქართული</span></div>
+      <div class="chat-lang-btn" onclick="setChatLang('ru')">🇷🇺<br><span style="font-size:10px">Русский</span></div>
+      <div class="chat-lang-btn" onclick="setChatLang('en')">🇬🇧<br><span style="font-size:10px">English</span></div>
+    </div>
+  </div>
+  <div class="chat-messages" id="chat-messages"></div>
+  <div class="chat-quick-btns" id="chat-quick-btns"></div>
+  <div class="chat-input-wrap" id="chat-input-wrap" style="display:none">
+    <textarea class="chat-inp" id="chat-inp" rows="1" placeholder="..." onkeydown="chatKeyDown(event)"></textarea>
+    <button class="chat-send" onclick="sendChatMsg()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5" stroke-linecap="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+    </button>
+  </div>
+</div>
+
+<!-- WISHLIST FAB -->
+<button class="wish-fab" id="wish-fab" onclick="toggleWishPanel()" title="Wishlist">
+  ❤️
+  <span class="wish-fab-count" id="wish-fab-count">0</span>
+</button>
+
+<!-- WISHLIST PANEL -->
+<div class="wish-panel" id="wish-panel">
+  <div class="wish-panel-head">
+    <span id="wish-panel-title">❤️ WISHLIST</span>
+    <button onclick="toggleWishPanel()" style="background:none;border:none;color:var(--text3);cursor:pointer;font-size:14px">✕</button>
+  </div>
+  <div class="wish-panel-body" id="wish-panel-body"></div>
+</div>
+<!-- CART SIDEBAR -->
+<div class="cart-overlay" id="cart-overlay" onclick="closeCart()"></div>
+<div class="cart-sidebar" id="cart-sidebar">
+  <div class="cart-head">
+    <div class="cart-head-title" id="cart-title">КОРЗИНА</div>
+    <button class="cart-close" onclick="closeCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cart-items-list"></div>
+  <div class="cart-footer" id="cart-footer" style="display:none">
+    <div class="cart-total">
+      <span class="cart-total-label" id="cart-total-label">Итого:</span>
+      <span class="cart-total-val" id="cart-total-val">0 ₾</span>
+    </div>
+    <button class="checkout-btn" id="checkout-btn" onclick="openOrder()">ОФОРМИТЬ ЗАКАЗ →</button>
+  </div>
+</div>
+
+<!-- ORDER MODAL -->
+<div class="modal-overlay" id="order-modal">
+  <div class="modal" id="order-modal-inner"></div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script>
+// ── FIREBASE ──────────────────────────────────────────
+firebase.initializeApp({
+  apiKey:"AIzaSyAkIxx4M7IISPWUEP4vMnQaaYazC8KGxiI",
+  authDomain:"nd-games-default-rtdb.firebaseapp.com",
+  databaseURL:"https://nd-games-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId:"nd-games"
+});
+var db=firebase.database();
+var auth=firebase.auth();
+
+// ── MAINTENANCE MODE ──────────────────────────────────
+db.ref('site/maintenance').on('value',function(s){
+  var ov=document.getElementById('maintenance-overlay');
+  if(!ov)return;
+  ov.style.display=s.val()?'flex':'none';
+});
+
+
+// ── STATE ─────────────────────────────────────────────
+var games={};
+var cart=JSON.parse(localStorage.getItem('ndgames_cart')||'[]');
+var lang='ka';
+var filter='all';
+
+// ── TRANSLATIONS ──────────────────────────────────────
+var T={
+  ru:{
+    cart:'КОРЗИНА',catalog:'КАТАЛОГ',loading:'ЗАГРУЗКА...',
+    empty:'НЕТ ИГР В НАЛИЧИИ',search:'Поиск...',
+    add:'В КОРЗИНУ',added:'В КОРЗИНЕ',
+    checkout:'ОФОРМИТЬ ЗАКАЗ →',total:'Итого:',
+    order_title:'ОФОРМЛЕНИЕ ЗАКАЗА',name:'Имя',phone:'Телефон',
+    city:'Город',delivery:'Способ получения',
+    pickup:'Самовывоз (Батуми)',shipping:'Маршрутка (другой город)',
+    comment:'Комментарий (необязательно)',submit:'ОТПРАВИТЬ ЗАКАЗ',
+    success_title:'ЗАКАЗ ПРИНЯТ!',
+    success_sub:'Мы свяжемся с вами в ближайшее время для подтверждения заказа.',
+    hero_sub:'Buy Better. Play Better. Be Better.',
+    contact:'КОНТАКТЫ',delivery_title:'ДОСТАВКА',
+    delivery_text:'По Батуми — самовывоз или привозим сами. По Грузии — маршруткой. Оплата наличными.',
+    games_count:function(n){return n+' игр'},
+    write:'НАПИСАТЬ НАМ',whatsapp:'НАПИСАТЬ НАМ',all:'ВСЕ',browse:'СМОТРЕТЬ ИГРЫ',browse_acc:'АКСЕССУАРЫ',
+    cart_empty:'КОРЗИНА ПУСТА',fill:'Добавьте игры из каталога',
+    new_badge:'НОВЫЙ',used_badge:'Б/У',
+    fill_req:'Заполните имя и телефон'
+  },
+  ka:{
+    cart:'კალათა',catalog:'კატალოგი',loading:'იტვირთება...',
+    empty:'თამაშები არ არის',search:'ძებნა...',
+    add:'კალათაში',added:'კალათაშია',
+    checkout:'შეკვეთა →',total:'სულ:',
+    order_title:'შეკვეთის გაფორმება',name:'სახელი',phone:'ტელეფონი',
+    city:'ქალაქი',delivery:'მიღების გზა',
+    pickup:'თვითგატანა (ბათუმი)',shipping:'მარშრუტკა (სხვა ქალაქი)',
+    comment:'კომენტარი (არასავალდებულო)',submit:'შეკვეთის გაგზავნა',
+    success_title:'შეკვეთა მიღებულია!',
+    success_sub:'ჩვენ დაგიკავშირდებით უახლოეს მომავალში.',
+    hero_sub:'Buy Better. Play Better. Be Better.',
+    contact:'კონტაქტი',delivery_title:'მიტანა',
+    delivery_text:'ბათუმში — თვითგატანა ან ჩვენ მოვიტანთ. საქართველოში — მარშრუტკით. გადახდა ნაღდით.',
+    games_count:function(n){return n+' თამაში'},
+    write:'მოგვწერეთ',whatsapp:'მოგვწერეთ',all:'ყველა',browse:'თამაშების ნახვა',browse_acc:'აქსესუარები',
+    cart_empty:'კალათა ცარიელია',fill:'დაამატე თამაშები კატალოგიდან',
+    new_badge:'ახალი',used_badge:'მეორადი',
+    fill_req:'შეავსეთ სახელი და ტელეფონი'
+  },
+  en:{
+    cart:'CART',catalog:'CATALOG',loading:'LOADING...',
+    empty:'NO GAMES IN STOCK',search:'Search...',
+    add:'ADD TO CART',added:'IN CART',
+    checkout:'CHECKOUT →',total:'Total:',
+    order_title:'PLACE ORDER',name:'Name',phone:'Phone',
+    city:'City',delivery:'Delivery method',
+    pickup:'Pickup (Batumi)',shipping:'Marshrutka (other city)',
+    comment:'Comment (optional)',submit:'SEND ORDER',
+    success_title:'ORDER PLACED!',
+    success_sub:'We will contact you shortly to confirm your order.',
+    hero_sub:'Buy Better. Play Better. Be Better.',
+    contact:'CONTACTS',delivery_title:'DELIVERY',
+    delivery_text:'Batumi — pickup or we deliver. Georgia — by marshrutka. Cash payment.',
+    games_count:function(n){return n+' games'},
+    write:'CONTACT US',whatsapp:'CONTACT US',all:'ALL',browse:'BROWSE GAMES',browse_acc:'ACCESSORIES',
+    cart_empty:'CART IS EMPTY',fill:'Add games from the catalog',
+    new_badge:'NEW',used_badge:'USED',
+    fill_req:'Please fill name and phone'
+  }
+};
+function t(k){return (T[lang]&&T[lang][k])||k;}
+
+// ── LANG ──────────────────────────────────────────────
+function setLang(l){
+  lang=l;
+  document.querySelectorAll('.lang-btn').forEach(function(b){b.classList.remove('active');});
+  var idx={ka:0,ru:1,en:2}[l]||0;
+  document.querySelectorAll('.lang-btn')[idx].classList.add('active');
+  applyLang();
+  renderGames();
+  renderGenres();
+  renderCart();
+}
+function applyLang(){
+  document.getElementById('cart-label').textContent=t('cart');
+  document.getElementById('cart-title').textContent=t('cart');
+  document.getElementById('catalog-title').innerHTML='// <span>'+t('catalog')+'</span>';
+  document.getElementById('search-inp').placeholder=t('search');
+  document.getElementById('hero-sub').textContent=t('hero_sub');
+  document.getElementById('hero-btn1').innerHTML='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>'+t('browse');
+  var heroAccLbl=document.getElementById('hero-btn-acc-label');if(heroAccLbl)heroAccLbl.textContent=t('browse_acc');
+  document.getElementById('footer-contact-title').textContent=t('contact');
+  document.getElementById('footer-delivery-title').textContent=t('delivery_title');
+  document.getElementById('footer-delivery-text').textContent=t('delivery_text');
+  var wt=document.getElementById('wa-btn-text');if(wt)wt.textContent=t('write');
+  if(typeof updateAuthModalUI==='function')updateAuthModalUI();
+  updateNavAuth();
+  var secGamesLbl=document.getElementById('sec-games-label');if(secGamesLbl)secGamesLbl.textContent=lang==='ka'?'თამაშები':lang==='en'?'GAMES':'ИГРЫ';
+  var secAccLbl=document.getElementById('sec-acc-label');if(secAccLbl)secAccLbl.textContent=lang==='ka'?'აქსესუარები':lang==='en'?'ACCESSORIES':'АКСЕССУАРЫ';
+  var fbAll=document.getElementById('fb-all');if(fbAll)fbAll.textContent=lang==='ka'?'ყველა':lang==='en'?'ALL':'ВСЕ';
+  var fbPs5=document.getElementById('fb-ps5');if(fbPs5)fbPs5.textContent='PS5';
+  var fbPs4=document.getElementById('fb-ps4');if(fbPs4)fbPs4.textContent='PS4';
+  var si=document.getElementById('search-inp');if(si)si.placeholder=t('search');
+  var ct=document.getElementById('catalog-title');if(ct)ct.innerHTML='// '+(lang==='ka'?'კატალოგი':lang==='en'?'CATALOG':'КАТАЛОГ')+'<span></span>';
+  var gt=document.getElementById('genres-title');
+  if(gt)gt.innerHTML='// '+(lang==='ka'?'ჟან<span style="color:var(--pink)">რები</span>':lang==='en'?'GEN<span style="color:var(--pink)">RES</span>':'ЖА<span style="color:var(--pink)">НРЫ</span>');
+  document.getElementById('checkout-btn').textContent=t('checkout');
+  document.getElementById('cart-total-label').textContent=t('total');
+  var sc=document.getElementById('scroll-hint-text');if(sc)sc.textContent='SCROLL';
+}
+
+
+function getLangBadges(g){
+  var langs=g.langs||[];
+  var badges='';
+  if(langs.indexOf('ru_full')!==-1)badges+='<span class="info-badge badge-lang-ru">🎙 РУС</span>';
+  if(langs.indexOf('ru_sub')!==-1)badges+='<span class="info-badge badge-lang-ru">💬 РУС суб</span>';
+  if(langs.indexOf('en')!==-1)badges+='<span class="info-badge badge-lang-en">🎙 ENG</span>';
+  return badges;
+}
+function getGenreBadge(g){
+  if(!g.genre)return '';
+  return '<span class="info-badge badge-genre">'+g.genre+'</span>';
+}
+function getAccCatBadge(catId){
+  if(!catId)return '';
+  var c=ACC_CATEGORIES.find(function(x){return x.id===catId;});
+  if(!c)return '';
+  return '<span class="info-badge badge-genre">'+c.icon+' '+(c.name[lang]||c.id)+'</span>';
+}
+
+// ── GENRE DATA ────────────────────────────────────────
+var GENRE_DATA = [
+  {id:'Action/RPG',       icon:'⚔️',  name:{ka:'Action/RPG',       ru:'Экшен/РПГ',        en:'Action/RPG'},       color:'rgba(180,100,255,0.5)'},
+  {id:'Action/Shooter',   icon:'🔫',  name:{ka:'Action/შუთერი',    ru:'Экшен/Шутер',      en:'Action/Shooter'},   color:'rgba(255,80,80,0.5)'},
+  {id:'Action/Adventure', icon:'🗡️',  name:{ka:'Action/თავგადასავ.',ru:'Экшен/Приключения',en:'Action/Adventure'}, color:'rgba(0,212,255,0.5)'},
+  {id:'Sports',           icon:'⚽',  name:{ka:'სპორტი',            ru:'Спорт',            en:'Sports'},           color:'rgba(0,220,100,0.5)'},
+  {id:'Racing',           icon:'🏎️',  name:{ka:'რბოლა',             ru:'Гонки',            en:'Racing'},           color:'rgba(255,200,0,0.5)'},
+  {id:'Horror',           icon:'💀',  name:{ka:'ჰორორი',            ru:'Хоррор',           en:'Horror'},           color:'rgba(100,200,255,0.4)'},
+  {id:'Fighting',         icon:'🥊',  name:{ka:'საბრძოლო',          ru:'Файтинг',          en:'Fighting'},         color:'rgba(255,120,0,0.5)'},
+  {id:'Puzzle',           icon:'🧩',  name:{ka:'პაზლი',             ru:'Головоломка',      en:'Puzzle'},           color:'rgba(80,220,180,0.5)'},
+  {id:'Simulation',       icon:'🕹️',  name:{ka:'სიმულატორი',        ru:'Симулятор',        en:'Simulation'},       color:'rgba(150,150,255,0.5)'},
+  {id:'Strategy',         icon:'♟️',  name:{ka:'სტრატეგია',         ru:'Стратегия',        en:'Strategy'},         color:'rgba(100,180,100,0.5)'},
+  {id:'Platform',         icon:'🎮',  name:{ka:'პლატფორმერი',       ru:'Платформер',       en:'Platform'},         color:'rgba(255,150,200,0.5)'},
+];
+
+var activeGenre = '';
+
+// ── ACCESSORY CATEGORY DATA ─────────────────────────────
+var ACC_CATEGORIES = [
+  {id:'joystick', icon:'🎮', name:{ka:'ჯოისტიკები',       ru:'Джойстики',          en:'Controllers'}, color:'rgba(0,212,255,0.5)'},
+  {id:'headset',  icon:'🎧', name:{ka:'ყურსასმენები',      ru:'Гарнитуры',          en:'Headsets'},     color:'rgba(180,100,255,0.5)'},
+  {id:'charger',  icon:'🔌', name:{ka:'დამტენები',         ru:'Зарядки',            en:'Chargers'},     color:'rgba(255,200,0,0.5)'},
+  {id:'cable',    icon:'🔗', name:{ka:'კაბელები',          ru:'Кабели/Адаптеры',    en:'Cables'},       color:'rgba(0,220,100,0.5)'},
+  {id:'case',     icon:'🎒', name:{ka:'ქეისები',           ru:'Чехлы/Кейсы',        en:'Cases'},        color:'rgba(255,120,0,0.5)'},
+  {id:'stand',    icon:'🗄️', name:{ka:'სადგამები',         ru:'Подставки/Крепления',en:'Stands'},       color:'rgba(100,180,100,0.5)'},
+  {id:'other',    icon:'🧩', name:{ka:'სხვა',              ru:'Другое',             en:'Other'},        color:'rgba(150,150,255,0.5)'}
+];
+
+var activeSection = 'games'; // 'games' | 'accessories'
+var activeAccCat = '';
+
+function setSection(sec){
+  activeSection = sec;
+  activeGenre = '';
+  activeAccCat = '';
+  var gEl=document.getElementById('sec-games'), aEl=document.getElementById('sec-accessories');
+  if(gEl) gEl.classList.toggle('active', sec==='games');
+  if(aEl) aEl.classList.toggle('active', sec==='accessories');
+  var gt=document.getElementById('genres-title');
+  if(gt) gt.innerHTML = sec==='accessories'
+    ? ('// '+(lang==='ka'?'კატეგ<span style="color:var(--pink)">ორიები</span>':lang==='en'?'CATEG<span style="color:var(--pink)">ORIES</span>':'КАТЕГ<span style="color:var(--pink)">ОРИИ</span>'))
+    : ('// '+(lang==='ka'?'ჟან<span style="color:var(--pink)">რები</span>':lang==='en'?'GEN<span style="color:var(--pink)">RES</span>':'ЖА<span style="color:var(--pink)">НРЫ</span>'));
+  renderGenres();
+  renderGames();
+}
+
+function renderGenres(){
+  var grid = document.getElementById('genres-grid');
+  if(!grid) return;
+
+  if(activeSection === 'accessories'){
+    var countsByCat = {};
+    Object.values(games).forEach(function(g){
+      if(g.status !== 'available' || g.itemType !== 'accessory') return;
+      var cat = g.accCategory || '';
+      if(cat) countsByCat[cat] = (countsByCat[cat]||0) + 1;
+    });
+    var html = '';
+    ACC_CATEGORIES.forEach(function(c){
+      var count = countsByCat[c.id] || 0;
+      var isActive = activeAccCat === c.id;
+      var countLabel = lang==='ka'?'ც':lang==='ru'?'шт':'pcs';
+      html += '<div class="genre-card'+(isActive?' active':'')+'" data-acccat="'+c.id+'" style="--genre-color:'+c.color+'">';
+      html += '<span class="genre-icon">'+c.icon+'</span>';
+      html += '<div class="genre-name">'+(c.name[lang]||c.id)+'</div>';
+      html += '<div class="genre-count">'+(count ? count+' '+countLabel : '—')+'</div>';
+      html += '</div>';
+    });
+    grid.innerHTML = html;
+    grid.onclick = function(e){
+      var card = e.target.closest('.genre-card');
+      if(card) filterByAccCat(card.dataset.acccat);
+    };
+    return;
+  }
+
+  var gamesByGenre = {};
+  Object.values(games).forEach(function(g){
+    if(g.status !== 'available' || g.itemType === 'accessory') return;
+    var genre = g.genre || '';
+    if(genre) gamesByGenre[genre] = (gamesByGenre[genre]||0) + 1;
+  });
+  var html = '';
+  GENRE_DATA.forEach(function(g){
+    var count = gamesByGenre[g.id] || 0;
+    var isActive = activeGenre === g.id;
+    var countLabel = lang==='ka'?'თამაში':lang==='ru'?'игр':'games';
+    html += '<div class="genre-card'+(isActive?' active':'')+'" data-genre="'+g.id+'" style="--genre-color:'+g.color+'">';
+    html += '<span class="genre-icon">'+g.icon+'</span>';
+    html += '<div class="genre-name">'+(g.name[lang]||g.id)+'</div>';
+    html += '<div class="genre-count">'+(count ? count+' '+countLabel : '—')+'</div>';
+    html += '</div>';
+  });
+  grid.innerHTML = html;
+  // Event delegation
+  grid.onclick = function(e){
+    var card = e.target.closest('.genre-card');
+    if(card) filterByGenre(card.dataset.genre);
+  };
+}
+
+function filterByGenre(genreId){
+  if(activeGenre === genreId){
+    activeGenre = '';
+  } else {
+    activeGenre = genreId;
+    // Scroll to catalog
+    var cat = document.getElementById('catalog');
+    if(cat) cat.scrollIntoView({behavior:'smooth', block:'start'});
+  }
+  renderGenres();
+  renderGames();
+}
+
+function filterByAccCat(catId){
+  if(activeAccCat === catId){
+    activeAccCat = '';
+  } else {
+    activeAccCat = catId;
+    var cat = document.getElementById('catalog');
+    if(cat) cat.scrollIntoView({behavior:'smooth', block:'start'});
+  }
+  renderGenres();
+  renderGames();
+}
+
+// ── PRODUCT MODAL ─────────────────────────────────────
+var pmGroups = {}; // populated in renderGames
+var pmSelectedVariant = {}; // key -> item id
+
+function openProduct(keyOrEvent, key2){
+  // Called from card onclick - first arg might be event if button clicked
+  var key = typeof keyOrEvent === 'string' ? keyOrEvent : key2;
+  if(typeof keyOrEvent === 'object') keyOrEvent.stopPropagation();
+  
+  // Rebuild groups on demand from current games
+  var grp = null;
+  Object.values(games).filter(function(g){return g.status==='available';}).forEach(function(g){
+    var k=((g.title||'').toLowerCase().trim())+'||'+(g.platform||'');
+    if(k===key){
+      if(!grp)grp={title:g.title,platform:g.platform,cover:g.cover||'',genre:g.genre||'',langs:g.langs||[],discCode:g.discCode||'',itemType:g.itemType||'disc',accCategory:g.accCategory||'',items:[]};
+      grp.items.push(g);
+      if(!grp.cover&&g.cover)grp.cover=g.cover;
+    }
+  });
+  if(!grp||!grp.items.length)return;
+
+  // Default selected variant
+  if(!pmSelectedVariant[key]){
+    pmSelectedVariant[key]=grp.items[0].id;
+  }
+
+    var coverWrap=document.getElementById('pm-cover-wrap');
+  var body=document.getElementById('product-modal-body');
+  if(!body||!coverWrap)return;
+
+  // Cover
+  coverWrap.innerHTML=grp.cover
+    ?'<img class="pm-cover'+(grp.itemType==='accessory'?' pm-cover-acc':'')+'" src="'+grp.cover+'" alt="'+grp.title+'">'
+    :'<div class="pm-cover-placeholder"></div>';
+
+  // Translations
+  var langs=grp.langs||[];
+  var genreLabel=lang==='ka'?'ჯანრი':lang==='en'?'Genre':'Жанр';
+  var langLabel=lang==='ka'?'ენა':lang==='en'?'Language':'Язык';
+  var codeLabel=lang==='ka'?'კოდი':lang==='en'?'Disc Code':'Код диска';
+  var variantLabel=lang==='ka'?'ვარიანტი':lang==='en'?'Options':'Варианты';
+
+  // Lang values
+  var langVals=[];
+  if(langs.indexOf('ru_full')!==-1)langVals.push(lang==='ka'?'რუს (ხმა+სუბ)':lang==='en'?'RUS (voice+sub)':'Рус (озвучка+суб)');
+  if(langs.indexOf('ru_sub')!==-1)langVals.push(lang==='ka'?'რუს (სუბ)':lang==='en'?'RUS (sub only)':'Рус (только суб)');
+  if(langs.indexOf('en')!==-1)langVals.push('English');
+
+  // Info rows
+  var infoRows='';
+  if(grp.genre)infoRows+='<div class="pm-info-row"><span class="pm-info-label">'+genreLabel+'</span><span class="pm-badge genre">'+grp.genre+'</span></div>';
+  if(langVals.length)infoRows+='<div class="pm-info-row"><span class="pm-info-label">'+langLabel+'</span><div style="display:flex;flex-wrap:wrap;gap:4px">'+langVals.map(function(l){return '<span class="pm-badge lang-ru">'+l+'</span>';}).join('')+'</div></div>';
+  else infoRows+='<div class="pm-info-row"><span class="pm-info-label">'+langLabel+'</span><span style="color:var(--text3);font-size:12px">—</span></div>';
+  if(grp.discCode)infoRows+='<div class="pm-info-row"><span class="pm-info-label">'+codeLabel+'</span><span class="pm-code">'+grp.discCode+'</span></div>';
+
+  // Variant rows - group by condition (new/used) to avoid duplicate rows
+  var condGroups={};
+  grp.items.forEach(function(item){
+    var cond=item.condition==='new'?'new':'used';
+    if(!condGroups[cond]){condGroups[cond]={cond:cond,item:item,count:0};}
+    condGroups[cond].count++;
+    // prefer item not already in cart as representative
+    if(!cart.some(function(c){return c.id===item.id;}))condGroups[cond].item=item;
+  });
+  var condOrder=Object.keys(condGroups).sort(function(a,b){return a==='new'?-1:1;});
+  var variantRows='';
+  var multiCond=condOrder.length>1;
+  condOrder.forEach(function(cond){
+    var g=condGroups[cond];
+    var item=g.item;
+    var isSel=pmSelectedVariant[key]===item.id;
+    var isInCart=grp.items.filter(function(i){return (i.condition===cond||( cond==='used'&&i.condition!=='new'));}).some(function(i){return cart.some(function(c){return c.id===i.id;});});
+    var condLabel=cond==='new'?t('new_badge'):t('used_badge');
+    var condClass=cond==='new'?'new':'used';
+    var qty=g.count;
+    variantRows+='<div class="pm-variant-row'+(isSel||(!multiCond)?' sel':'')+'" data-pmkey="'+key.replace(/"/g,'&quot;')+'" data-pmitem="'+item.id+'">';
+    variantRows+='<div style="display:flex;align-items:center;gap:8px"><span class="pm-variant-cond '+condClass+'">'+condLabel+'</span>'+'</div>';
+    variantRows+=isInCart
+      ?'<span style="font-size:11px;color:var(--cyan)">✓ '+t('added')+'</span>'
+      :'<span class="pm-variant-price">'+(item.price?item.price+' ₾':'—')+'</span>';
+    variantRows+='</div>';
+  });
+
+  var selItem=grp.items.find(function(i){return i.id===pmSelectedVariant[key];})||grp.items[0];
+  var selInCart=cart.some(function(c){return c.id===selItem.id;});
+  var safeKey=key.replace(/"/g,'&quot;');
+
+  body.innerHTML=
+    '<div style="padding-top:44px"></div>'
+    +'<div class="pm-platform">'+(grp.platform||'')+'</div>'
+    +'<div class="pm-title">'+(grp.title||'—')+'</div>'
+    +'<div class="pm-info-block">'+infoRows+'</div>'
+    +(grp.items.length>1
+    ?'<div><div class="pm-info-label" style="margin-bottom:8px">'+variantLabel+'</div><div class="pm-variants">'+variantRows+'</div></div>'
+    :'')
+    +'<button class="pm-add-btn'+(selInCart?' added':'')+'" data-pmaddkey="'+safeKey+'" style="margin-top:auto">'
+    +(selInCart?('✓ '+t('added')):('+ '+t('add')+(grp.items.length===1&&selItem.price?' — '+selItem.price+' ₾':'')))
+    +'</button>';
+
+  document.getElementById('product-modal-overlay').classList.add('open');
+  document.body.style.overflow='hidden';
+  // Event delegation for variant selection
+  var modal=document.getElementById('product-modal');
+  if(modal)modal.onclick=function(e){
+    var row=e.target.closest('[data-pmkey]');
+    if(row&&row.dataset.pmkey&&row.dataset.pmitem){
+      pmSelectedVariant[row.dataset.pmkey]=row.dataset.pmitem;
+      openProduct(row.dataset.pmkey);
+      return;
+    }
+    var addBtn=e.target.closest('[data-pmaddkey]');
+    if(addBtn&&addBtn.dataset.pmaddkey){
+      pmAddToCart(addBtn.dataset.pmaddkey);
+    }
+  };
+}
+
+function selectPMVariant(key, itemId){
+  pmSelectedVariant[key]=itemId;
+  // Re-render modal
+  openProduct(key);
+}
+
+function closeProduct(){
+  document.getElementById('product-modal-overlay').classList.remove('open');
+  document.body.style.overflow='';
+}
+
+function pmOverlayClick(e){
+  if(e.target===document.getElementById('product-modal-overlay'))closeProduct();
+}
+
+function pmAddToCart(key){
+  var selId=pmSelectedVariant[key];
+  if(!selId)return;
+  var g=games[selId];if(!g)return;
+  var inCart=cart.some(function(c){return c.id===selId;});
+  if(inCart){
+    cart=cart.filter(function(c){return c.id!==selId;});
+    showToast('✕ '+g.title);
+  } else {
+    cart.push({id:selId,title:g.title,price:parseFloat(g.price||0),platform:g.platform,cover:g.cover||'',condition:g.condition});
+    showToast('✓ '+g.title);
+  }
+  localStorage.setItem('ndgames_cart',JSON.stringify(cart));
+  updateCartCount();
+  renderGames();
+  openProduct(key); // refresh modal button state
+}
+
+
+// ═══════════════════════════════════════════════════════════════
+// AUTH + LOYALTY CARD
+// ═══════════════════════════════════════════════════════════════
+
+// ── DISCOUNT LEVELS ──────────────────────────────────────────
+var DISCOUNT_LEVELS = [
+  {min:0,   max:300,  pct:0,  label:'Starter'},
+  {min:300, max:500,  pct:3,  label:'Bronze'},
+  {min:500, max:700,  pct:5,  label:'Silver'},
+  {min:700, max:1000, pct:7,  label:'Gold'},
+  {min:1000,max:99999,pct:10, label:'Platinum'},
+];
+
+function getDiscountLevel(spent){
+  for(var i=DISCOUNT_LEVELS.length-1;i>=0;i--){
+    if(spent>=DISCOUNT_LEVELS[i].min)return DISCOUNT_LEVELS[i];
+  }
+  return DISCOUNT_LEVELS[0];
+}
+function getNextLevel(spent){
+  for(var i=0;i<DISCOUNT_LEVELS.length;i++){
+    if(spent<DISCOUNT_LEVELS[i].max)return DISCOUNT_LEVELS[i];
+  }
+  return DISCOUNT_LEVELS[DISCOUNT_LEVELS.length-1];
+}
+
+// ── CURRENT USER STATE ────────────────────────────────────────
+var currentUser = null;
+var currentLoyalty = null;
+var pendingRegData = null;
+// TODO: заменить на реальный адрес после деплоя того же воркера, что и для портала
+var ADMIN_API_URL='https://ndgames-admin.balubalu456456.workers.dev';
+var authMode = 'login'; // 'login' | 'register'
+
+// ── GENERATE CARD NUMBER ──────────────────────────────────────
+function genCardNumber(){
+  var parts=[];
+  for(var i=0;i<4;i++){
+    parts.push(Math.floor(1000+Math.random()*9000).toString());
+  }
+  return 'ND '+parts.join(' ');
+}
+
+// ── AUTH STATE LISTENER ───────────────────────────────────────
+auth.onAuthStateChanged(function(user){
+  currentUser=user;
+  updateNavAuth();
+  if(user){
+    // Load or create loyalty record
+    db.ref('loyalty/'+user.uid).once('value').then(function(snap){
+      if(!snap.exists()){
+        // Create new loyalty record
+        var loyaltyData={
+          uid:user.uid,
+          name:(pendingRegData&&pendingRegData.name)||user.displayName||user.email.split('@')[0],
+          email:user.email,
+          cardNumber:genCardNumber(),
+          totalSpent:0,
+          discountPct:0,
+          level:'Starter',
+          registeredAt:Date.now(),
+          photoURL:user.photoURL||'',
+          phone:(pendingRegData&&pendingRegData.phone)||'',
+          city:(pendingRegData&&pendingRegData.city)||'',
+          district:(pendingRegData&&pendingRegData.district)||'',
+          address:(pendingRegData&&pendingRegData.address)||'',
+          postal:(pendingRegData&&pendingRegData.postal)||''
+        };
+        pendingRegData=null;
+        db.ref('loyalty/'+user.uid).set(loyaltyData);
+        currentLoyalty=loyaltyData;
+      } else {
+        currentLoyalty=snap.val();
+        // Auto-update discount based on spent
+        var level=getDiscountLevel(currentLoyalty.totalSpent||0);
+        if(level.pct!==currentLoyalty.discountPct){
+          db.ref('loyalty/'+user.uid).update({discountPct:level.pct,level:level.label});
+          currentLoyalty.discountPct=level.pct;
+          currentLoyalty.level=level.label;
+        }
+      }
+    });
+  } else {
+    currentLoyalty=null;
+  }
+});
+
+function updateNavAuth(){
+  var area=document.getElementById('auth-nav-area');
+  if(!area)return;
+  if(currentUser){
+    var initials=(currentUser.displayName||currentUser.email||'U').charAt(0).toUpperCase();
+    area.innerHTML='<div class="user-menu-wrap">'
+      +'<button class="user-avatar-btn" onclick="toggleUserMenu()" id="user-avatar-btn">'+initials+'</button>'
+      +'<div class="user-dropdown" id="user-dropdown">'
+      +'<div class="user-dd-name">'+(currentUser.displayName||currentUser.email)+'</div>'
+      +'<div class="user-dd-item" onclick="openProfile()">🎴 '+(lang==='ka'?'ჩემი ბარათი':lang==='en'?'My Card':'Моя карта')+'</div>'
+      +'<div class="user-dd-item" onclick="openProfile(\'orders\')">📋 '+(lang==='ka'?'შეკვეთები':lang==='en'?'Orders':'Мои заказы')+'</div>'
+      +'<div class="user-dd-item red" onclick="signOut()">↩ '+(lang==='ka'?'გამოსვლა':lang==='en'?'Sign out':'Выйти')+'</div>'
+      +'</div></div>';
+  } else {
+    var loginLabel=lang==='ka'?'შესვლა':lang==='en'?'SIGN IN':'ВОЙТИ';
+    area.innerHTML='<button class="auth-btn" onclick="openAuthModal()" id="auth-login-btn">'+loginLabel+'</button>';
+  }
+}
+
+function toggleUserMenu(){
+  var dd=document.getElementById('user-dropdown');
+  if(dd)dd.classList.toggle('open');
+  document.addEventListener('click',function handler(e){
+    if(!e.target.closest('.user-menu-wrap')){
+      if(dd)dd.classList.remove('open');
+      document.removeEventListener('click',handler);
+    }
+  });
+}
+
+// ── AUTH MODAL ────────────────────────────────────────────────
+function openAuthModal(){
+  authMode='login';
+  updateAuthModalUI();
+  document.getElementById('auth-modal-overlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeAuthModal(){
+  document.getElementById('auth-modal-overlay').classList.remove('open');
+  document.body.style.overflow='';
+  var err=document.getElementById('auth-error');if(err){err.textContent='';err.classList.remove('show');}
+}
+function authOverlayClick(e){
+  if(e.target===document.getElementById('auth-modal-overlay'))closeAuthModal();
+}
+function toggleAuthMode(){
+  authMode=authMode==='login'?'register':'login';
+  updateAuthModalUI();
+}
+function updateAuthModalUI(){
+  var isReg=authMode==='register';
+  var title=document.getElementById('auth-modal-title');
+  var sub=document.getElementById('auth-modal-sub');
+  var submitBtn=document.getElementById('auth-submit-btn');
+  var toggleText=document.getElementById('auth-toggle-text');
+  var toggleLink=document.getElementById('auth-toggle-link');
+  var nameWrap=document.getElementById('auth-name-wrap');
+  var divider=document.querySelector('.auth-divider');
+
+  if(title)title.textContent=isReg?(lang==='ka'?'რეგისტრაცია':lang==='en'?'REGISTER':'РЕГИСТРАЦИЯ'):(lang==='ka'?'შესვლა':lang==='en'?'SIGN IN':'ВХОД');
+  if(sub)sub.textContent=isReg?(lang==='ka'?'შექმენი ანგარიში სადისკაუნტო ბარათისთვის':lang==='en'?'Create account to get your discount card':'Создайте аккаунт для получения скидочной карты'):(lang==='ka'?'შედი სადისკაუნტო ბარათზე წვდომისთვის':lang==='en'?'Sign in to access your discount card':'Войдите для доступа к скидочной карте');
+  if(submitBtn)submitBtn.textContent=isReg?(lang==='ka'?'რეგისტრაცია':lang==='en'?'REGISTER':'ЗАРЕГИСТРИРОВАТЬСЯ'):(lang==='ka'?'შესვლა':lang==='en'?'SIGN IN':'ВОЙТИ');
+  if(nameWrap)nameWrap.style.display=isReg?'block':'none';
+  var fw=document.getElementById('auth-forgot-wrap');if(fw)fw.style.display=isReg?'none':'block';
+  var forgotLink=document.getElementById('auth-forgot-link');
+  if(forgotLink)forgotLink.textContent=lang==='ka'?'დაგავიწყდათ პაროლი?':lang==='en'?'Forgot password?':'Забыли пароль?';
+  var emailInp=document.getElementById('auth-email');
+  if(emailInp)emailInp.placeholder=lang==='ka'?'ელფოსტა':lang==='en'?'Email':'Email';
+  var passInp=document.getElementById('auth-password');
+  if(passInp)passInp.placeholder=lang==='ka'?'პაროლი (მინ. 6 სიმბოლო)':lang==='en'?'Password (min. 6 chars)':'Пароль (мин. 6 символов)';
+  var nameInp=document.getElementById('auth-name');
+  if(nameInp)nameInp.placeholder=lang==='ka'?'თქვენი სახელი':lang==='en'?'Your name':'Ваше имя';
+  var phoneInp=document.getElementById('auth-phone');
+  if(phoneInp)phoneInp.placeholder=(lang==='ka'?'ტელეფონი':lang==='en'?'Phone':'Телефон')+' +995...';
+  var cityInp=document.getElementById('auth-city');
+  if(cityInp)cityInp.placeholder=lang==='ka'?'ქალაქი':lang==='en'?'City':'Город';
+  var districtInp=document.getElementById('auth-district');
+  if(districtInp)districtInp.placeholder=lang==='ka'?'რაიონი':lang==='en'?'District':'Район';
+  var addressInp=document.getElementById('auth-address');
+  if(addressInp)addressInp.placeholder=lang==='ka'?'მისამართი (ქუჩა, სახლი, ბინა)':lang==='en'?'Address (street, house, apt.)':'Адрес (улица, дом, кв.)';
+  var postalInp=document.getElementById('auth-postal');
+  if(postalInp)postalInp.placeholder=lang==='ka'?'საფოსტო ინდექსი (არასავალდებულო)':lang==='en'?'Postal code (optional)':'Почтовый индекс (необязательно)';
+  if(toggleText)toggleText.textContent=isReg?(lang==='ka'?'უკვე გაქვს ანგარიში?':lang==='en'?'Already have account?':'Уже есть аккаунт?'):(lang==='ka'?'არ გაქვს ანგარიში?':lang==='en'?'No account?':'Нет аккаунта?');
+  if(toggleLink)toggleLink.textContent=isReg?(lang==='ka'?' შესვლა':lang==='en'?' Sign in':' Войти'):(lang==='ka'?' რეგისტრაცია':lang==='en'?' Register':' Зарегистрироваться');
+  if(divider)divider.textContent=lang==='ka'?'ან':lang==='en'?'or':'или';
+}
+
+function showAuthError(msg){
+  var el=document.getElementById('auth-error');
+  if(el){el.textContent=msg;el.classList.add('show');}
+}
+
+function submitEmailAuth(){
+  var email=(document.getElementById('auth-email')||{}).value.trim();
+  var password=(document.getElementById('auth-password')||{}).value;
+  var name=(document.getElementById('auth-name')||{}).value.trim();
+  var phone=(document.getElementById('auth-phone')||{}).value.trim();
+  var city=(document.getElementById('auth-city')||{}).value.trim();
+  var district=(document.getElementById('auth-district')||{}).value.trim();
+  var address=(document.getElementById('auth-address')||{}).value.trim();
+  var postal=(document.getElementById('auth-postal')||{}).value.trim();
+
+  if(!email||!password){showAuthError(lang==='ka'?'შეავსე ყველა ველი':lang==='en'?'Fill all fields':'Заполните все поля');return;}
+  if(password.length<6){showAuthError(lang==='ka'?'პაროლი მინ. 6 სიმბოლო':lang==='en'?'Password min. 6 chars':'Пароль минимум 6 символов');return;}
+
+  if(authMode==='register'){
+    if(!name){showAuthError(lang==='ka'?'შეიყვანეთ სახელი':lang==='en'?'Enter your name':'Введите имя');return;}
+    if(!phone){showAuthError(lang==='ka'?'შეიყვანეთ ტელეფონი':lang==='en'?'Enter your phone':'Введите номер телефона');return;}
+    if(!city){showAuthError(lang==='ka'?'შეიყვანეთ ქალაქი':lang==='en'?'Enter your city':'Введите город');return;}
+    if(!district){showAuthError(lang==='ka'?'შეიყვანეთ რაიონი':lang==='en'?'Enter your district':'Введите район');return;}
+    if(!address){showAuthError(lang==='ka'?'შეიყვანეთ მისამართი':lang==='en'?'Enter your address':'Введите адрес');return;}
+
+    var submitBtn=document.getElementById('auth-submit-btn');
+    if(submitBtn){submitBtn.disabled=true;submitBtn.textContent=lang==='ka'?'შემოწმება...':lang==='en'?'Checking...':'Проверка...';}
+
+    // Prevent duplicate accounts registered with the same phone number
+    // (проверяем через воркер, т.к. анонимный посетитель не имеет прав читать /loyalty напрямую)
+    fetch(ADMIN_API_URL+'/check-phone',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({phone:phone})
+    }).then(function(res){return res.json();}).then(function(dupResult){
+      if(dupResult&&dupResult.exists){
+        if(submitBtn)submitBtn.disabled=false;
+        updateAuthModalUI();
+        showAuthError(lang==='ka'?'ეს ტელეფონის ნომერი უკვე რეგისტრირებულია':lang==='en'?'This phone number is already registered':'Этот номер телефона уже зарегистрирован');
+        return;
+      }
+      pendingRegData={name:name,phone:phone,city:city,district:district,address:address,postal:postal};
+      auth.createUserWithEmailAndPassword(email,password).then(function(cred){
+        return cred.user.updateProfile({displayName:name}).then(function(){
+          closeAuthModal();
+          showToast('✓ '+(lang==='ka'?'კეთილი იყოს თქვენი მობრძანება, '+name:lang==='en'?'Welcome, '+name:'Добро пожаловать, '+name+'!'));
+          setTimeout(function(){openProfile();},800);
+        });
+      }).catch(function(e){
+        pendingRegData=null;
+        if(submitBtn)submitBtn.disabled=false;
+        updateAuthModalUI();
+        var msg=e.code==='auth/email-already-in-use'?(lang==='ka'?'ეს email უკვე გამოყენებულია':lang==='en'?'Email already in use':'Email уже используется'):e.message;
+        showAuthError(msg);
+      });
+    }).catch(function(e){
+      if(submitBtn)submitBtn.disabled=false;
+      updateAuthModalUI();
+      showAuthError(lang==='ka'?'შეცდომა, სცადეთ თავიდან':lang==='en'?'Error, please try again':'Ошибка проверки, попробуйте снова');
+    });
+  } else {
+    auth.signInWithEmailAndPassword(email,password).then(function(){
+      closeAuthModal();
+      showToast('✓ '+(lang==='ka'?'კეთილი იყოს':lang==='en'?'Welcome back!':'С возвращением!'));
+    }).catch(function(e){
+      var msg=(e.code==='auth/wrong-password'||e.code==='auth/invalid-login-credentials'||e.code==='auth/invalid-credential')?(lang==='ka'?'არასწორი ლოგინი ან პაროლი':lang==='en'?'Incorrect login or password':'Неверный логин или пароль'):e.code==='auth/user-not-found'?(lang==='ka'?'მომხმარებელი ვერ მოიძებნა':lang==='en'?'User not found':'Пользователь не найден'):(lang==='ka'?'დააფიქსირეთ და სცადეთ სცად':lang==='en'?'Please try again':'Попробуйте ещё раз');
+      showAuthError(msg);
+    });
+  }
+}
+
+function sendPasswordReset(){
+  var email=(document.getElementById('auth-email')||{}).value.trim();
+  if(!email){showAuthError(lang==='ka'?'Email შეიყვანეთ':lang==='en'?'Enter your email':'Введите email');return;}
+  auth.sendPasswordResetEmail(email).then(function(){
+    var err=document.getElementById('auth-error');
+    if(err){err.style.cssText='background:rgba(0,255,136,0.1);border-color:rgba(0,255,136,0.3);color:#00ff88;display:block';err.textContent=lang==='ka'?'გაიგზავნა! Email შეამოწმეთ':lang==='en'?'Sent! Check your email':'Отправлено! Проверьте email';}
+  }).catch(function(e){showAuthError(e.message);});
+}
+
+function signOut(){
+  auth.signOut();
+  var dd=document.getElementById('user-dropdown');if(dd)dd.classList.remove('open');
+  showToast(lang==='ka'?'გამოსვლა წარმატებულია':lang==='en'?'Signed out':'Вы вышли из аккаунта');
+}
+
+// ── PROFILE / LOYALTY CARD ────────────────────────────────────
+function openProfile(tab){
+  if(!currentUser){openAuthModal();return;}
+  // Reload loyalty data fresh
+  db.ref('loyalty/'+currentUser.uid).once('value').then(function(snap){
+    currentLoyalty=snap.val()||currentLoyalty;
+    renderProfile(tab||'card');
+    document.getElementById('profile-overlay').classList.add('open');
+    document.body.style.overflow='hidden';
+  });
+}
+
+function closeProfile(){
+  document.getElementById('profile-overlay').classList.remove('open');
+  document.body.style.overflow='';
+  var dd=document.getElementById('user-dropdown');if(dd)dd.classList.remove('open');
+}
+
+function renderProfile(tab){
+  var loy=currentLoyalty||{};
+  var spent=parseFloat(loy.totalSpent||0);
+  var level=getDiscountLevel(spent);
+  var nextLev=null;
+  for(var i=0;i<DISCOUNT_LEVELS.length;i++){if(DISCOUNT_LEVELS[i].min>spent){nextLev=DISCOUNT_LEVELS[i];break;}}
+  var barPct=nextLev?Math.min(100,Math.round((spent-level.min)/(nextLev.min-level.min)*100)):100;
+  var barLabel=nextLev?(lang==='ka'?'შემდეგ დონემდე: '+(nextLev.min-spent)+'₾':lang==='en'?'To next: '+(nextLev.min-spent)+'₾':'До след.: '+(nextLev.min-spent)+'₾'):(lang==='ka'?'მაქს. დონე!':lang==='en'?'Max level!':'Макс. уровень!');
+  var cardNum=loy.cardNumber||'ND XXXX XXXX XXXX';
+  var levelColor=level.pct===0?'#888':level.pct===3?'#cd7f32':level.pct===5?'#aaa':level.pct===7?'#ffd700':'#00d4ff';
+  var html='';
+
+  if(!tab||tab==='card'){
+    // Card + progress only
+    html+='<div class="loyalty-card">'
+      +'<div style="display:flex;justify-content:space-between;align-items:flex-start">'
+      +'<div class="lc-logo">ND<span>GAMES</span></div><div class="lc-chip"></div></div>'
+      +'<div class="lc-mid">'
+      +'<div><div class="lc-discount">'+level.pct+'%</div><div class="lc-discount-label">'+(lang==='ka'?'ფასდაკლება':lang==='en'?'DISCOUNT':'СКИДКА')+'</div></div>'
+      +'<div style="width:1px;height:40px;background:rgba(255,255,255,0.1)"></div>'
+      +'<div><div style="font-family:var(--font-display);font-size:14px;font-weight:700;color:'+levelColor+'">'+level.label.toUpperCase()+'</div>'
+      +'<div style="font-size:10px;color:var(--text3);font-family:var(--font-mono)">'+(lang==='ka'?'სტატუსი':lang==='en'?'STATUS':'СТАТУС')+'</div></div></div>'
+      +'<div class="lc-bottom">'
+      +'<div><div class="lc-number">'+cardNum+'</div><div class="lc-name">'+(loy.name||'')+'</div></div>'
+      +'<div><div class="lc-level" style="color:'+levelColor+'">★ NDGAMES</div></div></div></div>';
+    html+='<div class="progress-wrap">'
+      +'<div class="progress-title">'+(lang==='ka'?'// ფასდაკლების პროგრესი':lang==='en'?'// DISCOUNT PROGRESS':'// ПРОГРЕСС СКИДКИ')+'</div>'
+      +'<div class="progress-bar-outer"><div class="progress-bar-fill" style="width:'+barPct+'%"></div></div>'
+      +'<div class="progress-steps">';
+    DISCOUNT_LEVELS.forEach(function(l){html+='<div class="progress-step'+(spent>=l.min?' done':'')+'">'+l.min+'₾<br>'+l.pct+'%</div>';});
+    html+='</div><div class="progress-info">'
+      +'<div class="progress-spent">'+(lang==='ka'?'დახარჯული:':lang==='en'?'Spent:':'Потраყეно:')+' <span>'+spent.toFixed(0)+' ₾</span></div>'
+      +'<div class="progress-next">'+barLabel+'</div></div></div>';
+
+  } else if(tab==='orders'){
+    // Orders history only
+    html+='<div class="order-history-wrap">'
+      +'<div class="order-history-title">'+(lang==='ka'?'// შეკვეთების ისტორია':lang==='en'?'// ORDER HISTORY':'// ИСТОРИЯ ЗАКАЗОВ')+'</div>'
+      +'<div id="order-history-list"><div style="color:var(--text3);font-size:12px;text-align:center;padding:20px">'+(lang==='ka'?'იტვირთება...':lang==='en'?'Loading...':'Загрузка...')+'</div></div></div>';
+    if(currentUser){
+      db.ref('orders').orderByChild('userEmail').equalTo(currentUser.email).once('value').then(function(snap){
+        var orders=[];snap.forEach(function(ch){orders.push(ch.val());});
+        orders.sort(function(a,b){return (b.createdAt||0)-(a.createdAt||0);});
+        var listEl=document.getElementById('order-history-list');if(!listEl)return;
+        if(!orders.length){listEl.innerHTML='<div style="color:var(--text3);font-size:12px;text-align:center;padding:20px">'+(lang==='ka'?'შეკვეთები ჯერ არის':lang==='en'?'No orders yet':'Заказов пока нет')+'</div>';return;}
+        var sl={new:lang==='ka'?'ახალი':lang==='en'?'New':'Новый',confirmed:'Подтв.',delivered:'Досგав.',cancelled:'Оგмен.'};
+        listEl.innerHTML=orders.map(function(o){
+          return '<div class="order-hist-item">'
+            +'<div class="order-hist-date">'+(o.createdAt?new Date(o.createdAt).toLocaleDateString('ru-RU'):'')+'</div>'
+            +'<div class="order-hist-games">'+(o.items||[]).map(function(i){return i.title;}).join(', ')+'</div>'
+            +'<div class="order-hist-total">'+o.total+' ₾'+(o.discountPct?'<span style="font-size:10px;color:#00ff88;margin-left:6px">-'+o.discountPct+'%</span>':'')+'</div>'
+            +'<span class="order-hist-status '+(o.status||'new')+'">'+(sl[o.status]||o.status)+'</span></div>';
+        }).join('');
+      });
+    }
+  }
+  document.getElementById('profile-content').innerHTML=html;
+}
+
+
+function getCartTotal(){
+  var base=cart.reduce(function(s,c){return s+c.price;},0);
+  if(currentLoyalty&&currentLoyalty.discountPct>0){
+    var disc=Math.round(base*currentLoyalty.discountPct/100);
+    return {base:base,discount:disc,total:base-disc,pct:currentLoyalty.discountPct};
+  }
+  return {base:base,discount:0,total:base,pct:0};
+}
+
+
+
+// ═══════════════════════════════════════════════════════════════
+// CHATBOT
+// ═══════════════════════════════════════════════════════════════
+var chatOpen = false;
+var chatLang = null;
+var chatHistory = [];
+var chatTyping = false;
+
+var CHAT_T = {
+  ka: {
+    greeting: 'გამარჯობა! მე ვარ NDGames-ის ასისტენტი 🎮\nმე ვიცი ყველა თამაში, ფასი და ხელმისაწვდომობა.\nროგორ დაგეხმარო?',
+    placeholder: 'დაწერეთ შეტყობინება...',
+    quick: ['🎮 ყველა თამაში','🚚 მიტანა','💳 გადახდა','📞 კონტაქტი'],
+    status: 'ონლაინ',
+    thinking: 'ვფიქრობ...',
+    error: 'შეცდომა. სცადეთ თავიდან.',
+    system: 'შენ ხარ NDGames-ის ასისტენტი - PS4/PS5 თამაშების მაღაზია ბათუმში, საქართველო. უპასუხე მხოლოდ ქართულად. იყავი მოკლე და სასარგებლო.'
+  },
+  ru: {
+    greeting: 'Привет! Я ассистент NDGames 🎮\nЗнаю все игры, цены и наличие.\nЧем могу помочь?',
+    placeholder: 'Напишите сообщение...',
+    quick: ['🎮 Все игры','🚚 Доставка','💳 Оплата','📞 Контакты'],
+    status: 'Онлайн',
+    thinking: 'Думаю...',
+    error: 'Ошибка. Попробуйте ещё раз.',
+    system: 'Ты ассистент магазина NDGames — PS4/PS5 игры в Батуми, Грузия. Отвечай только по-русски. Будь кратким и полезным.'
+  },
+  en: {
+    greeting: 'Hi! I\'m the NDGames assistant 🎮\nI know all games, prices and availability.\nHow can I help?',
+    placeholder: 'Type a message...',
+    quick: ['🎮 All games','🚚 Delivery','💳 Payment','📞 Contact'],
+    status: 'Online',
+    thinking: 'Thinking...',
+    error: 'Error. Please try again.',
+    system: 'You are the assistant for NDGames — PS4/PS5 game store in Batumi, Georgia. Reply only in English. Be brief and helpful.'
+  }
+};
+
+function toggleChat(){
+  chatOpen=!chatOpen;
+  var fab=document.getElementById('chat-fab');
+  var win=document.getElementById('chat-window');
+  if(fab)fab.classList.toggle('open',chatOpen);
+  if(win)win.classList.toggle('open',chatOpen);
+}
+
+function setChatLang(l){
+  chatLang=l;
+  var pick=document.getElementById('chat-lang-pick');
+  var inputWrap=document.getElementById('chat-input-wrap');
+  if(pick)pick.classList.remove('show');
+  if(inputWrap)inputWrap.style.display='flex';
+  var inp=document.getElementById('chat-inp');
+  if(inp)inp.placeholder=CHAT_T[l].placeholder;
+  var statusEl=document.getElementById('chat-status-text');
+  if(statusEl)statusEl.textContent=CHAT_T[l].status;
+  // Show greeting
+  appendChatMsg('bot',CHAT_T[l].greeting);
+  // Quick buttons
+  renderQuickBtns();
+}
+
+function renderQuickBtns(){
+  if(!chatLang)return;
+  var container=document.getElementById('chat-quick-btns');
+  if(!container)return;
+  container.innerHTML=CHAT_T[chatLang].quick.map(function(q){
+    return '<button class="chat-quick-btn" onclick="quickChat(this.textContent)">'+q+'</button>';
+  }).join('');
+}
+
+function quickChat(text){
+  sendChatMsg(text);
+  var container=document.getElementById('chat-quick-btns');
+  if(container)container.innerHTML='';
+}
+
+function appendChatMsg(role,text){
+  var msgs=document.getElementById('chat-messages');
+  if(!msgs)return;
+  var time=new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});
+  var div=document.createElement('div');
+  div.className='chat-msg '+role;
+  div.innerHTML='<div class="chat-bubble">'+text.replace(/\n/g,'<br>')+'</div>'
+    +'<div class="chat-time">'+time+'</div>';
+  msgs.appendChild(div);
+  msgs.scrollTop=msgs.scrollHeight;
+}
+
+function showTyping(){
+  var msgs=document.getElementById('chat-messages');
+  if(!msgs)return;
+  var div=document.createElement('div');
+  div.className='chat-msg bot';div.id='chat-typing-indicator';
+  div.innerHTML='<div class="chat-typing"><span></span><span></span><span></span></div>';
+  msgs.appendChild(div);
+  msgs.scrollTop=msgs.scrollHeight;
+}
+function hideTyping(){
+  var el=document.getElementById('chat-typing-indicator');
+  if(el)el.remove();
+}
+
+function chatKeyDown(e){
+  if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendChatMsg();}
+}
+
+function buildGameContext(){
+  var avail=Object.values(games).filter(function(g){return g.status==='available';});
+  if(!avail.length)return 'No games in stock currently.';
+  // Group by title+platform
+  var groups={};
+  avail.forEach(function(g){
+    var key=(g.title||'')+'|'+(g.platform||'');
+    if(!groups[key])groups[key]={title:g.title,platform:g.platform,prices:[],conds:[]};
+    if(g.price)groups[key].prices.push(parseFloat(g.price));
+    if(g.condition&&groups[key].conds.indexOf(g.condition)===-1)groups[key].conds.push(g.condition);
+  });
+  var lines=Object.values(groups).slice(0,50).map(function(g){
+    var price=g.prices.length?Math.min.apply(null,g.prices)+' GEL':'price unknown';
+    var cond=g.conds.map(function(c){return c==='new'?'new':'used';}).join('/');
+    return g.title+' ('+g.platform+', '+cond+', from '+price+')';
+  });
+  return 'Available games:\n'+lines.join('\n');
+}
+
+function sendChatMsg(text){
+  if(!chatLang)return;
+  var inp=document.getElementById('chat-inp');
+  var msg=text||(inp?inp.value.trim():'');
+  if(!msg||chatTyping)return;
+  if(inp&&!text)inp.value='';
+  appendChatMsg('user',msg);
+  chatTyping=true;
+  showTyping();
+  setTimeout(function(){
+    hideTyping();
+    appendChatMsg('bot',getBotReply(msg,chatLang));
+    chatTyping=false;
+  },500);
+}
+
+// ═══════════════════════════════════════════════════════════════
+// FUZZY GAME SEARCH: normalization + multilingual alias dictionary
+// ═══════════════════════════════════════════════════════════════
+function normTxt(s){
+  return (s||'').toLowerCase()
+    .replace(/['’´`]/g,'')
+    .replace(/[-:–—_.,!?()]/g,' ')
+    .replace(/\s+/g,' ')
+    .trim();
+}
+
+// canonical (normalized substring that appears in real titles) -> alternate spellings
+// (Georgian phonetic, Russian, abbreviations, no-space forms, etc.)
+var GAME_ALIASES = {
+  'spider man':['სპაიდერმენი','სპაიდერ მენი','საიდერმენი','საიდელ მენი','საიდერ მენი','человек паук','человекпаук','spiderman','спайдермен','спайдер мен'],
+  'god of war':['ღმერთთა ომი','гоу','god war','gow','гад оф вор'],
+  'grand theft auto':['გრანდ თეფთ აუტო','гта','gta','grand theft','гранд тефт авто'],
+  'call of duty':['ქოლ ოფ დიუთი','кол оф дьюти','код','cod','кал оф дьюти'],
+  'fifa':['ფიფა','фифа'],
+  'ea sports fc':['ფისი','фифа','fc25','fc 25','фс 25'],
+  'mortal kombat':['მორტალ კომბატი','мортал комбат','мк','мк1','мк11','мкx','мортал','мортал комбад'],
+  'resident evil':['რეზიდენტ ივილი','резидент ивил','рэ','ре','резидент эвил'],
+  'silent hill':['სილენტ ჰილი','сайлент хилл','сайлент','сайлент хил'],
+  'gran turismo':['გრან ტურიზმო','гран туризмо','грантуризмо','гт7','гт 7'],
+  'the last of us':['ლასთ ოფ აზ','ласт оф ас','tlou','ласт оф юс','ласт'],
+  'uncharted':['ანჩარტედი','анчартед','анчартид'],
+  'ghost of tsushima':['გოსტ ოფ ცუშიმა','гост оф цушима','гост цусима','ghost tsushima','гоуст оф цушима'],
+  'death stranding':['დეთ სთრენდინგი','дэс стрендинг','death stranding','дэс страндинг'],
+  'cyberpunk':['ციბერპანკი','киберпанк','киберпанк 2077','сайберпанк'],
+  'red dead redemption':['რედ დედ რედემფშენი','рдр','рдр2','red dead','ред дед редемпшн'],
+  'assassin':['ასასინი','ассасин крид','ассасинс крид','ac','ассасин'],
+  'hogwarts legacy':['ჰოგვარტსის მემკვიდრეობა','хогвартс','хогвартс легаси','хогвартс наследие'],
+  'ea sports ufc':['უფსი','уфс','уфс 5','ufc5','юфс'],
+  'nba 2k':['ნბა','нба 2к','нба2к','нба'],
+  'tekken':['ტეკენი','теккен','тэккен'],
+  'street fighter':['სტრიტ ფაითერი','стрит файтер','стрит файтэр'],
+  'elden ring':['ელდენ რინგი','элден ринг','елден ринг','елдэн ринг'],
+  'horizon':['ჰორიზონტი','горайзон','горизонт'],
+  'final fantasy':['ფაინალ ფენტეზი','файнал фэнтези','финалка','ff','финал фэнтези'],
+  'marvel':['მარველი','марвел','марвэл'],
+  'batman':['ბეთმენი','батман','бэтмен'],
+  'miles morales':['მაილს მორალესი','майлз моралес','майлс моралес'],
+  'it takes two':['იტ ტეიქს ტუ','ит тейкс ту','ит тейкс ту'],
+  'minecraft':['მაინკრაფტი','майнкрафт'],
+  'fortnite':['ფორთნაითი','фортнайт','фортнайт'],
+  'wwe 2k':['ვვე','дабл ю дабл ю и','вве'],
+  'dragon ball':['დრაგონ ბოლი','драгон бол','дракон бол'],
+  'star wars':['სტარ ვორსი','стар варс','звёздные войны'],
+  'lego':['ლეგო','лего'],
+  'crash bandicoot':['კრეშ ბანდიკუტი','краш бандикут','краш'],
+  'gta':['გთა','гта','джита','джи ти эй'],
+  'nfs':['ნეფესი','нфс','нид фор спид','need for speed'],
+  'ea sports':['ია სპორტს','иа спортс','еа спортс'],
+  'mario':['მარიო','марио'],
+  'sonic':['სონიკი','соник'],
+  'persona':['პერსონა','персона'],
+  'demon s souls':['დემონსოულსი','демон соулс','демонс соулс'],
+  'dark souls':['დარკ სოულსი','дарк соулс'],
+  'until dawn':['ანთილ დაუნი','антил давн','антилдаун'],
+  'rachet and clank':['რეჩეტ ენდ კლენკი','рэтчет энд кланк','рачет кланк'],
+  'sackboy':['სეკბოი','сэкбой'],
+  'returnal':['რითურნალი','ретёрнал','ретернал'],
+  'monster hunter':['მონსტერ ჰანთერი','монстер хантер','монстр хантер']
+};
+
+var PLATFORM_WORDS=['ps4','ps5','пс4','пс5','пс','ps','playstation','плейстейшен','плейстейшн'];
+var STOP_WORDS=['რა','ღირს','სად','არის','ფასი','რამდენი','გვაქვს','გაქვს','მაქვს','გვაქვს',
+  'сколько','стоит','цена','есть','ли','по','как','и','что','у','вас','цену',
+  'how','much','does','cost','price','is','the','a','of','have','you','got','for'];
+
+function buildHaystack(title){
+  var norm=normTxt(title);
+  var extra=[];
+  Object.keys(GAME_ALIASES).forEach(function(key){
+    if(norm.indexOf(key)!==-1){
+      extra=extra.concat(GAME_ALIASES[key].map(normTxt));
+    }
+  });
+  return norm+' '+extra.join(' ');
+}
+
+function searchGames(msg,avail){
+  var qNorm=normTxt(msg);
+  var rawTokens=qNorm.split(' ').filter(function(w){return w.length>=2||/^\d+$/.test(w);});
+  var tokens=rawTokens.filter(function(w){return STOP_WORDS.indexOf(w)===-1;});
+  if(!tokens.length)tokens=rawTokens;
+  var contentTokens=tokens.filter(function(w){return PLATFORM_WORDS.indexOf(w)===-1;});
+  var platformTokens=tokens.filter(function(w){return PLATFORM_WORDS.indexOf(w)!==-1;});
+  if(!contentTokens.length)return [];
+
+  var wordTokens=contentTokens.filter(function(w){return !/^\d+$/.test(w);});
+  var numTokens=contentTokens.filter(function(w){return /^\d+$/.test(w);});
+
+  var scored=avail.map(function(g){
+    var hay=buildHaystack(g.title||'');
+    var platHay=normTxt(g.platform||'');
+    var wordScore=0,numScore=0;
+    wordTokens.forEach(function(w){if(hay.indexOf(w)!==-1)wordScore++;});
+    numTokens.forEach(function(w){
+      var re=new RegExp('(^|[^0-9])'+w+'($|[^0-9])');
+      if(re.test(' '+hay+' '))numScore++;
+    });
+    // require at least one real word match when the query has words;
+    // a bare number (e.g. "2") is too weak to qualify a game on its own
+    var qualifies=wordTokens.length?wordScore>0:numScore>0;
+    var score=qualifies?wordScore+numScore*0.5:0;
+    if(score>0)platformTokens.forEach(function(w){if(platHay.indexOf(w)!==-1)score+=0.5;});
+    return {g:g,score:score};
+  }).filter(function(x){return x.score>0;});
+
+  scored.sort(function(a,b){return b.score-a.score;});
+  if(!scored.length)return [];
+  var topScore=scored[0].score;
+  return scored.filter(function(x){return x.score===topScore;}).map(function(x){return x.g;});
+}
+
+function getBotReply(msg,l){
+  var q=msg.toLowerCase().trim();
+  var avail=Object.values(games).filter(function(g){return g.status==='available';});
+
+  // Greetings
+  if(/^(hi|hey|hello|გამარჯ|სალამ|привет|здрав)/.test(q)){
+    return l==='ka'?'გამარჯობა! თამაშის სახელი დამიწერეთ — გეტყვი გვაქს თუ არა.':
+           l==='en'?'Hello! Tell me a game name and I’ll check if we have it.':
+           'Привет! Напишите название игры — проверю наличие.';
+  }
+
+  // Delivery
+  if(/достав|маршрут|привез|deliver|shipping|მიტან|მიშველ/.test(q)){
+    return l==='ka'?'ბათუმში: ადგილზე მოსვლა ან მიტანა. რეგიონები/თბილისი: საქართველოს ფოსტის/ტრანსპორტის მეშვებით.':
+           l==='en'?'Batumi: pickup or delivery. Other cities: via Georgia Post or transport.':
+           'Батуми: самовывоз или доставляем. Регионы: почта Грузии или транспорт.';
+  }
+
+  // Payment
+  if(/оплат|налич|платеж|pay|cash|გადახდა|ფასი/.test(q)){
+    return l==='ka'?'გადახდა ნაღდით. გადაცემისას ან/ან მირეცემისას დროს.':
+           l==='en'?'Cash only — on pickup or delivery.':
+           'Оплата наличными — при выдаче или доставке.';
+  }
+
+  // Contact
+  if(/контакт|номер|ватсап|contact|whatsapp|კონტაქტი|ტელეფონი/.test(q)){
+    return 'WhatsApp: +995 597 95 63 20';
+  }
+
+  // All games list
+  if(/все иг|список|что ест|наличи|all game|what.+have|ყველა თა|რა არის/.test(q)){
+    if(!avail.length)return l==='ka'?'ახლად არ არის თამაში.':l==='en'?'No games available.':'Нет игр в наличии.';
+    var seen={};var lines=[];
+    avail.forEach(function(g){
+      if(!seen[g.title]){seen[g.title]=true;lines.push((g.title||'')+(g.price?' — '+g.price+' ₾':''));}
+    });
+    var total=lines.length;
+    return (l==='ka'?'გვაქს არის ('+total+'):\n':l==='en'?'Available ('+total+'):\n':'В наличии ('+total+'):\n')+lines.slice(0,15).join('\n')+(total>15?'\n...и ещё '+(total-15):'');
+  }
+
+  // Game search
+  var found=searchGames(q,avail);
+  if(found.length){
+    var seen2={};var uniq=[];
+    found.forEach(function(g){if(!seen2[g.title]){seen2[g.title]=true;uniq.push(g);}});
+    return uniq.slice(0,5).map(function(g){
+      var c=g.condition==='new'?(l==='ka'?'ახალი':l==='en'?'new':'новая'):(l==='ka'?'მეორადი':l==='en'?'used':'б/у');
+      return '• '+g.title+' ('+g.platform+', '+c+(g.price?', '+g.price+' ₾':'')+')';
+    }).join('\n');
+  }
+
+  // Not found
+  return l==='ka'?'"'+msg+'" ვერ მოვიძე. სცადეთ სხვა ან გადაიხეთ კატალოგში.':
+         l==='en'?'"'+msg+'" not found. Try different keywords or browse the catalog.':
+         '"Игра "'+msg+'" не найдена. Попробуйте иначе или посмотрите каталог.';
+}
+
+// ═══════════════════════════════════════════════════════════════
+// WISHLIST (user-side, stored in localStorage + Firebase if logged in)
+// ═══════════════════════════════════════════════════════════════
+var userWishlist = JSON.parse(localStorage.getItem('ndgames_wish')||'[]');
+var wishPanelOpen = false;
+
+function toggleWishPanel(){
+  wishPanelOpen=!wishPanelOpen;
+  var panel=document.getElementById('wish-panel');
+  if(panel)panel.classList.toggle('open',wishPanelOpen);
+  if(wishPanelOpen)renderWishPanel();
+  // Close on outside click
+  if(wishPanelOpen){
+    setTimeout(function(){
+      document.addEventListener('click',closeWishOnOutside);
+    },50);
+  }
+}
+function closeWishOnOutside(e){
+  if(!e.target.closest('#wish-panel')&&!e.target.closest('#wish-fab')){
+    wishPanelOpen=false;
+    var panel=document.getElementById('wish-panel');
+    if(panel)panel.classList.remove('open');
+    document.removeEventListener('click',closeWishOnOutside);
+  }
+}
+
+function toggleWish(gameKey){
+  var idx=userWishlist.indexOf(gameKey);
+  if(idx===-1){userWishlist.push(gameKey);}
+  else{userWishlist.splice(idx,1);}
+  localStorage.setItem('ndgames_wish',JSON.stringify(userWishlist));
+  updateWishCount();
+  renderGames();
+  if(wishPanelOpen)renderWishPanel();
+}
+
+function updateWishCount(){
+  var el=document.getElementById('wish-fab-count');
+  if(el){
+    el.textContent=userWishlist.length;
+    el.className='wish-fab-count'+(userWishlist.length>0?' show':'');
+  }
+}
+
+function renderWishPanel(){
+  var body=document.getElementById('wish-panel-body');
+  var title=document.getElementById('wish-panel-title');
+  if(title)title.textContent='❤️ '+(lang==='ka'?'სასურველი':lang==='en'?'WISHLIST':'ВИШЛИСТ');
+  if(!body)return;
+  if(!userWishlist.length){
+    body.innerHTML='<div style="text-align:center;padding:30px;color:var(--text3);font-size:12px">'+(lang==='ka'?'ცარიელია':lang==='en'?'Empty':'Пусто')+'</div>';
+    return;
+  }
+  var html='';
+  userWishlist.forEach(function(key){
+    // Find game by key (title||platform)
+    var parts=key.split('||');
+    var title_=parts[0],plat=parts[1]||'';
+    var found=Object.values(games).filter(function(g){
+      return (g.title||'').toLowerCase().trim()===title_.toLowerCase().trim()&&(g.platform||'')===plat&&g.status==='available';
+    });
+    var isAvail=found.length>0;
+    var cover=found.length&&found[0].cover?found[0].cover:'';
+    var price=found.length&&found[0].price?found[0].price+' ₾':'';
+    html+='<div class="wish-panel-item">'
+      +(cover?'<img class="wish-panel-cover" src="'+cover+'" alt="">':'<div class="wish-panel-cover"></div>')
+      +'<div class="wish-panel-title">'+title_+'<br><span style="font-size:10px;color:var(--text3)">'+plat+'</span></div>'
+      +'<div class="wish-panel-status '+(isAvail?'available':'unavailable')+'">'+(isAvail?'✓ '+price:(lang==='ka'?'არ არის':lang==='en'?'N/A':'Нет'))+'</div>'
+      +'<button class="wish-panel-del" onclick="toggleWish(\''+key.replace(/'/g,"\\'")+'\')"  onclick="event.stopPropagation()">✕</button>'
+      +'</div>';
+  });
+  body.innerHTML=html;
+}
+
+
+var sortMode='date';
+function setSort(s){
+  sortMode=s;
+  ['az','za','pasc','pdesc'].forEach(function(x){var el=document.getElementById('fb-'+x);if(el)el.classList.toggle('active',x===s);});
+  renderGames();
+}
+// ── FILTER ────────────────────────────────────────────
+function setFilter(f){
+  filter=f;
+  ['all','ps5','ps4'].forEach(function(x){
+    document.getElementById('fb-'+x).classList.toggle('active',x===f);
+  });
+  renderGames();
+}
+
+// ── DISC SVG ──────────────────────────────────────────
+function discSVG(cover,id){
+  var uid='dg'+( id||Math.random().toString(36).slice(2,7));
+  var hasImg=cover?'true':'false';
+  return '<svg class="disc-svg" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">'
+    +'<defs>'
+    +(cover
+      ?'<pattern id="cp'+uid+'" patternUnits="objectBoundingBox" width="1" height="1"><image href="'+cover+'" x="-10" y="-10" width="140" height="140" preserveAspectRatio="xMidYMid slice"/></pattern>'
+      :'')
+    +'<radialGradient id="dg'+uid+'" cx="40%" cy="35%">'
+    +'<stop offset="0%" stop-color="#888"/>'
+    +'<stop offset="40%" stop-color="#333"/>'
+    +'<stop offset="100%" stop-color="#111"/>'
+    +'</radialGradient>'
+    +'<radialGradient id="shine'+uid+'" cx="35%" cy="30%">'
+    +'<stop offset="0%" stop-color="rgba(255,255,255,0.35)"/>'
+    +'<stop offset="100%" stop-color="rgba(255,255,255,0)"/>'
+    +'</radialGradient>'
+    +'<clipPath id="clip'+uid+'"><circle cx="60" cy="60" r="57"/></clipPath>'
+    +'</defs>'
+    +(cover
+      ?'<circle cx="60" cy="60" r="57" fill="url(#cp'+uid+')" clip-path="url(#clip'+uid+')"/>'
+      :'<circle cx="60" cy="60" r="57" fill="url(#dg'+uid+')"/>')
+    +'<circle cx="60" cy="60" r="57" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>'
+    +'<circle cx="60" cy="60" r="44" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>'
+    +'<circle cx="60" cy="60" r="12" fill="rgba(0,0,0,0.85)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>'
+    +'<circle cx="60" cy="60" r="5" fill="#222"/>'
+    +'<circle cx="60" cy="60" r="57" fill="url(#shine'+uid+')" opacity="0.5"/>'
+    +'</svg>';
+}
+
+// ── RENDER GAMES ──────────────────────────────────────
+function renderGames(){
+  var q=(document.getElementById('search-inp')||{value:''}).value.toLowerCase();
+  var list=Object.values(games).filter(function(g){
+    if(g.status!=='available')return false;
+    var isAcc=g.itemType==='accessory';
+    if(activeSection==='accessories'){
+      if(!isAcc)return false;
+      if(activeAccCat&&g.accCategory!==activeAccCat)return false;
+    } else {
+      if(isAcc)return false;
+      if(activeGenre&&g.genre!==activeGenre)return false;
+    }
+    if(filter==='ps5'&&!(g.platform||'').toUpperCase().includes('PS5'))return false;
+    if(filter==='ps4'&&!(g.platform||'').toUpperCase().includes('PS4'))return false;
+    if(q&&!(g.title||'').toLowerCase().includes(q))return false;
+    return true;
+  }).sort(function(a,b){
+    if(sortMode==='az')return (a.title||'').localeCompare(b.title||'');
+    if(sortMode==='za')return (b.title||'').localeCompare(a.title||'');
+    if(sortMode==='pasc'){var pa=parseFloat(a.price||0),pb=parseFloat(b.price||0);return pa-pb;}
+    if(sortMode==='pdesc'){var pa=parseFloat(a.price||0),pb=parseFloat(b.price||0);return pb-pa;}
+    return (b.addedAt||0)-(a.addedAt||0);
+  });
+
+  // Group by title + platform
+  var groups={};
+  var groupOrder=[];
+  list.forEach(function(g){
+    var key=((g.title||'').toLowerCase().trim())+'||'+(g.platform||'');
+    if(!groups[key]){
+      groups[key]={title:g.title,platform:g.platform,cover:g.cover||'',genre:g.genre||'',langs:g.langs||[],itemType:g.itemType||'disc',accCategory:g.accCategory||'',items:[],latestAt:0};
+      groupOrder.push(key);
+    }
+    groups[key].items.push(g);
+    if((g.addedAt||0)>groups[key].latestAt)groups[key].latestAt=g.addedAt||0;
+    if(!groups[key].cover&&g.cover)groups[key].cover=g.cover;
+  });
+
+  var grid=document.getElementById('game-grid');
+
+
+  if(!groupOrder.length){
+    grid.innerHTML='<div class="empty-state"><div class="empty-icon">🎮</div><div class="empty-text">'+t('empty')+'</div></div>';
+    return;
+  }
+
+  var cardsHtml='';
+  groupOrder.forEach(function(key){
+    var grp=groups[key];
+    var hasNew=grp.items.some(function(i){return i.condition==='new';});
+    var hasUsed=grp.items.some(function(i){return i.condition!=='new';});
+    var prices=grp.items.map(function(i){return parseFloat(i.price||0);}).filter(function(p){return p>0;});
+    var minPrice=prices.length?Math.min.apply(null,prices):0;
+    var maxPrice=prices.length?Math.max.apply(null,prices):0;
+    var priceStr=!prices.length?'—':minPrice===maxPrice?minPrice+' ₾':minPrice+' – '+maxPrice+' ₾';
+    var anyInCart=grp.items.some(function(i){return cart.some(function(c){return c.id===i.id;});});
+    var condBadges='';
+    if(hasNew)condBadges+='<span class="variant-chip new-chip">'+t('new_badge')+'</span>';
+    if(hasUsed)condBadges+='<span class="variant-chip used-chip">'+t('used_badge')+'</span>';
+    var safeKey=key.replace(/"/g,'&quot;');
+    cardsHtml+='<div class="game-card reveal" data-gkey="'+safeKey+'">'
+      +'<div class="game-card-inner">'
+      +(grp.itemType==='accessory'
+        ?('<div class="acc-cover-wrap">'+(grp.cover?'<img class="acc-cover" src="'+grp.cover+'" alt="'+grp.title+'" loading="lazy">':'<div class="acc-cover" style="background:linear-gradient(135deg,var(--bg3),var(--bg4))"></div>')+'</div>')
+        :('<div class="game-cover-wrap">'+(grp.cover?'<img class="game-cover" src="'+grp.cover+'" alt="'+grp.title+'" loading="lazy">':'<div class="game-cover" style="background:linear-gradient(135deg,var(--bg3),var(--bg4))"></div>')+'</div>'))
+      +'<div class="card-hover-info">'+(grp.itemType==='accessory'?getAccCatBadge(grp.accCategory):getGenreBadge({genre:grp.genre})+getLangBadges({langs:grp.langs}))+'</div>'
+      +'<div class="game-card-glow"></div>'
+      +(grp.itemType==='accessory'?'':'<div class="cond-badges-wrap">'+(hasNew?'<span class="cond-badge new">'+t('new_badge')+'</span>':'')+(hasUsed?'<span class="cond-badge used">'+t('used_badge')+'</span>':'')+'</div>')
+      +'</div>'
+      +'<div class="game-info">'
+      +'<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:4px">'
+      +'<div class="game-title">'+(grp.title||'—')+'</div>'
+      +'<button class="wish-heart-btn '+(userWishlist.indexOf(key)!==-1?'wished':'not-wished')+'" data-wishkey="'+safeKey+'" onclick="event.stopPropagation();toggleWish(this.dataset.wishkey)">'+(userWishlist.indexOf(key)!==-1?'❤️':'♡')+'</button>'
+      +'</div>'
+      +'<div class="variants-row">'+condBadges+'</div>'
+      +'<div class="game-price">'+priceStr+'</div>'
+      +'<button class="add-btn'+(anyInCart?' added':'')+'" data-addkey="'+safeKey+'">'
+      +(anyInCart?('✓ '+t('added')):t('add'))
+      +'</button>'
+      +'</div>'
+      +'</div>';
+  });
+  grid.innerHTML=cardsHtml;
+
+  // Event delegation for game grid
+  grid.onclick=function(e){
+    var card=e.target.closest('[data-gkey]');
+    if(!card)return;
+    var key=card.dataset.gkey;
+    var addBtn=e.target.closest('[data-addkey]');
+    if(addBtn){
+      e.stopPropagation();
+      // toggle all items in group into cart
+      var grp=groups[key];
+      if(grp){
+        var anyIn=grp.items.some(function(i){return cart.some(function(c){return c.id===i.id;});});
+        if(anyIn){
+          cart=cart.filter(function(c){return !grp.items.some(function(i){return i.id===c.id;});});
+          showToast('✕ '+grp.title);
+        } else {
+          openProduct(key);
+          return;
+        }
+        localStorage.setItem('ndgames_cart',JSON.stringify(cart));
+        updateCartCount();
+        renderGames();
+      }
+      return;
+    }
+    openProduct(key);
+  };
+
+  requestAnimationFrame(function(){
+    document.querySelectorAll('.reveal').forEach(function(el,i){
+      setTimeout(function(){el.classList.add('visible');},i*40);
+    });
+  });
+}
+
+
+
+// ── CART ──────────────────────────────────────────────
+function addToCart(id,e){
+  if(e)e.stopPropagation();
+  var g=games[id];if(!g)return;
+  var inCart=cart.some(function(c){return c.id===id;});
+  if(inCart){
+    cart=cart.filter(function(c){return c.id!==id;});
+    showToast('✕ '+g.title);
+  } else {
+    cart.push({id:id,title:g.title,price:parseFloat(g.price||0),platform:g.platform,cover:g.cover||''});
+    showToast('✓ '+g.title);
+  }
+  localStorage.setItem('ndgames_cart',JSON.stringify(cart));
+  updateCartCount();
+  var btn=document.getElementById('add-'+id);
+  if(btn){
+    var nowIn=cart.some(function(c){return c.id===id;});
+    btn.className='add-btn'+(nowIn?' added':'');
+    btn.textContent=nowIn?('✓ '+t('added')):t('add');
+  }
+}
+
+function updateCartCount(){
+  var el=document.getElementById('cart-count');
+  if(el){el.textContent=cart.length;el.className='cart-count'+(cart.length>0?' show':'');}
+}
+
+function openCart(){
+  document.getElementById('cart-overlay').classList.add('open');
+  document.getElementById('cart-sidebar').classList.add('open');
+  renderCart();
+}
+function closeCart(){
+  document.getElementById('cart-overlay').classList.remove('open');
+  document.getElementById('cart-sidebar').classList.remove('open');
+}
+function renderCart(){
+  var list=document.getElementById('cart-items-list');
+  var footer=document.getElementById('cart-footer');
+  if(!cart.length){
+    list.innerHTML='<div class="cart-empty"><div class="cart-empty-icon">🛒</div><div class="cart-empty-text">'+t('cart_empty')+'</div><p style="font-size:12px;color:var(--text3);margin-top:8px">'+t('fill')+'</p></div>';
+    if(footer)footer.style.display='none';
+    return;
+  }
+  var totalsCart=getCartTotal();
+  var total=totalsCart.total;
+  list.innerHTML=cart.map(function(c){
+    return '<div class="cart-item">'
+      +(c.cover?'<img class="cart-item-cover" src="'+c.cover+'" alt="">':'<div class="cart-item-cover"></div>')
+      +'<div class="cart-item-info"><div class="cart-item-title">'+c.title+'</div><div class="cart-item-plat">'+(c.platform||'')+'</div></div>'
+      +'<div class="cart-item-price">'+c.price+' ₾</div>'
+      +'<button class="cart-item-remove" onclick="removeFromCart(\''+c.id+'\')">✕</button>'
+      +'</div>';
+  }).join('');
+  if(footer){
+    footer.style.display='block';
+    var discHtml=totalsCart.discount>0?'<div style="font-size:11px;color:#00ff88;margin-bottom:4px">-'+totalsCart.discount+' ₾ ('+totalsCart.pct+'% скидка)</div>':'';
+    document.getElementById('cart-total-val').innerHTML=discHtml+total+' ₾';
+  }
+}
+function removeFromCart(id){
+  cart=cart.filter(function(c){return c.id!==id;});
+  localStorage.setItem('ndgames_cart',JSON.stringify(cart));
+  updateCartCount();
+  renderCart();
+  renderGames();
+}
+
+// ── ORDER ─────────────────────────────────────────────
+var deliveryMode='pickup';
+function openOrder(){
+  closeCart();
+  var total=cart.reduce(function(s,c){return s+c.price;},0);
+  var modal=document.getElementById('order-modal-inner');
+  modal.innerHTML=
+    '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px">'
+    +'<div class="modal-title">'+t('order_title')+'</div>'
+    +'<button class="modal-close" onclick="closeOrder()">✕</button></div>'
+    +'<div class="order-summary">'
+    +'<div class="order-sum-title">// ORDER SUMMARY</div>'
+    +cart.map(function(c){return '<div class="order-sum-item"><span>'+c.title+'</span><span>'+c.price+' ₾</span></div>';}).join('')
+    +'<div class="order-sum-item"><span>'+t('total')+'</span><span>'+total+' ₾</span></div>'
+    +'</div>'
+    +'<div class="form-field"><label class="form-label">'+t('name')+' *</label><input class="form-inp" id="o-name" placeholder="'+t('name')+'..."></div>'
+    +'<div class="form-field"><label class="form-label">'+t('phone')+' *</label><input class="form-inp" id="o-phone" type="tel" placeholder="+995..."></div>'
+    +'<div class="form-field"><label class="form-label">'+t('city')+'</label><input class="form-inp" id="o-city" placeholder="'+t('city')+'..."></div>'
+    +'<div class="form-field"><label class="form-label">'+t('delivery')+'</label>'
+    +'<div class="delivery-opts">'
+    +'<div class="delivery-opt sel" id="dopt-pickup" onclick="selDelivery(\'pickup\')">'
+    +'<div class="delivery-opt-icon">🚶</div>'
+    +'<div class="delivery-opt-label">'+t('pickup')+'</div></div>'
+    +'<div class="delivery-opt" id="dopt-shipping" onclick="selDelivery(\'shipping\')">'
+    +'<div class="delivery-opt-icon">🚐</div>'
+    +'<div class="delivery-opt-label">'+t('shipping')+'</div></div>'
+    +'</div></div>'
+    +'<div class="form-field"><label class="form-label">'+t('comment')+'</label><textarea class="form-inp" id="o-comment" rows="2" style="resize:none;line-height:1.5"></textarea></div>'
+    +'<button class="submit-btn" onclick="submitOrder()">'+t('submit')+'</button>';
+  document.getElementById('order-modal').classList.add('open');
+  deliveryMode='pickup';
+}
+function closeOrder(){document.getElementById('order-modal').classList.remove('open');}
+function selDelivery(mode){
+  deliveryMode=mode;
+  document.getElementById('dopt-pickup').classList.toggle('sel',mode==='pickup');
+  document.getElementById('dopt-shipping').classList.toggle('sel',mode==='shipping');
+}
+function submitOrder(){
+  var name=(document.getElementById('o-name')||{}).value.trim();
+  var phone=(document.getElementById('o-phone')||{}).value.trim();
+  if(!name||!phone){showToast('⚠ '+t('fill_req'));return;}
+  var id='order_'+Date.now();
+  var totals=getCartTotal();
+  db.ref('orders/'+id).set({
+    id:id,
+    name:name,
+    phone:phone,
+    userEmail:currentUser?currentUser.email:'',
+    userId:currentUser?currentUser.uid:'',
+    city:(document.getElementById('o-city')||{}).value.trim(),
+    delivery:deliveryMode,
+    comment:(document.getElementById('o-comment')||{}).value.trim(),
+    items:cart.map(function(c){return {id:c.id,title:c.title,price:c.price,platform:c.platform};}),
+    total:totals.total,
+    discountPct:totals.pct,
+    discountSaved:totals.discount,
+    status:'new',
+    createdAt:Date.now()
+  });
+  // Update loyalty spent amount
+  if(currentUser&&currentLoyalty){
+    var newSpent=(parseFloat(currentLoyalty.totalSpent||0)+totals.total);
+    var newLevel=getDiscountLevel(newSpent);
+    db.ref('loyalty/'+currentUser.uid).update({totalSpent:newSpent,discountPct:newLevel.pct,level:newLevel.label});
+    currentLoyalty.totalSpent=newSpent;
+    currentLoyalty.discountPct=newLevel.pct;
+  }
+  cart=[];
+  localStorage.setItem('ndgames_cart',JSON.stringify(cart));
+  updateCartCount();
+  var modal=document.getElementById('order-modal-inner');
+  modal.innerHTML='<div class="success-screen">'
+    +'<div class="success-icon">✅</div>'
+    +'<div class="success-title">'+t('success_title')+'</div>'
+    +'<p class="success-sub">'+t('success_sub')+'</p>'
+    +'<button class="btn-primary" onclick="closeOrder()" style="margin-top:24px;width:100%;justify-content:center">OK</button>'
+    +'</div>';
+}
+
+// ── TOAST ─────────────────────────────────────────────
+var toastTimer;
+function showToast(msg){
+  var el=document.getElementById('toast');
+  el.textContent=msg;el.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer=setTimeout(function(){el.classList.remove('show');},2200);
+}
+
+// ── HERO PARTICLES ────────────────────────────────────
+function initParticles(){
+  var c=document.getElementById('hero-canvas');
+  if(!c)return;
+  var ctx=c.getContext('2d');
+  var W,H,particles=[];
+  function resize(){W=c.width=c.offsetWidth;H=c.height=c.offsetHeight;}
+  resize();window.addEventListener('resize',resize);
+  for(var i=0;i<60;i++){
+    particles.push({
+      x:Math.random()*W,y:Math.random()*H,
+      r:Math.random()*1.5+0.5,
+      vx:(Math.random()-.5)*.3,vy:(Math.random()-.5)*.3,
+      a:Math.random()
+    });
+  }
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    particles.forEach(function(p){
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.x<0)p.x=W;if(p.x>W)p.x=0;
+      if(p.y<0)p.y=H;if(p.y>H)p.y=0;
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle='rgba(0,212,255,'+p.a+')';ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+}
+
+// ── SCROLL REVEAL ─────────────────────────────────────
+function initReveal(){
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible');});
+  },{threshold:.1});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+}
+
+// ── FIREBASE LOAD ────────────────────────────────────
+updateWishCount();
+db.ref('games').on('value',function(snap){
+  games=snap.val()||{};
+  renderGames();
+  renderGenres();
+  updateCartCount();
+  setTimeout(function(){
+    var loader=document.getElementById('loader');
+    if(loader)loader.classList.add('hide');
+  },800);
+});
+
+// ── INIT ──────────────────────────────────────────────
+window.addEventListener('load',function(){
+  initParticles();
+  initReveal();
+  applyLang();
+  updateCartCount();
+  // Close order modal on overlay click
+  document.getElementById('order-modal').addEventListener('click',function(e){
+    if(e.target===this)closeOrder();
+  });
+});
+</script>
+</body>
+</html>
