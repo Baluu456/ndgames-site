@@ -99,7 +99,8 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);min-hei
   .game-card:hover .cover-frame{transform:rotateY(-5deg)}
 }
 .game-cover-wrap{position:relative;width:100%;padding-bottom:140%;overflow:hidden;background:var(--bg3)}
-.game-cover{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .4s cubic-bezier(.25,.46,.45,.94)}
+.cover-blur-bg{position:absolute;inset:-8%;background-size:cover;background-position:center;filter:blur(18px) brightness(.55) saturate(1.2)}
+.game-cover{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:4%;box-sizing:border-box;z-index:1;transition:transform .4s cubic-bezier(.25,.46,.45,.94)}
 .game-card:hover .game-cover{transform:scale(1.04)}
 .acc-cover-wrap{position:relative;width:100%;padding-bottom:100%;overflow:hidden;background:radial-gradient(ellipse at 50% 50%,var(--bg4),var(--bg3));border-radius:var(--radius) var(--radius) 0 0}
 .acc-cover{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:4%;box-sizing:border-box;transition:transform .4s cubic-bezier(.25,.46,.45,.94)}
@@ -2009,7 +2010,7 @@ function renderGames(){
       +'<div class="cover-frame">'
       +(grp.itemType==='accessory'
         ?('<div class="acc-cover-wrap">'+(grp.cover?'<img class="acc-cover" src="'+grp.cover+'" alt="'+grp.title+'" loading="lazy">':'<div class="acc-cover" style="background:linear-gradient(135deg,var(--bg3),var(--bg4))"></div>')+'</div>')
-        :('<div class="game-cover-wrap">'+(grp.cover?'<img class="game-cover" src="'+grp.cover+'" alt="'+grp.title+'" loading="lazy">':'<div class="game-cover" style="background:linear-gradient(135deg,var(--bg3),var(--bg4))"></div>')+'</div>'))
+        :('<div class="game-cover-wrap">'+(grp.cover?'<div class="cover-blur-bg" style="background-image:url(\''+grp.cover.replace(/'/g,"\\'")+'\')"></div><img class="game-cover" src="'+grp.cover+'" alt="'+grp.title+'" loading="lazy">':'<div class="game-cover" style="background:linear-gradient(135deg,var(--bg3),var(--bg4))"></div>')+'</div>'))
       +'<div class="card-hover-info">'+(grp.itemType==='accessory'?getAccCatBadge(grp.accCategory):getGenreBadge({genre:grp.genre})+getLangBadges({langs:grp.langs}))+'</div>'
       +'<div class="game-card-glow"></div>'
       +(grp.itemType==='accessory'?'':'<div class="cond-badges-wrap">'+(hasNew?'<span class="cond-badge new">'+t('new_badge')+'</span>':'')+(hasUsed?'<span class="cond-badge used">'+t('used_badge')+'</span>':'')+'</div>')
