@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="NDGames — Buy Better. Play Better. Be Better. PS4 & PS5 games in Georgia.">
 <title>NDGames — PS4 & PS5</title>
+<link rel="icon" type="image/png" href="logo-64.png">
+<link rel="apple-touch-icon" href="logo-256.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -40,8 +42,10 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);min-hei
 
 /* ── NAV ── */
 .nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,15,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border2);height:64px;display:flex;align-items:center;padding:0 24px;gap:16px}
-.nav-logo{font-family:var(--font-display);font-size:20px;font-weight:900;letter-spacing:2px;color:var(--cyan);text-shadow:var(--glow-cyan);text-decoration:none;flex-shrink:0}
-.nav-logo span{color:var(--pink)}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0}
+.nav-logo img{width:38px;height:38px;border-radius:50%;box-shadow:0 0 12px rgba(0,212,255,0.35)}
+.nav-logo-text{font-family:var(--font-display);font-size:18px;font-weight:900;letter-spacing:1.5px;color:var(--cyan);text-shadow:var(--glow-cyan)}
+.nav-logo-text span{color:var(--pink)}
 .nav-spacer{flex:1}
 .lang-switcher{display:flex;gap:4px}
 .lang-btn{background:none;border:1px solid var(--border);border-radius:6px;color:var(--text2);font-size:22px;padding:2px 6px;cursor:pointer;transition:all .2s;line-height:1.2;font-family:'Twemoji','Segoe UI Emoji','Apple Color Emoji','Noto Color Emoji','EmojiOne Color','Android Emoji',sans-serif!important}
@@ -207,7 +211,8 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);min-hei
 /* ── FOOTER ── */
 .footer{background:var(--bg2);border-top:1px solid var(--border);padding:40px 24px 32px;margin-top:80px}
 .footer-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:32px}
-.footer-logo{font-family:var(--font-display);font-size:18px;font-weight:900;letter-spacing:2px;color:var(--cyan);margin-bottom:8px}
+.footer-logo{display:flex;align-items:center;gap:8px;font-family:var(--font-display);font-size:18px;font-weight:900;letter-spacing:2px;color:var(--cyan);margin-bottom:8px}
+.footer-logo img{width:28px;height:28px;border-radius:50%}
 .footer-logo span{color:var(--pink)}
 .footer-desc{font-size:13px;color:var(--text2);line-height:1.6}
 .footer-title{font-family:var(--font-display);font-size:11px;font-weight:700;color:var(--text3);letter-spacing:2px;margin-bottom:14px}
@@ -220,7 +225,8 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);min-hei
 /* ── LOADER ── */
 #loader{position:fixed;inset:0;background:var(--bg);z-index:999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;transition:opacity .5s}
 #loader.hide{opacity:0;pointer-events:none}
-.loader-logo{font-family:var(--font-display);font-size:32px;font-weight:900;color:var(--cyan);letter-spacing:4px;text-shadow:var(--glow-cyan)}
+.loader-logo{display:flex;flex-direction:column;align-items:center;gap:14px;font-family:var(--font-display);font-size:32px;font-weight:900;color:var(--cyan);letter-spacing:4px;text-shadow:var(--glow-cyan)}
+.loader-logo img{width:72px;height:72px;border-radius:50%;box-shadow:0 0 20px rgba(0,212,255,0.4)}
 .loader-logo span{color:var(--pink)}
 .loader-bar{width:200px;height:2px;background:var(--bg3);border-radius:1px;overflow:hidden}
 .loader-fill{height:100%;background:linear-gradient(90deg,var(--cyan),var(--pink));border-radius:1px;animation:load 1.2s ease-in-out forwards}
@@ -483,13 +489,13 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);min-hei
 
 <!-- LOADER -->
 <div id="loader">
-  <div class="loader-logo">ND<span>GAMES</span></div>
+  <div class="loader-logo"><img src="logo-128.png" alt="ND Games">ND<span>GAMES</span></div>
   <div class="loader-bar"><div class="loader-fill"></div></div>
 </div>
 
 <!-- NAV -->
 <nav class="nav">
-  <a href="#" class="nav-logo">ND<span>GAMES</span></a>
+  <a href="#" class="nav-logo"><img src="logo-64.png" alt="ND Games"><span class="nav-logo-text">ND<span>GAMES</span></span></a>
   <div class="nav-spacer"></div>
   <div class="lang-switcher">
     <button class="lang-btn active" onclick="setLang('ka')" title="ქართული">🇬🇪</button>
@@ -576,7 +582,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);min-hei
 <footer class="footer">
   <div class="footer-inner">
     <div>
-      <div class="footer-logo">ND<span>GAMES</span></div>
+      <div class="footer-logo"><img src="logo-64.png" alt="ND Games">ND<span>GAMES</span></div>
       <p class="footer-desc" id="footer-desc" id="footer-main-desc">PS4 და PS5 თამაშების მაღაზია. ბათუმი, საქართველო.</p>
     </div>
     <div>
