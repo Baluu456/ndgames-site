@@ -90,18 +90,31 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);min-hei
 @media(max-width:500px){.game-grid{grid-template-columns:repeat(2,1fr);gap:12px}}
 
 /* ── GAME CARD ── */
-.game-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;cursor:pointer;transition:border-color .3s,transform .3s;position:relative;display:flex;flex-direction:column}
+.game-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:border-color .3s,transform .3s;position:relative;display:flex;flex-direction:column;z-index:1}
 .game-card:hover{border-color:rgba(0,212,255,0.3);transform:translateY(-4px)}
-.game-card-inner{position:relative;overflow:hidden}
+.game-card-inner{position:relative}
+.cover-frame{position:relative;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;z-index:1}
 .game-cover-wrap{position:relative;width:100%;padding-bottom:140%;overflow:hidden;background:var(--bg3)}
 .game-cover{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:3%;box-sizing:border-box;transition:transform .4s cubic-bezier(.25,.46,.45,.94)}
 .game-card:hover .game-cover{transform:scale(1.04) translateY(-4px)}
-.acc-cover-wrap{position:relative;width:100%;padding-bottom:100%;overflow:hidden;background:radial-gradient(ellipse at 50% 50%,var(--bg4),var(--bg3))}
+.acc-cover-wrap{position:relative;width:100%;padding-bottom:100%;overflow:hidden;background:radial-gradient(ellipse at 50% 50%,var(--bg4),var(--bg3));border-radius:var(--radius) var(--radius) 0 0}
 .acc-cover{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:4%;box-sizing:border-box;transition:transform .4s cubic-bezier(.25,.46,.45,.94)}
 .game-card:hover .acc-cover{transform:scale(1.06)}
-.disc-wrap{display:none}
 .game-card-glow{position:absolute;inset:0;opacity:0;transition:opacity .4s;background:radial-gradient(ellipse at 50% 100%,rgba(0,212,255,0.15) 0%,transparent 70%);pointer-events:none;z-index:1}
 .game-card:hover .game-card-glow{opacity:1}
+/* ── DISC EJECT (desktop hover only — taps still open the product modal as before) ── */
+.disc{position:absolute;top:9%;left:9%;width:56%;aspect-ratio:1/1;border-radius:50%;overflow:hidden;z-index:0;pointer-events:none;
+  background-size:220% 220%;background-position:50% 22%;box-shadow:0 0 0 1px rgba(255,255,255,.15) inset,0 10px 24px rgba(0,0,0,.5);
+  transform:translate(0,0) rotate(0deg) scale(.92);transform-origin:center;transition:transform .55s cubic-bezier(.16,1,.3,1)}
+.disc::before{content:"";position:absolute;inset:0;margin:auto;width:15%;height:15%;border-radius:50%;background:var(--bg2);box-shadow:0 0 0 2px rgba(255,255,255,.35);z-index:2}
+.disc-band{position:absolute;left:0;right:0;bottom:0;height:28%;background:linear-gradient(180deg,#eef1f8,#c9d0e0);display:flex;align-items:center;justify-content:center;z-index:1}
+.disc-band span{font-family:var(--font-display);font-size:8.5px;font-weight:800;color:#12172a;letter-spacing:.03em}
+.disc-sheen{position:absolute;inset:0;z-index:2;background:linear-gradient(115deg,transparent 40%,rgba(255,255,255,.28) 50%,transparent 60%);background-size:250% 250%;background-position:0% 0%;transition:background-position .55s ease}
+@media (hover:hover) and (pointer:fine){
+  .game-card:hover .disc{transform:translate(42%,-32%) rotate(16deg) scale(1);z-index:2}
+  .game-card:hover .disc-sheen{background-position:100% 100%}
+  .game-card:hover{z-index:20}
+}
 .cond-badges-wrap{position:absolute;top:10px;right:10px;display:flex;flex-direction:column;align-items:flex-end;gap:6px;z-index:3}
 .cond-badge{background:rgba(0,0,0,0.78);backdrop-filter:blur(8px);border-radius:6px;font-size:9px;font-weight:700;padding:4px 8px;letter-spacing:.5px;white-space:nowrap}
 .cond-badge.new{color:#00ff88;border:1px solid rgba(0,255,136,0.35)}
@@ -1982,12 +1995,15 @@ function renderGames(){
     var safeKey=key.replace(/"/g,'&quot;');
     cardsHtml+='<div class="game-card reveal" data-gkey="'+safeKey+'">'
       +'<div class="game-card-inner">'
+      +(grp.itemType==='accessory'||!grp.cover?'':'<div class="disc" style="background-image:url(\''+grp.cover.replace(/'/g,"\\'")+'\')"><div class="disc-sheen"></div><div class="disc-band"><span>'+(grp.platform||'PS5')+'</span></div></div>')
+      +'<div class="cover-frame">'
       +(grp.itemType==='accessory'
         ?('<div class="acc-cover-wrap">'+(grp.cover?'<img class="acc-cover" src="'+grp.cover+'" alt="'+grp.title+'" loading="lazy">':'<div class="acc-cover" style="background:linear-gradient(135deg,var(--bg3),var(--bg4))"></div>')+'</div>')
         :('<div class="game-cover-wrap">'+(grp.cover?'<img class="game-cover" src="'+grp.cover+'" alt="'+grp.title+'" loading="lazy">':'<div class="game-cover" style="background:linear-gradient(135deg,var(--bg3),var(--bg4))"></div>')+'</div>'))
       +'<div class="card-hover-info">'+(grp.itemType==='accessory'?getAccCatBadge(grp.accCategory):getGenreBadge({genre:grp.genre})+getLangBadges({langs:grp.langs}))+'</div>'
       +'<div class="game-card-glow"></div>'
       +(grp.itemType==='accessory'?'':'<div class="cond-badges-wrap">'+(hasNew?'<span class="cond-badge new">'+t('new_badge')+'</span>':'')+(hasUsed?'<span class="cond-badge used">'+t('used_badge')+'</span>':'')+'</div>')
+      +'</div>'
       +'</div>'
       +'<div class="game-info">'
       +'<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:4px">'
