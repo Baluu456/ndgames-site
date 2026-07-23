@@ -86,21 +86,21 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);min-hei
 .search-icon{position:absolute;left:11px;top:50%;transform:translateY(-50%);color:var(--text3);font-size:14px;pointer-events:none}
 
 /* ── GAME GRID ── */
-.game-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:20px}
-@media(max-width:500px){.game-grid{grid-template-columns:repeat(2,1fr);gap:12px}}
+.game-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:36px 28px}
+@media(max-width:500px){.game-grid{grid-template-columns:repeat(2,1fr);gap:24px 16px}}
 
 /* ── GAME CARD ── */
 .game-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:border-color .3s,transform .3s;position:relative;display:flex;flex-direction:column;z-index:1}
 .game-card:hover{border-color:rgba(0,212,255,0.3);transform:translateY(-4px)}
-.game-card-inner{position:relative}
-.cover-frame{position:relative;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;z-index:1;box-shadow:6px 0 14px -6px rgba(0,0,0,.5)}
-.game-cover-wrap{position:relative;width:100%;padding-bottom:140%;overflow:hidden;background:var(--bg3)}
-.game-cover{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
-  transform:perspective(700px) rotateY(-11deg) scale(1.07);transform-origin:center;
-  transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.game-card-inner{position:relative;perspective:700px}
+.cover-frame{position:relative;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;z-index:1;box-shadow:6px 0 14px -6px rgba(0,0,0,.5);
+  transform:rotateY(-13deg);transform-origin:center;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
 @media (hover:hover) and (pointer:fine){
-  .game-card:hover .game-cover{transform:perspective(700px) rotateY(-4deg) scale(1.02)}
+  .game-card:hover .cover-frame{transform:rotateY(-5deg)}
 }
+.game-cover-wrap{position:relative;width:100%;padding-bottom:140%;overflow:hidden;background:var(--bg3)}
+.game-cover{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .4s cubic-bezier(.25,.46,.45,.94)}
+.game-card:hover .game-cover{transform:scale(1.04)}
 .acc-cover-wrap{position:relative;width:100%;padding-bottom:100%;overflow:hidden;background:radial-gradient(ellipse at 50% 50%,var(--bg4),var(--bg3));border-radius:var(--radius) var(--radius) 0 0}
 .acc-cover{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:4%;box-sizing:border-box;transition:transform .4s cubic-bezier(.25,.46,.45,.94)}
 .game-card:hover .acc-cover{transform:scale(1.06)}
