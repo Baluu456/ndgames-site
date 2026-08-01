@@ -1903,7 +1903,7 @@ function renderWishPanel(){
 }
 
 
-var sortMode='date';
+var sortMode='az';
 function setSort(s){
   sortMode=s;
   ['az','za','pasc','pdesc'].forEach(function(x){var el=document.getElementById('fb-'+x);if(el)el.classList.toggle('active',x===s);});
@@ -2005,6 +2005,12 @@ function renderGames(){
     var minPrice=prices.length?Math.min.apply(null,prices):0;
     var maxPrice=prices.length?Math.max.apply(null,prices):0;
     var priceStr=!prices.length?'—':minPrice===maxPrice?minPrice+' ₾':minPrice+' – '+maxPrice+' ₾';
+    if(hasNew&&hasUsed){
+      var newPrices=grp.items.filter(function(i){return i.condition==='new';}).map(function(i){return parseFloat(i.price||0);}).filter(function(p){return p>0;});
+      var usedPrices=grp.items.filter(function(i){return i.condition!=='new';}).map(function(i){return parseFloat(i.price||0);}).filter(function(p){return p>0;});
+      var fmtRange=function(arr){if(!arr.length)return '—';var mn=Math.min.apply(null,arr),mx=Math.max.apply(null,arr);return mn===mx?mn+' ₾':mn+' – '+mx+' ₾';};
+      priceStr=fmtRange(newPrices)+' / '+fmtRange(usedPrices);
+    }
     var anyInCart=grp.items.some(function(i){return cart.some(function(c){return c.id===i.id;});});
     var condBadges='';
     if(hasNew)condBadges+='<span class="variant-chip new-chip">'+t('new_badge')+'</span>';
@@ -2270,6 +2276,7 @@ function initReveal(){
 }
 
 // ── FIREBASE LOAD ────────────────────────────────────
+(function(){var azBtn=document.getElementById('fb-az');if(azBtn)azBtn.classList.add('active');})();
 updateWishCount();
 db.ref('games').on('value',function(snap){
   games=snap.val()||{};
