@@ -49,7 +49,6 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);min-hei
 .nav-spacer{flex:1}
 .nav-preorder-link{font-family:var(--font-display);font-size:11px;font-weight:700;letter-spacing:1.5px;color:var(--text2);text-decoration:none;padding:8px 14px;border:1px solid var(--border);border-radius:20px;transition:color .2s,border-color .2s;white-space:nowrap;margin-left:20px}
 .nav-preorder-link:hover{color:var(--cyan);border-color:var(--cyan)}
-.nav-auction-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#ff3b3b;margin-left:6px;box-shadow:0 0 6px #ff3b3b;animation:pulse 1.6s infinite}
 @media (max-width:820px){.nav-preorder-link{display:none!important}}
 .lang-switcher{display:flex;gap:4px}
 .lang-btn{background:none;border:1px solid var(--border);border-radius:6px;color:var(--text2);font-size:22px;padding:2px 6px;cursor:pointer;transition:all .2s;line-height:1.2;font-family:'Twemoji','Segoe UI Emoji','Apple Color Emoji','Noto Color Emoji','EmojiOne Color','Android Emoji',sans-serif!important}
@@ -125,86 +124,8 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);min-hei
 .preorder-title{font-family:var(--font-display);font-size:11px;font-weight:700;color:var(--text3);letter-spacing:2px;text-align:center;margin-bottom:6px}
 .preorder-sub{font-size:13px;color:var(--text2);text-align:center;margin-bottom:26px}
 .preorder-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:16px}
-.auction-section{max-width:1400px;margin:70px auto;padding:0 24px}
-.auction-hero{background:linear-gradient(135deg,rgba(255,59,59,0.1),rgba(255,0,110,0.06));border:1px solid rgba(255,59,59,0.3);border-radius:var(--radius);padding:24px;margin-bottom:24px;text-align:center}
-.auction-hero-name{font-size:22px;font-weight:800;color:var(--text)}
-.auction-hero-status{display:inline-block;margin-top:8px;font-family:var(--font-display);font-size:11px;font-weight:800;letter-spacing:1.5px;padding:5px 14px;border-radius:14px}
-.auction-hero-status.live{background:rgba(255,59,59,0.18);color:#ff3b3b}
-.auction-hero-status.scheduled{background:rgba(0,212,255,0.15);color:var(--cyan)}
-.auction-hero-status.ended{background:rgba(255,255,255,0.08);color:var(--text3)}
-.auction-hero-dates{font-size:12px;color:var(--text3);margin-top:8px}
-.auction-hero-status.waiting_quorum{background:rgba(240,168,50,0.15);color:#f0a832}
-.auction-participants{font-size:13px;font-weight:700;color:var(--text2);margin-top:10px}
-.auction-quorum-bar{width:220px;max-width:80%;height:6px;border-radius:4px;background:var(--bg3);margin:8px auto 0;overflow:hidden}
-.auction-quorum-fill{height:100%;background:linear-gradient(90deg,#f0a832,#ff3b3b);transition:width .4s}
-.auction-balance-box{margin-top:18px;padding-top:16px;border-top:1px solid var(--border)}
-.auction-balance-text{font-size:13px;font-weight:700;color:var(--text)}
-.auction-packages-label{font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:1px;margin-top:14px;margin-bottom:10px}
-.auction-packages-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-.auction-pkg-card{position:relative;background:var(--bg3);border:1px solid var(--border2);border-radius:12px;padding:14px 10px;text-align:center}
-.auction-pkg-card.featured{border-color:#ff3b3b;background:linear-gradient(160deg,rgba(255,59,59,0.14),rgba(255,0,110,0.08))}
-.auction-pkg-badge{position:absolute;top:-9px;left:50%;transform:translateX(-50%);background:#ff3b3b;color:#fff;font-size:9px;font-weight:800;padding:2px 8px;border-radius:8px;white-space:nowrap}
-.auction-pkg-title{font-size:13px;font-weight:800;color:var(--text)}
-.auction-pkg-sub{font-size:10px;color:var(--text3);margin-top:3px;min-height:22px}
-.auction-pkg-price{font-size:18px;font-weight:800;color:#ff3b3b;margin-top:8px}
-.auction-pkg-buttons{display:flex;gap:6px;justify-content:center;margin-top:10px}
-.auction-pkg-buttons button{background:var(--bg2);border:1px solid var(--border2);color:var(--text);border-radius:8px;width:34px;height:30px;font-size:14px;cursor:pointer}
-.auction-pkg-buttons button:hover{border-color:#ff3b3b}
-@media(max-width:600px){.auction-packages-grid{grid-template-columns:repeat(2,1fr)}}
-.balance-topup-row{display:flex;gap:8px;align-items:center}
-.balance-topup-row input{flex:1;min-width:0;background:var(--bg3);border:1px solid var(--border);border-radius:8px;color:var(--text);padding:10px 12px;font-size:15px;font-weight:700}
-.balance-monthly-row{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:16px;padding:12px 14px;border:1px solid rgba(255,59,59,0.35);border-radius:12px;background:linear-gradient(160deg,rgba(255,59,59,0.1),rgba(255,0,110,0.05))}
-.balance-monthly-title{font-size:13px;font-weight:800;color:var(--text)}
-.balance-monthly-sub{font-size:10.5px;color:var(--text3);margin-top:2px}
-.auction-hero-status.closed{background:rgba(255,59,59,0.15);color:#ff3b3b}
-.auction-pay-methods{font-size:11px;color:var(--text3);margin-top:8px}
-.auction-countdown{margin-top:14px;font-family:var(--font-mono);font-size:26px;font-weight:800;color:var(--text);letter-spacing:1px}
-.auction-countdown-label{font-size:11px;color:var(--text3);margin-top:4px;text-transform:uppercase;letter-spacing:1px}
-.auction-ticket-box{margin-top:18px;display:flex;flex-direction:column;align-items:center;gap:10px}
-.auction-ticket-btn{font-family:var(--font-display);font-weight:700;letter-spacing:1px;font-size:13px;padding:12px 26px;border-radius:24px;border:none;background:#ff3b3b;color:#fff;cursor:pointer;transition:transform .2s,box-shadow .2s}
-.auction-ticket-btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(255,59,59,0.35)}
-.auction-ticket-btn.outline{background:transparent;border:1px solid var(--border2);color:var(--text)}
-.auction-ticket-row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
-.auction-note{font-size:11.5px;color:var(--text3);max-width:420px;line-height:1.5}
-.auction-ticket-ok{color:var(--green);font-weight:700;font-size:13px}
-.auction-lots-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
-.auction-lot-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column}
-.auction-lot-covers{display:flex;height:150px;background:var(--bg3)}
-.auction-lot-covers img{width:100%;height:100%;object-fit:cover;flex:1;border-right:1px solid var(--bg2)}
-.auction-lot-covers img:last-child{border-right:none}
-.auction-lot-covers.real-photo{height:auto;max-height:340px}
-.auction-lot-covers.real-photo img{object-fit:contain;background:#000}
-.auction-lot-body{padding:14px}
-.auction-lot-title{font-weight:700;font-size:14px;color:var(--text)}
-.auction-lot-meta{font-size:11px;color:var(--text3);margin-top:3px}
-.auction-lot-bid-row{display:flex;justify-content:space-between;align-items:baseline;margin-top:10px}
-.auction-lot-bid-label{font-size:10.5px;color:var(--text3);text-transform:uppercase;letter-spacing:0.5px}
-.auction-lot-bid-val{font-size:19px;font-weight:800;color:#ff3b3b}
-.auction-lot-bidder{font-size:11px;color:var(--text2);margin-top:2px}
-.auction-lot-bid-form{display:flex;gap:6px;margin-top:10px}
-.auction-lot-bid-form input{flex:1;min-width:0;background:var(--bg3);border:1px solid var(--border);border-radius:8px;color:var(--text);padding:9px 10px;font-size:13px}
-.auction-lot-bid-form button{background:#ff3b3b;color:#fff;border:none;border-radius:8px;padding:0 16px;font-weight:700;font-size:12px;cursor:pointer;white-space:nowrap}
-.auction-quick-bids{display:flex;gap:5px;flex-wrap:wrap;margin-top:8px}
-.auction-quick-bid-btn{background:var(--bg3);border:1px solid var(--border2);color:var(--text2);border-radius:14px;padding:5px 10px;font-size:11px;font-weight:700;cursor:pointer;transition:border-color .15s,color .15s}
-.auction-quick-bid-btn:hover{border-color:#ff3b3b;color:#ff3b3b}
-.auction-lot-history{margin-top:8px;font-size:10.5px;color:var(--text3);max-height:60px;overflow-y:auto}
-.auction-lot-won{margin-top:10px;padding:10px;border-radius:8px;background:rgba(62,207,142,0.12);border:1px solid rgba(62,207,142,0.35);text-align:center}
-.auction-lot-sold-badge{display:inline-block;margin-top:10px;font-size:11px;font-weight:700;color:var(--green);background:rgba(62,207,142,0.12);padding:5px 12px;border-radius:12px}
-.auction-lot-unsold-badge{display:inline-block;margin-top:10px;font-size:11px;font-weight:700;color:var(--text3);background:rgba(255,255,255,0.06);padding:5px 12px;border-radius:12px}
-.auction-divider{height:1px;background:linear-gradient(90deg,transparent,var(--border2),transparent);margin:36px 0}
-.auction-full-block{position:relative;border:1px solid var(--border2);border-radius:var(--radius);padding:28px 24px;margin-bottom:28px;background:rgba(255,255,255,0.015);border-left:3px solid var(--border2)}
-.auction-full-block.st-live{border-left-color:#ff3b3b}
-.auction-full-block.st-scheduled{border-left-color:var(--cyan)}
-.auction-full-block.st-waiting_quorum{border-left-color:#f0a832}
-.auction-full-block.st-ended{border-left-color:var(--text3)}
-.auction-block-index{position:absolute;top:-13px;left:24px;background:var(--bg);border:1px solid var(--border2);color:var(--text3);font-size:11px;font-weight:800;letter-spacing:1px;padding:3px 12px;border-radius:10px}
-@media(max-width:600px){.auction-full-block{padding:22px 16px}}
-.auction-promo-index{font-family:var(--font-display);font-size:10px;font-weight:800;letter-spacing:1.5px;color:var(--text3);background:var(--bg3);padding:2px 9px;border-radius:8px;display:inline-block;margin-bottom:6px}
-.auction-contact-box{margin-top:28px;text-align:center;padding:18px;border-top:1px solid var(--border)}
-.auction-contact-sub{font-size:12px;color:var(--text3);margin-bottom:12px}
-.auction-contact-badges{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
-.auction-contact-badge{display:flex;align-items:center;gap:6px;padding:8px 16px;border-radius:20px;border:1px solid var(--border2);color:var(--text);text-decoration:none;font-size:12.5px;font-weight:600;transition:border-color .2s,color .2s}
-.auction-contact-badge:hover{border-color:var(--cyan);color:var(--cyan)}
+@media(max-width:600px){}
+@media(max-width:600px){}
 .preorder-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;transition:border-color .2s,transform .2s}
 .preorder-card:hover{border-color:var(--border2);transform:translateY(-3px)}
 .preorder-card-cover{width:100%;position:relative;padding-bottom:140%;background:var(--bg3);overflow:hidden}
@@ -612,7 +533,6 @@ select.form-inp:disabled{opacity:.55;cursor:default}
   .auth-btn{padding:7px 9px;font-size:0}
   .auth-btn::before{content:'👤';font-size:15px}
   .user-avatar-btn{width:32px;height:32px;font-size:12px}
-  .nav-balance-btn{padding:5px 8px;font-size:11px;gap:2px}
   .user-menu-wrap{gap:6px}
 }
 
@@ -664,7 +584,6 @@ select.form-inp:disabled{opacity:.55;cursor:default}
 @media(max-width:768px){.collection-banner-section{padding:0 16px;margin:76px auto 32px}}
 body.has-sale-banner #collection-banner-section{margin-top:-10px}
 body.has-bundles #collection-banner-section{margin-top:-10px}
-body.has-bundles #gifts-showcase,body.has-sale-banner #gifts-showcase,body.ny-mode #gifts-showcase{margin-top:-10px}
 body.has-sale-banner #bundles-showcase,body.ny-mode #bundles-showcase{margin-top:-10px}
 .sbs-wrap{position:relative;border-radius:22px;padding:22px 20px 20px;background:radial-gradient(ellipse at 15% 0%,rgba(255,0,110,.22),transparent 55%),radial-gradient(ellipse at 90% 100%,rgba(0,229,255,.2),transparent 55%),var(--bg2);border:1px solid rgba(255,0,110,.45);box-shadow:0 0 40px rgba(255,0,110,.12),inset 0 0 0 1px rgba(0,229,255,.08)}
 .sbs-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px}
@@ -680,25 +599,7 @@ body.has-sale-banner #bundles-showcase,body.ny-mode #bundles-showcase{margin-top
 #sec-bundles{background:linear-gradient(135deg,rgba(255,0,110,.25),rgba(124,109,240,.25));border-color:rgba(255,0,110,.6);color:#fff;box-shadow:0 0 14px rgba(255,0,110,.3)}
 #sec-bundles.active{background:linear-gradient(135deg,#ff006e,#7c6df0);color:#fff}
 @media(max-width:768px){.sbs-wrap{padding:16px 12px}.sbs-title{font-size:20px}.sbs-row .sb-card{flex-basis:215px}}
-.auction-promo-card{display:flex;align-items:center;justify-content:space-between;gap:24px;background:linear-gradient(135deg,rgba(255,59,59,0.12),rgba(255,0,110,0.08));border:1px solid rgba(255,59,59,0.35);border-radius:var(--radius);padding:32px 36px;cursor:pointer;transition:transform .25s,box-shadow .25s;text-decoration:none;color:inherit;min-height:120px;border-left:4px solid #ff3b3b}
-.auction-promo-card.st-scheduled{background:linear-gradient(135deg,rgba(0,212,255,0.1),rgba(255,0,110,0.05));border-color:rgba(0,212,255,0.3);border-left-color:var(--cyan)}
-.auction-promo-card.st-waiting_quorum{background:linear-gradient(135deg,rgba(240,168,50,0.12),rgba(255,0,110,0.05));border-color:rgba(240,168,50,0.3);border-left-color:#f0a832}
-.auction-promo-card.st-ended{background:rgba(255,255,255,0.03);border-color:var(--border2);border-left-color:var(--text3)}
-.auction-promo-card,.auction-promo-card *{text-decoration:none}
-.auction-promo-card:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(255,59,59,0.15)}
-.auction-promo-list{display:flex;flex-direction:column;gap:16px}
-.auction-promo-badge{font-family:var(--font-display);font-size:14px;font-weight:800;letter-spacing:2.5px;color:#ff3b3b}
-.auction-promo-icon{width:88px;height:88px;flex-shrink:0}
-.auction-promo-icon svg{width:100%;height:100%;filter:drop-shadow(0 0 14px rgba(255,59,59,0.45))}
-.auction-promo-right{display:flex;align-items:center;gap:22px;flex-shrink:0}
-.auction-promo-name{font-size:28px;font-weight:800;color:var(--text);margin-top:8px}
-.auction-promo-sub{font-size:16px;color:var(--text2);margin-top:6px}
-.auction-promo-dates{font-size:13px;color:var(--text3);margin-top:6px}
-.auction-promo-note{font-size:13px;font-weight:700;margin-top:12px;padding:5px 14px;border-radius:12px;display:inline-block}
-.auction-promo-note.warn{background:rgba(255,184,0,0.15);color:#ffb800}
-.auction-promo-note.closed{background:rgba(255,59,59,0.15);color:#ff3b3b}
-.auction-promo-cta{font-family:var(--font-display);font-size:14px;font-weight:700;letter-spacing:1px;color:#ff3b3b;white-space:nowrap;flex-shrink:0}
-@media(max-width:600px){.auction-promo-card{flex-direction:column;align-items:flex-start;gap:16px;padding:26px 22px}.auction-promo-right{width:100%;justify-content:space-between}}
+@media(max-width:600px){}
 
 /* ── GENRES SECTION ── */
 .genres-section{padding:60px 24px;max-width:1400px;margin:0 auto}
@@ -798,10 +699,6 @@ body.has-sale-banner #bundles-showcase,body.ny-mode #bundles-showcase{margin-top
 /* ── USER MENU ── */
 .user-menu-wrap{position:relative;display:flex;align-items:center;gap:10px}
 .user-avatar-btn{background:linear-gradient(135deg,var(--cyan),#0088ff);border:none;border-radius:50%;width:36px;height:36px;cursor:pointer;font-size:14px;font-weight:700;color:#000;display:flex;align-items:center;justify-content:center;transition:all .2s;font-family:var(--font-display)}
-.nav-balance-btn{display:inline-flex;align-items:center;gap:4px;background:var(--bg3);border:1px solid var(--border2);color:var(--text);border-radius:16px;padding:6px 12px;font-size:12.5px;font-weight:700;cursor:pointer;transition:border-color .2s;white-space:nowrap;flex-shrink:0}
-.nav-balance-btn:hover{border-color:#ff3b3b}
-.auction-topup-link{font-size:11.5px;color:var(--cyan);cursor:pointer;margin-top:8px;text-align:center}
-.auction-topup-link:hover{text-decoration:underline}
 .user-avatar-btn:hover{box-shadow:var(--glow-cyan)}
 .user-dropdown{position:absolute;right:0;top:44px;background:var(--bg2);border:1px solid var(--border2);border-radius:var(--radius);padding:8px;min-width:180px;z-index:200;display:none;box-shadow:0 8px 32px rgba(0,0,0,0.4)}
 .user-dropdown.open{display:block}
@@ -925,8 +822,228 @@ body.has-sale-banner #bundles-showcase,body.ny-mode #bundles-showcase{margin-top
 .wish-heart-btn.wished{color:var(--pink)}
 .wish-heart-btn.not-wished{color:var(--text3)}
 </style>
+<style id="skin-v2">
+/* ═════════ SKIN v2 — redesign (only overrides; all logic untouched) ═════════ */
+:root{--bg:#07070d;--bg2:#0d0d18;--bg3:#151528;--bg4:#202042;--text2:#a0a0bd;--text3:#6c6c8a;--border:rgba(255,255,255,.07);--border2:rgba(0,212,255,.24);--radius:16px;--radius-sm:10px}
+body{background:radial-gradient(1100px 650px at 88% -8%,rgba(255,0,110,.11),transparent 62%),radial-gradient(1000px 600px at 4% 0%,rgba(0,212,255,.10),transparent 62%),#07070d;background-attachment:fixed}
+.nav{height:68px;padding:0 28px;background:rgba(7,7,13,.72);backdrop-filter:blur(24px) saturate(1.5);-webkit-backdrop-filter:blur(24px) saturate(1.5);border-bottom:1px solid rgba(255,255,255,.07);box-shadow:0 1px 0 rgba(0,212,255,.12),0 12px 30px rgba(0,0,0,.25)}
+.search-inp{border-radius:40px;background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.08)}
+.search-inp:focus{border-color:var(--cyan);background:rgba(255,255,255,.07)}
+.nav-preorder-link{border-radius:40px}
+.cart-btn{border-radius:40px!important}
+.auth-btn{border-radius:40px!important}
+/* hero */
+.hero.hero2{height:auto;min-height:0;padding:112px 24px 100px;text-align:left;display:block}
+.hero2 .hero-bg{background:radial-gradient(ellipse 60% 70% at 78% 40%,rgba(255,0,110,.16),transparent 70%),radial-gradient(ellipse 55% 60% at 15% 30%,rgba(0,212,255,.14),transparent 70%)}
+.hero-grid{position:relative;z-index:1;max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1.05fr .95fr;gap:36px;align-items:center}
+.hero2 .hero-content{max-width:none;padding:0}
+.hero2 .hero-eyebrow{display:inline-block;font-size:11px;letter-spacing:2.5px;padding:7px 14px;border:1px solid rgba(0,212,255,.35);border-radius:40px;background:rgba(0,212,255,.07);margin-bottom:22px;opacity:1}
+.hero2 .hero-title{font-size:clamp(44px,6.4vw,92px);line-height:.95;letter-spacing:-2px;margin-bottom:20px;display:flex;gap:.28em;flex-wrap:wrap}
+.hero2 .hero-sub{font-size:17px;line-height:1.65;color:#b6b6d0;margin:0 0 30px;max-width:520px}
+.hero2 .hero-btns{justify-content:flex-start}
+.hero2 .btn-primary,.hero2 .btn-outline{border-radius:12px;padding:16px 26px}
+.hero2 .btn-primary:not(#hero-btn-acc){box-shadow:0 10px 34px rgba(0,212,255,.28)}
+.hero-points{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.hero-pt{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;color:#c9c9e0;padding:8px 14px;border-radius:40px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08)}
+.hero-pt i{font-style:normal;color:var(--cyan)}
+.hero-visual{position:relative;height:430px}
+.hero-visual::before{content:'';position:absolute;inset:8% 6%;background:radial-gradient(circle,rgba(255,0,110,.32),rgba(0,212,255,.18) 55%,transparent 72%);filter:blur(40px)}
+.hv-card{position:absolute;width:178px;aspect-ratio:5/7;border-radius:16px;overflow:hidden;cursor:pointer;background:var(--bg3);box-shadow:0 24px 54px rgba(0,0,0,.65),0 0 0 1px rgba(255,255,255,.12);transition:transform .4s cubic-bezier(.2,.8,.3,1)}
+.hv-card img{width:100%;height:100%;object-fit:cover;display:block}
+.hv-card::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.85))}
+.hv-info{position:absolute;left:10px;right:10px;bottom:10px;z-index:2;display:flex;justify-content:space-between;align-items:flex-end;gap:6px}
+.hv-t{font-size:11.5px;font-weight:700;line-height:1.25;color:#fff;text-shadow:0 1px 6px #000;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.hv-p{font-family:var(--font-mono);font-size:12px;font-weight:700;color:#04101a;background:var(--cyan);padding:3px 8px;border-radius:20px;white-space:nowrap}
+.hv-card:nth-child(1){left:0;top:70px;transform:rotate(-11deg)}
+.hv-card:nth-child(2){left:23%;top:26px;transform:rotate(-4deg);z-index:2}
+.hv-card:nth-child(3){left:47%;top:0;transform:rotate(3deg);z-index:3}
+.hv-card:nth-child(4){left:70%;top:40px;transform:rotate(10deg);z-index:2}
+@media(hover:hover){.hv-card:hover{transform:translateY(-12px) rotate(0) scale(1.05);z-index:9}}
+.hero-visual.empty{display:none}
+.hero-grid.no-vis{grid-template-columns:1fr}
+/* search */
+.hero-search-section{max-width:780px;margin:-52px auto 30px;padding:0 24px}
+.hero-search-inp{padding:20px 26px 20px 62px;background:rgba(13,13,24,.92);backdrop-filter:blur(14px);border:1px solid rgba(0,212,255,.3);border-radius:60px;box-shadow:0 18px 50px rgba(0,0,0,.5),0 0 0 6px rgba(0,212,255,.05)}
+/* trust */
+.trust{max-width:1240px;margin:0 auto 6px;padding:0 24px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.trust-item{display:flex;gap:14px;align-items:flex-start;padding:18px;border-radius:18px;background:linear-gradient(160deg,rgba(255,255,255,.05),rgba(255,255,255,.015));border:1px solid var(--border)}
+.trust-ic{flex:0 0 44px;height:44px;border-radius:13px;display:grid;place-items:center;background:rgba(0,212,255,.1);color:var(--cyan);border:1px solid rgba(0,212,255,.2)}
+.trust-item:nth-child(even) .trust-ic{background:rgba(255,0,110,.1);color:#ff4d97;border-color:rgba(255,0,110,.25)}
+.trust-t{font-size:14px;font-weight:700;color:#fff;margin-bottom:3px}
+.trust-s{font-size:12px;line-height:1.5;color:var(--text2)}
+/* genres */
+.genres-section{padding:34px 24px 0}
+.genres-sub{display:none}
+.genres-title{font-size:15px;margin-bottom:14px}
+.genres-grid{display:flex;gap:10px;overflow-x:auto;padding:4px 2px 12px;scrollbar-width:thin;scroll-snap-type:x proximity}
+.genre-card{flex:0 0 auto;display:flex;align-items:center;gap:10px;padding:10px 18px;border-radius:40px;text-align:left;scroll-snap-align:start}
+.genre-icon{font-size:20px;margin:0}
+.genre-name{font-size:11px;white-space:nowrap}
+.genre-count{margin:0 0 0 2px;font-size:10px}
+/* catalog */
+.catalog{padding:44px 24px 40px}
+.catalog-title{font-size:26px}
+.filter-btn{border-radius:40px;padding:8px 16px}
+.filter-btn.active{background:linear-gradient(135deg,rgba(0,212,255,.22),rgba(0,136,255,.12))}
+.game-grid{gap:26px 20px}
+.game-card{border-radius:18px;background:linear-gradient(180deg,#131322,#0a0a13);border:1px solid rgba(255,255,255,.075)}
+@media(hover:hover) and (pointer:fine){.game-card:hover{border-color:rgba(0,212,255,.5);box-shadow:0 20px 48px rgba(0,0,0,.55),0 0 38px rgba(0,212,255,.15)}}
+.game-info{padding:15px 15px 16px;gap:9px}
+.game-title{font-size:14px;font-weight:700}
+.game-price{font-size:21px;font-weight:700;color:#fff;letter-spacing:-.3px}
+.add-btn{background:linear-gradient(135deg,var(--cyan),#0a8cff);color:#04101a;border:none;border-radius:11px;padding:12px;font-weight:800;box-shadow:0 6px 20px rgba(0,212,255,.2)}
+.add-btn:hover{filter:brightness(1.1);transform:translateY(-1px);color:#04101a;background:linear-gradient(135deg,var(--cyan),#0a8cff)}
+.add-btn.added{background:linear-gradient(135deg,var(--pink),#cc0055);color:#fff;box-shadow:0 6px 20px rgba(255,0,110,.25)}
+/* how it works */
+.sk-wrap{max-width:1240px;margin:80px auto 0;padding:0 24px}
+.sk-title{font-family:var(--font-display);font-size:24px;font-weight:800;letter-spacing:1px;margin-bottom:26px;text-align:center}
+.sk-title span{color:var(--cyan)}
+.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.how-step{position:relative;padding:26px 24px;border-radius:20px;background:linear-gradient(160deg,rgba(255,255,255,.05),rgba(255,255,255,.015));border:1px solid var(--border);overflow:hidden}
+.how-n{font-family:var(--font-display);font-size:54px;font-weight:900;line-height:1;background:linear-gradient(135deg,var(--cyan),var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:12px}
+.how-t{font-size:16px;font-weight:700;margin-bottom:6px}
+.how-s{font-size:13px;line-height:1.6;color:var(--text2)}
+/* reviews */
+.reviews-section{margin-top:80px}
+.reviews-section-title{font-size:15px;color:var(--text);margin-bottom:26px}
+.review-card{border-radius:18px;background:linear-gradient(160deg,rgba(255,255,255,.05),rgba(255,255,255,.015));padding:22px}
+/* contact cta */
+.cta-box{border-radius:26px;padding:42px;background:linear-gradient(120deg,rgba(0,212,255,.14),rgba(255,0,110,.16));border:1px solid rgba(255,255,255,.12);display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap}
+.cta-t{font-family:var(--font-display);font-size:clamp(20px,3vw,28px);font-weight:800;margin-bottom:8px}
+.cta-s{font-size:14px;color:#c4c4dc;max-width:520px;line-height:1.6}
+.cta-btns{display:flex;gap:12px;flex-wrap:wrap}
+.cta-btn{display:inline-flex;align-items:center;gap:10px;padding:16px 24px;border-radius:14px;font-weight:800;font-size:14px;text-decoration:none;transition:transform .2s,filter .2s}
+.cta-btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.cta-wa{background:#25d366;color:#04140a}
+.cta-call{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.2)}
+/* footer */
+.footer{background:#05050a;border-top:1px solid rgba(0,212,255,.16);margin-top:70px}
+/* responsive */
+@media(max-width:1000px){.hero-grid{grid-template-columns:1fr}.hero-visual{height:330px;max-width:520px;margin:10px auto 0;width:100%}.hv-card{width:132px}.trust{grid-template-columns:repeat(2,1fr)}.how-grid{grid-template-columns:1fr}}
+@media(max-width:600px){.hero.hero2{padding:88px 18px 84px}.hero2 .hero-sub{font-size:15px}.hero2 .btn-primary,.hero2 .btn-outline{padding:14px 18px;flex:1 1 auto;justify-content:center}.hero-visual{height:270px}.hv-card{width:106px;border-radius:12px}.hv-t{font-size:9.5px}.hv-p{font-size:10px;padding:2px 6px}.trust{grid-template-columns:1fr;gap:10px}.cta-box{padding:28px 22px}.cta-btn{flex:1 1 100%;justify-content:center}.sk-wrap{margin-top:56px}.hero-search-section{margin-top:-44px}.nav{padding:0 14px}}
+body:has(.collection-banner-section:not([style*="display: none"]):not([style*="display:none"])) .hero.hero2{padding-top:44px}
+.hero-pt{padding:7px 12px;font-size:12px}
+@media(max-width:600px){#plat-filter-row{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding-bottom:4px;margin-right:-24px;padding-right:24px}#plat-filter-row::-webkit-scrollbar{display:none}#plat-filter-row .filter-btn,#plat-filter-row .filter-sep{flex:0 0 auto}}
+
+</style>
 </head>
 <body>
+<!-- INTRO (gamer silhouette → disc shot → logo). Plays once per session; switch in portal: settings/introOff -->
+<style>
+#nd-intro{position:fixed;inset:0;z-index:1200;background:#030308;display:flex;align-items:center;justify-content:center;transition:opacity .7s ease}
+#nd-intro.out{opacity:0;pointer-events:none}
+#nd-intro::before{content:'';position:absolute;inset:0;background:radial-gradient(60% 60% at 50% 50%,rgba(0,212,255,.12),transparent 70%),radial-gradient(40% 40% at 85% 85%,rgba(255,0,110,.16),transparent 70%)}
+.ni-ring{position:relative;width:min(80vmin,580px);height:min(80vmin,580px);border-radius:50%;overflow:hidden;background:radial-gradient(circle,#fff 0%,#eef9ff 55%,#bfe9ff 100%);border:6px solid #00d4ff;box-shadow:0 0 0 3px rgba(255,0,110,.7),0 0 60px rgba(0,212,255,.6),0 0 120px rgba(255,0,110,.35);transition:transform .9s cubic-bezier(.7,0,.3,1),opacity .6s}
+.ni-ring svg{position:absolute;inset:0;width:100%;height:100%}
+#nd-intro .sil{fill:#05050a}
+#nd-intro .ni-ground{stroke:rgba(5,5,10,.18);stroke-width:3}
+#ni-side{animation:niwalk 2s linear forwards}
+@keyframes niwalk{from{transform:translateX(-330px)}to{transform:translateX(0)}}
+.ni-leg,.ni-arm{transform-box:fill-box;transform-origin:50% 4%;animation:niswing .42s ease-in-out infinite alternate}
+.ni-leg.b,.ni-arm.a{animation-direction:alternate-reverse}
+@keyframes niswing{from{transform:rotate(-30deg)}to{transform:rotate(30deg)}}
+#ni-side,#ni-front{transition:opacity .12s}
+#ni-front{opacity:0;transform-origin:200px 330px}
+.turn #ni-side{opacity:0;animation-play-state:paused}
+.turn #ni-front{opacity:1}
+.ni-farm{transform-box:fill-box;transform-origin:50% 5%;transition:transform .5s cubic-bezier(.2,.9,.3,1)}
+.raise .ni-farm{transform:rotate(-120deg)}
+.raise #ni-front{animation:nipush .9s ease-out forwards}
+@keyframes nipush{from{transform:scale(1)}to{transform:scale(1.18)}}
+#ni-disc{position:absolute;left:50%;top:50%;width:14%;aspect-ratio:1;margin:-7% 0 0 -7%;border-radius:50%;opacity:0;background:conic-gradient(from 20deg,#bfe9ff,#fff 10%,#00d4ff 22%,#ff006e 36%,#fff 48%,#bfe9ff 60%,#00d4ff 74%,#ff006e 88%,#bfe9ff);box-shadow:0 0 30px rgba(0,212,255,.9),0 0 60px rgba(255,0,110,.6)}
+#ni-disc::after{content:'';position:absolute;inset:36%;border-radius:50%;background:#05050a}
+.throw #ni-disc{opacity:1;animation:nithrow .55s cubic-bezier(.5,0,.9,.4) forwards}
+@keyframes nithrow{from{transform:translate(215%,-110%) scale(.8) rotate(0)}to{transform:translate(0,0) scale(14) rotate(900deg)}}
+.ni-flash{position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none}
+.flash .ni-flash{animation:niflash .5s ease-out forwards}
+@keyframes niflash{0%{opacity:0}30%{opacity:1}100%{opacity:1}}
+.ni-logo{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:radial-gradient(circle,#10102a,#05050a 75%);opacity:0;transform:scale(.7);transition:opacity .5s,transform .7s cubic-bezier(.2,.9,.3,1)}
+.logo .ni-logo{opacity:1;transform:scale(1)}
+.logo .ni-flash{animation:niflashout .6s ease-out forwards}
+@keyframes niflashout{from{opacity:1}to{opacity:0}}
+.ni-logo img{width:36%;border-radius:50%;box-shadow:0 0 40px rgba(0,212,255,.6)}
+.ni-logo b{font-family:Orbitron,sans-serif;font-size:clamp(26px,6vmin,46px);font-weight:900;letter-spacing:4px;color:#00d4ff;text-shadow:0 0 22px rgba(0,212,255,.8)}
+.ni-logo b span{color:#ff006e;text-shadow:0 0 22px rgba(255,0,110,.8)}
+.open .ni-ring{transform:scale(7);opacity:0}
+.ni-skip{position:absolute;right:18px;bottom:18px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.25);color:#fff;font:600 13px Inter,sans-serif;padding:9px 16px;border-radius:30px;cursor:pointer;letter-spacing:1px}
+</style>
+<div id="nd-intro" style="display:none" aria-hidden="true">
+  <div class="ni-ring" id="ni-ring">
+    <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice">
+      <line class="ni-ground" x1="0" y1="334" x2="400" y2="334"/>
+      <g id="ni-side">
+        <ellipse cx="200" cy="336" rx="48" ry="5" fill="rgba(5,5,10,.15)"/>
+        <rect class="sil ni-arm a" x="193" y="178" width="14" height="80" rx="7"/>
+        <rect class="sil ni-leg a" x="191" y="258" width="18" height="76" rx="8"/>
+        <path class="sil" d="M178 170 Q200 160 224 170 L218 264 L182 264 Z"/>
+        <circle class="sil" cx="203" cy="132" r="25"/>
+        <path d="M180 128 A24 24 0 0 1 226 126" fill="none" stroke="#05050a" stroke-width="7"/>
+        <rect class="sil" x="196" y="122" width="14" height="22" rx="7"/>
+        <rect class="sil ni-leg b" x="191" y="258" width="18" height="76" rx="8"/>
+        <rect class="sil ni-arm b" x="193" y="178" width="14" height="80" rx="7"/>
+      </g>
+      <g id="ni-front">
+        <ellipse cx="200" cy="336" rx="64" ry="6" fill="rgba(5,5,10,.15)"/>
+        <rect class="sil" x="159" y="266" width="34" height="68" rx="9"/><rect class="sil" x="207" y="266" width="34" height="68" rx="9"/>
+        <rect class="sil" x="141" y="174" width="16" height="96" rx="8"/>
+        <path class="sil" d="M156 172 Q200 160 244 172 L248 272 L152 272 Z"/>
+        <circle class="sil" cx="200" cy="130" r="27"/>
+        <path d="M168 130 A32 32 0 0 1 232 130" fill="none" stroke="#05050a" stroke-width="8"/>
+        <rect class="sil" x="161" y="122" width="10" height="26" rx="5"/><rect class="sil" x="229" y="122" width="10" height="26" rx="5"/>
+        <rect class="sil ni-farm" x="244" y="172" width="16" height="96" rx="8"/>
+      </g>
+    </svg>
+    <video id="ni-vid" muted playsinline preload="auto" style="display:none;position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></video>
+    <div id="ni-disc"></div>
+    <div class="ni-logo"><img src="logo-256.png" alt=""><b>ND<span>GAMES</span></b></div>
+    <div class="ni-flash"></div>
+  </div>
+  <button class="ni-skip" id="ni-skip" type="button">SKIP ›</button>
+</div>
+<script>
+(function(){
+  var el=document.getElementById('nd-intro');if(!el)return;
+  var skip=false;try{
+    if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)skip=true;
+    if(localStorage.getItem('ndIntroOff')==='1')skip=true;
+    if(sessionStorage.getItem('ndIntroSeen')==='1')skip=true;
+    if(/[?&]nointro/.test(location.search))skip=true;
+  }catch(e){}
+  if(skip){el.parentNode.removeChild(el);return;}
+  try{sessionStorage.setItem('ndIntroSeen','1');}catch(e){}
+  el.style.display='flex';
+  var ring=document.getElementById('ni-ring'),T=[],done=false;
+  function at(ms,fn){T.push(setTimeout(fn,ms));}
+  function end(){
+    if(done)return;done=true;T.forEach(clearTimeout);
+    el.classList.add('out');
+    setTimeout(function(){if(el.parentNode)el.parentNode.removeChild(el);},800);
+  }
+  function finish(base){at(base,function(){el.classList.add('flash');});at(base+250,function(){el.classList.add('logo');});at(base+1500,function(){el.classList.add('open');});at(base+2200,end);}
+  function svgMode(){
+    at(2050,function(){el.classList.add('turn');});
+    at(2400,function(){el.classList.add('raise');});
+    at(3050,function(){el.classList.add('throw');});
+    finish(3500);
+  }
+  // Если рядом с сайтом лежит intro.mp4 (своё видео), играем его в круге; иначе — рисованная версия.
+  var vid=document.getElementById('ni-vid'),started=false;
+  function videoMode(){
+    if(started)return;started=true;
+    ring.querySelector('svg').style.display='none';vid.style.display='block';
+    var p=vid.play();if(p&&p.catch)p.catch(function(){});
+    vid.onended=function(){finish(0);};
+    at(Math.min(((vid.duration||5)+1.5)*1000,15000),function(){if(!el.classList.contains('flash'))finish(0);});
+  }
+  vid.addEventListener('loadeddata',videoMode);
+  vid.addEventListener('error',function(){if(!started){started=true;svgMode();}});
+  at(1500,function(){if(!started){started=true;svgMode();}});
+  vid.src='intro.mp4';
+  document.getElementById('ni-skip').onclick=end;
+  document.addEventListener('keydown',function k(e){if(e.key==='Escape'||e.key==='Enter'||e.key===' '){end();document.removeEventListener('keydown',k);}});
+})();
+</script>
+
 
 <!-- MAINTENANCE OVERLAY -->
 <div id="maintenance-overlay" style="display:none;position:fixed;inset:0;z-index:99999;background:#0f0f13;color:#fff;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;font-family:'Inter',sans-serif">
@@ -986,7 +1103,6 @@ body.has-sale-banner #bundles-showcase,body.ny-mode #bundles-showcase{margin-top
 <nav class="nav">
   <a href="#" class="nav-logo"><img src="logo-64.png" alt="ND Games"><span class="nav-logo-text">ND<span>GAMES</span></span></a>
   <a href="#preorder-section" class="nav-preorder-link" id="nav-preorder-link">ПРЕДЗАКАЗ</a>
-  <a href="#auction-section" class="nav-preorder-link" id="nav-auction-link" style="display:none">🏆 АУКЦИОН<span id="nav-auction-dot" class="nav-auction-dot" style="display:none"></span></a>
   <div class="search-wrap">
     <span class="search-icon">⌕</span>
     <input class="search-inp" id="nav-search-inp" type="text" placeholder="Поиск..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
@@ -1026,11 +1142,6 @@ body.has-sale-banner #bundles-showcase,body.ny-mode #bundles-showcase{margin-top
   <div id="bundles-showcase-box"></div>
 </section>
 
-<!-- GIFT CARDS SHOWCASE -->
-<section class="collection-banner-section" id="gifts-showcase" style="display:none">
-  <div id="gifts-showcase-box"></div>
-</section>
-
 <!-- COLLECTION BANNER -->
 <section class="collection-banner-section" id="collection-banner-section">
   <div class="collection-banner-label" id="collection-banner-label">// <span>FEATURED</span> COLLECTION</div>
@@ -1039,31 +1150,35 @@ body.has-sale-banner #bundles-showcase,body.ny-mode #bundles-showcase{margin-top
 
 
 <!-- HERO -->
-<section class="hero">
+<section class="hero hero2">
   <div class="hero-bg"></div>
   <canvas id="hero-canvas"></canvas>
-  <div class="hero-content">
-    <div class="hero-eyebrow" id="hero-eyebrow">ND GAMES — BUY BETTER. PLAY BETTER. BE BETTER.</div>
-    <h1 class="hero-title"><span class="nd">ND</span><br><span class="games">GAMES</span></h1>
-    <p class="hero-sub" id="hero-sub">Покупай игры быстро и выгодно. Доставка по всей Грузии.</p>
-    <div class="hero-btns">
-      <a href="#catalog" class="btn-primary" id="hero-btn1">
+  <div class="hero-grid" id="hero-grid">
+    <div class="hero-content">
+      <div class="hero-eyebrow" id="hero-eyebrow">PS4 · PS5</div>
+      <h1 class="hero-title"><span class="nd">ND</span><span class="games">GAMES</span></h1>
+      <p class="hero-sub" id="hero-sub"></p>
+      <div class="hero-btns">
+        <a href="#catalog" class="btn-primary" id="hero-btn1">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
         СМОТРЕТЬ ИГРЫ
       </a>
-      <a href="#catalog" class="btn-primary" id="hero-btn-acc" onclick="setSection('accessories')" style="background:transparent;border:1px solid var(--cyan);color:var(--cyan)">
+        <a href="#catalog" class="btn-primary" id="hero-btn-acc" onclick="setSection('accessories')" style="background:transparent;border:1px solid var(--cyan);color:var(--cyan)">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 8a6 6 0 0112 0v3a6 6 0 01-12 0V8z"/><path d="M6 11H4a2 2 0 00-2 2v1a2 2 0 002 2h1"/><path d="M18 11h2a2 2 0 012 2v1a2 2 0 01-2 2h-1"/></svg>
         <span id="hero-btn-acc-label">АКСЕССУАРЫ</span>
       </a>
-      <a href="https://wa.me/995574188525" class="btn-outline" target="_blank" id="hero-btn2">
+        <a href="https://wa.me/995574188525" class="btn-outline" target="_blank" id="hero-btn2">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         <span id="wa-btn-text">მოგვწერეთ</span>
       </a>
+      </div>
+      <div class="hero-points">
+        <span class="hero-pt"><i>✓</i><span data-sk="pt1"></span></span>
+        <span class="hero-pt"><i>✓</i><span data-sk="pt2"></span></span>
+        <span class="hero-pt"><i>✓</i><span data-sk="pt3"></span></span>
+      </div>
     </div>
-  </div>
-  <div class="scroll-hint">
-    <div class="scroll-hint-line"></div>
-    <span id="scroll-hint-text">SCROLL</span>
+    <div class="hero-visual empty" id="hero-visual"></div>
   </div>
 </section>
 
@@ -1073,6 +1188,13 @@ body.has-sale-banner #bundles-showcase,body.ny-mode #bundles-showcase{margin-top
     <span class="hero-search-icon">⌕</span>
     <input class="hero-search-inp" id="search-inp" type="text" placeholder="Поиск..." oninput="onHeroSearchInput(this.value)" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
   </div>
+</section>
+
+<section class="trust" id="trust">
+  <div class="trust-item"><div class="trust-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="6" width="14" height="10" rx="1"/><path d="M15 9h4l3 3v4h-7z"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg></div><div><div class="trust-t" data-sk="tr1t"></div><div class="trust-s" data-sk="tr1s"></div></div></div>
+  <div class="trust-item"><div class="trust-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></div><div><div class="trust-t" data-sk="tr2t"></div><div class="trust-s" data-sk="tr2s"></div></div></div>
+  <div class="trust-item"><div class="trust-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div><div><div class="trust-t" data-sk="tr3t"></div><div class="trust-s" data-sk="tr3s"></div></div></div>
+  <div class="trust-item"><div class="trust-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 01-11.6 7.1L3 21l1.9-5.4A8 8 0 1121 12z"/></svg></div><div><div class="trust-t" data-sk="tr4t"></div><div class="trust-s" data-sk="tr4s"></div></div></div>
 </section>
 
 <!-- TRANSIT CAROUSEL -->
@@ -1101,7 +1223,6 @@ body.has-sale-banner #bundles-showcase,body.ny-mode #bundles-showcase{margin-top
     <button class="filter-btn" id="sec-consoles" onclick="setSection('consoles')">🕹️ <span id="sec-consoles-label">КОНСОЛИ</span></button>
     <button class="filter-btn" id="sec-accessories" onclick="setSection('accessories')">🎧 <span id="sec-acc-label">АКСЕССУАРЫ</span></button>
     <button class="filter-btn" id="sec-bundles" onclick="setSection('bundles')" style="display:none">🎁 <span id="sec-bundles-label">БАНДЛЫ</span></button>
-    <button class="filter-btn" id="sec-gifts" onclick="setSection('gifts')" style="display:none">🎁 <span id="sec-gifts-label">ПОДАРОЧНЫЕ КАРТЫ</span></button>
   </div>
   <div class="filters" id="plat-filter-row">
     <button class="filter-btn active" id="fb-all" onclick="setFilter('all')">ყველა</button>
@@ -1127,18 +1248,29 @@ body.has-sale-banner #bundles-showcase,body.ny-mode #bundles-showcase{margin-top
   <div class="preorder-grid" id="preorder-grid"></div>
 </section>
 
-<!-- AUCTION -->
-<section class="auction-section" id="auction-section" style="display:none">
-  <div class="preorder-title">// 🏆 АУКЦИОН</div>
-  <div id="auction-section-inner"></div>
-</section>
-
 <!-- REVIEWS -->
+<section class="sk-wrap" id="how">
+  <div class="sk-title" data-skh="how_title"></div>
+  <div class="how-grid">
+    <div class="how-step"><div class="how-n">01</div><div class="how-t" data-sk="h1t"></div><div class="how-s" data-sk="h1s"></div></div>
+    <div class="how-step"><div class="how-n">02</div><div class="how-t" data-sk="h2t"></div><div class="how-s" data-sk="h2s"></div></div>
+    <div class="how-step"><div class="how-n">03</div><div class="how-t" data-sk="h3t"></div><div class="how-s" data-sk="h3s"></div></div>
+  </div>
+</section>
 <section class="reviews-section" id="reviews">
   <div class="reviews-section-title" id="reviews-title">// ОТЗЫВЫ ПОКУПАТЕЛЕЙ</div>
   <div class="reviews-grid" id="reviews-grid"><div style="color:var(--text3);font-size:12px;text-align:center;grid-column:1/-1">...</div></div>
 </section>
 
+<section class="sk-wrap" id="contact-cta">
+  <div class="cta-box">
+    <div><div class="cta-t" data-sk="cta_t"></div><div class="cta-s" data-sk="cta_s"></div></div>
+    <div class="cta-btns">
+      <a class="cta-btn cta-wa" href="https://wa.me/995574188525" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.08.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35zM12.05 21.8h-.01a9.9 9.9 0 01-5.03-1.38l-.36-.21-3.74.98 1-3.65-.23-.37a9.86 9.86 0 01-1.51-5.26c0-5.45 4.44-9.88 9.9-9.88 2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 012.9 6.99c0 5.45-4.44 9.88-9.9 9.88z"/></svg><span data-sk="cta_wa"></span></a>
+      <a class="cta-btn cta-call" href="tel:+995574188525">☎ +995 574 18 85 25</a>
+    </div>
+  </div>
+</section>
 <footer class="footer">
   <div class="footer-inner">
     <div>
@@ -1483,7 +1615,7 @@ function updateSaleUI(){
   var chip=document.getElementById('fb-sale');
   if(chip){chip.style.display=n?'':'none';chip.classList.toggle('active',saleOnly);}
   var lbl=document.getElementById('fb-sale-label');if(lbl)lbl.textContent=L.chip;
-  var tabs={games:'sec-games',consoles:'sec-consoles',accessories:'sec-accessories',bundles:'sec-bundles',gifts:'sec-gifts'};
+  var tabs={games:'sec-games',consoles:'sec-consoles',accessories:'sec-accessories',bundles:'sec-bundles'};
   Object.keys(tabs).forEach(function(k){var el=document.getElementById(tabs[k]);if(el)el.classList.toggle('active',!saleOnly&&activeSection===k);});
   var bar=document.getElementById('sale-bar');
   if(bar){
@@ -1515,35 +1647,35 @@ var T={
   ru:{
     cart:'КОРЗИНА',catalog:'КАТАЛОГ',loading:'ЗАГРУЗКА...',
     empty:'НЕТ ИГР В НАЛИЧИИ',search:'Поиск...',search_no_results:'Ничего не найдено',
-    auc_nav:'АУКЦИОН',auc_live_now:'Торги идут прямо сейчас',auc_starts_at:'Начало: ',auc_ends_at:'Конец: ',auc_ended:'Аукцион завершён',
-    auc_status_live:'🔴 ИДЁТ СЕЙЧАС',auc_status_scheduled:'⏳ СКОРО',auc_status_ended:'🏁 ЗАВЕРШЁН',
-    auc_until_start:'до начала',auc_until_end:'до окончания',auc_login_to_join:'Войти, чтобы участвовать',auc_login_required:'Войдите в аккаунт, чтобы увидеть аукцион и участвовать в торгах',
-    auc_you_joined:'✓ Вы участвуете — ставки откроются в начале',auc_ticket_pending:'⏳ Билет ожидает подтверждения перевода',
-    auc_buy_ticket:'💳 Купить билет — ',auc_by_transfer:'🏦 Переводом',
-    auc_ticket_note:'Билет даёт право участвовать во всех лотах этого аукциона. Покупка билета возможна только до начала торгов.',
-    auc_items_count:'предмет(ов)',auc_start_price:'Стартовая цена',auc_current_bid:'Текущая ставка',auc_start:'Старт',
-    auc_bids_count:'ставок',auc_leading:'Лидирует: ',auc_thats_you:' (это вы 🎉)',
-    auc_you_won:'🏆 Вы выиграли этот лот за ',auc_pay:'Оплатить',auc_sold_for:'✓ Продано за ',auc_no_bids:'Ставок не было',
-    auc_own_amount:'Своя сумма, от ',auc_bid_btn:'Ставка',auc_tickets_closed:'Продажа билетов закрыта после старта аукциона',
-    auc_contact_sub:'Вопросы по аукциону или оплате — напишите нам',
-    auc_ticket_request_sent:'✓ Заявка создана — напишите нам в WhatsApp для перевода и подтверждения',
-    auc_enter_amount:'⚠ Введите сумму ставки',auc_bid_too_low:'⚠ Ставка слишком мала — кто-то опередил',auc_bid_accepted:'✓ Ставка принята!',
-    auc_promo_badge:'🏆 АУКЦИОНЫ',auc_promo_cta:'Подробнее →',
-    auc_none_title:'Аукционы',auc_none_sub:'Пока нет активных — следите за обновлениями',
-    auc_promo_buy_ahead:'Билет нужно купить заранее',auc_promo_closed:'⛔ Продажа билетов закрыта — торги уже идут',
-    auc_pay_methods:'💳 Можно оплатить картой или 🏦 банковским переводом',
-    auc_bank_sum:'Сумма к переводу:',auc_bank_note:'После перевода пришлите скриншот чека нам в WhatsApp — мы подтвердим оплату вручную.',
-    auc_status_waiting:'⏸ Ждём участников',auc_participants:'участников',auc_quorum_needed:'нужно минимум',
-    auc_enter_btn:'Войти на этот аукцион',auc_full:'Мест больше нет — аукцион заполнен',
-    auc_balance_monthly:'Безлимит до',auc_balance_credits:'Ваш баланс',auc_packages_label:'Пополнить баланс',
-    topup_amount_label:'Сумма пополнения',topup_amount_ph:'Например, 25',enter_topup_amount:'Введите сумму пополнения',
-    nav_balance_title:'Баланс',balance_use_note:'Балансом можно оплатить и обычные диски в корзине, и вход на аукцион — где угодно на сайте.',
-    auc_enter_balance_btn:'Войти с баланса',auc_topup_link:'Пополнить баланс',topup_sub:'Пополнение баланса сайта',
-    pay_balance:'Баланс',pay_balance_hint:'Доступно на балансе',pay_balance_insufficient:'Недостаточно средств на балансе — пополните его',
-    auc_pkg_monthly:'Безлимит на месяц',auc_pkg_monthly_sub:'Без ограничений на все аукционы',
-    auc_pkg_entries:'вход(ов)',auc_pkg_entries_sub:'На любые аукционы',auc_pkg_best:'Выгоднее всего',
-    auc_entered:'Вы вошли в аукцион',auc_need_package:'Не хватает баланса — выберите пакет ниже',
-    auc_waiting_quorum:'Ждём набора участников',auc_more_count:'ещё',
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     add:'В КОРЗИНУ',added:'В КОРЗИНЕ',
     checkout:'ОФОРМИТЬ ЗАКАЗ →',total:'Итого:',
     order_title:'ОФОРМЛЕНИЕ ЗАКАЗА',name:'Имя',phone:'Телефон',
@@ -1589,35 +1721,35 @@ var T={
   ka:{
     cart:'კალათა',catalog:'კატალოგი',loading:'იტვირთება...',
     empty:'თამაშები არ არის',search:'ძებნა...',search_no_results:'ვერაფერი მოიძებნა',
-    auc_nav:'აუქციონი',auc_live_now:'ტორგები მიმდინარეობს ახლავე',auc_starts_at:'დაწყება: ',auc_ends_at:'დასრულება: ',auc_ended:'აუქციონი დასრულდა',
-    auc_status_live:'🔴 მიმდინარეობს',auc_status_scheduled:'⏳ მალე',auc_status_ended:'🏁 დასრულებულია',
-    auc_until_start:'დაწყებამდე',auc_until_end:'დასრულებამდე',auc_login_to_join:'შედით, რომ მონაწილეობა მიიღოთ',auc_login_required:'შედით ანგარიშში, რომ ნახოთ აუქციონი და მიიღოთ მონაწილეობა ვაჭრობაში',
-    auc_you_joined:'✓ თქვენ მონაწილეობთ — ვაჭრობა გაიხსნება დაწყებისას',auc_ticket_pending:'⏳ ბილეთი ელოდება გადარიცხვის დადასტურებას',
-    auc_buy_ticket:'💳 ბილეთის ყიდვა — ',auc_by_transfer:'🏦 გადარიცხვით',
-    auc_ticket_note:'ბილეთი გაძლევთ ამ აუქციონის ყველა ლოტში მონაწილეობის უფლებას. ბილეთის ყიდვა შესაძლებელია მხოლოდ ვაჭრობის დაწყებამდე.',
-    auc_items_count:'ნივთი',auc_start_price:'საწყისი ფასი',auc_current_bid:'მიმდინარე ბიდი',auc_start:'საწყისი',
-    auc_bids_count:'ბიდი',auc_leading:'ლიდერობს: ',auc_thats_you:' (ეს თქვენ ხართ 🎉)',
-    auc_you_won:'🏆 თქვენ მოიგეთ ეს ლოტი — ',auc_pay:'გადახდა',auc_sold_for:'✓ გაიყიდა — ',auc_no_bids:'ბიდები არ ყოფილა',
-    auc_own_amount:'საკუთარი თანხა, არანაკლებ ',auc_bid_btn:'ბიდი',auc_tickets_closed:'ბილეთების გაყიდვა დახურულია აუქციონის დაწყების შემდეგ',
-    auc_contact_sub:'კითხვები აუქციონზე ან გადახდაზე — მოგვწერეთ',
-    auc_ticket_request_sent:'✓ მოთხოვნა შექმნილია — მოგვწერეთ WhatsApp-ზე გადარიცხვისა და დადასტურებისთვის',
-    auc_enter_amount:'⚠ შეიყვანეთ ბიდის თანხა',auc_bid_too_low:'⚠ ბიდი ძალიან დაბალია — ვიღაცამ დაგასწროთ',auc_bid_accepted:'✓ ბიდი მიღებულია!',
-    auc_promo_badge:'🏆 აუქციონები',auc_promo_cta:'დეტალურად →',
-    auc_none_title:'აუქციონები',auc_none_sub:'ამჟამად აქტიური არ არის — შეამოწმეთ მოგვიანებით',
-    auc_promo_buy_ahead:'ბილეთის ყიდვა საჭიროა წინასწარ',auc_promo_closed:'⛔ ბილეთების გაყიდვა დახურულია — ვაჭრობა უკვე მიმდინარეობს',
-    auc_pay_methods:'💳 შესაძლებელია ბარათით ან 🏦 საბანკო გადარიცხვით გადახდა',
-    auc_bank_sum:'გადასარიცხი თანხა:',auc_bank_note:'გადარიცხვის შემდეგ მოგვწერეთ ჩეკის სქრინშოტი WhatsApp-ზე — ხელით დავადასტურებთ გადახდას.',
-    auc_status_waiting:'⏸ ველოდებით მონაწილეებს',auc_participants:'მონაწილე',auc_quorum_needed:'საჭიროა მინიმუმ',
-    auc_enter_btn:'ამ აუქციონზე შესვლა',auc_full:'ადგილები აღარ არის — აუქციონი სავსეა',
-    auc_balance_monthly:'ულიმიტო',auc_balance_credits:'თქვენი ბალანსი',auc_packages_label:'ბალანსის შევსება',
-    topup_amount_label:'შესავსები თანხა',topup_amount_ph:'მაგალითად, 25',enter_topup_amount:'შეიყვანეთ შესავსები თანხა',
-    nav_balance_title:'ბალანსი',balance_use_note:'ბალანსით შეგიძლიათ გადაიხადოთ როგორც ჩვეულებრივი დისკები კალათაში, ასევე აუქციონზე შესვლა — საიტის ნებისმიერ ადგილას.',
-    auc_enter_balance_btn:'შესვლა ბალანსით',auc_topup_link:'ბალანსის შევსება',topup_sub:'საიტის ბალანსის შევსება',
-    pay_balance:'ბალანსი',pay_balance_hint:'ხელმისაწვდომია ბალანსზე',pay_balance_insufficient:'არასაკმარისი თანხა ბალანსზე — შეავსეთ ბალანსი',
-    auc_pkg_monthly:'თვიური ულიმიტო',auc_pkg_monthly_sub:'შეზღუდვის გარეშე ყველა აუქციონზე',
-    auc_pkg_entries:'შესვლა',auc_pkg_entries_sub:'ნებისმიერ აუქციონზე',auc_pkg_best:'ყველაზე ხელსაყრელი',
-    auc_entered:'თქვენ შეხვედით აუქციონზე',auc_need_package:'არასაკმარისი ბალანსი — აირჩიეთ პაკეტი ქვემოთ',
-    auc_waiting_quorum:'ველოდებით მონაწილეების რაოდენობის შევსებას',auc_more_count:'სხვა',
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     add:'კალათაში',added:'კალათაშია',
     checkout:'შეკვეთა →',total:'სულ:',
     order_title:'შეკვეთის გაფორმება',name:'სახელი',phone:'ტელეფონი',
@@ -1663,35 +1795,35 @@ var T={
   en:{
     cart:'CART',catalog:'CATALOG',loading:'LOADING...',
     empty:'NO GAMES IN STOCK',search:'Search...',search_no_results:'No results found',
-    auc_nav:'AUCTION',auc_live_now:'Bidding is live right now',auc_starts_at:'Starts: ',auc_ends_at:'Ends: ',auc_ended:'Auction ended',
-    auc_status_live:'🔴 LIVE NOW',auc_status_scheduled:'⏳ COMING SOON',auc_status_ended:'🏁 ENDED',
-    auc_until_start:'until start',auc_until_end:'until end',auc_login_to_join:'Log in to take part',auc_login_required:'Log in to view the auction and take part in bidding',
-    auc_you_joined:'✓ You are in — bidding opens at start',auc_ticket_pending:'⏳ Ticket awaiting transfer confirmation',
-    auc_buy_ticket:'💳 Buy ticket — ',auc_by_transfer:'🏦 Bank transfer',
-    auc_ticket_note:'The ticket lets you bid on every lot in this auction. Tickets can only be bought before bidding starts.',
-    auc_items_count:'item(s)',auc_start_price:'Starting price',auc_current_bid:'Current bid',auc_start:'Start',
-    auc_bids_count:'bids',auc_leading:'Leading: ',auc_thats_you:' (this is you 🎉)',
-    auc_you_won:'🏆 You won this lot for ',auc_pay:'Pay',auc_sold_for:'✓ Sold for ',auc_no_bids:'No bids placed',
-    auc_own_amount:'Custom amount, from ',auc_bid_btn:'Bid',auc_tickets_closed:'Ticket sales close once the auction starts',
-    auc_contact_sub:'Questions about the auction or payment — message us',
-    auc_ticket_request_sent:'✓ Request created — message us on WhatsApp to arrange the transfer and confirm',
-    auc_enter_amount:'⚠ Enter a bid amount',auc_bid_too_low:'⚠ Bid too low — someone beat you to it',auc_bid_accepted:'✓ Bid placed!',
-    auc_promo_badge:'🏆 AUCTIONS',auc_promo_cta:'Learn more →',
-    auc_none_title:'Auctions',auc_none_sub:'No active auctions right now — check back soon',
-    auc_promo_buy_ahead:'Ticket must be bought in advance',auc_promo_closed:'⛔ Ticket sales closed — bidding is already live',
-    auc_pay_methods:'💳 Pay by card or 🏦 bank transfer',
-    auc_bank_sum:'Amount to transfer:',auc_bank_note:'After the transfer, send us a screenshot of the receipt on WhatsApp — we will confirm the payment manually.',
-    auc_status_waiting:'⏸ Waiting for participants',auc_participants:'participants',auc_quorum_needed:'minimum needed',
-    auc_enter_btn:'Join this auction',auc_full:'No spots left — auction is full',
-    auc_balance_monthly:'Unlimited until',auc_balance_credits:'Your balance',auc_packages_label:'Top up balance',
-    topup_amount_label:'Top-up amount',topup_amount_ph:'e.g. 25',enter_topup_amount:'Enter a top-up amount',
-    nav_balance_title:'Balance',balance_use_note:'Balance can pay for regular discs in the cart too, and auction entry — anywhere on the site.',
-    auc_enter_balance_btn:'Enter with balance',auc_topup_link:'Top up balance',topup_sub:'Top up your site balance',
-    pay_balance:'Balance',pay_balance_hint:'Available balance',pay_balance_insufficient:'Not enough balance — top it up first',
-    auc_pkg_monthly:'Unlimited for a month',auc_pkg_monthly_sub:'No limits on any auction',
-    auc_pkg_entries:'entries',auc_pkg_entries_sub:'For any auction',auc_pkg_best:'Best value',
-    auc_entered:'You have joined the auction',auc_need_package:'Not enough balance — pick a package below',
-    auc_waiting_quorum:'Waiting for enough participants',auc_more_count:'more',
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     add:'ADD TO CART',added:'IN CART',
     checkout:'CHECKOUT →',total:'Total:',
     order_title:'PLACE ORDER',name:'Name',phone:'Phone',
@@ -1796,13 +1928,9 @@ function applyLang(){
   document.getElementById('search-inp').placeholder=t('search');
   var nsi=document.getElementById('nav-search-inp');if(nsi)nsi.placeholder=t('search');
   try{renderBanners(true);}catch(e){}
-  var navAucEl=document.getElementById('nav-auction-link');
-  if(navAucEl){var dotEl=document.getElementById('nav-auction-dot');navAucEl.innerHTML='🏆 '+t('auc_nav');if(dotEl)navAucEl.appendChild(dotEl);}
-  renderAuctionPromo();
   renderSaleBanner();
   if(typeof nyRender==='function')nyRender();
   if(typeof wnUpdatePlayer==='function')wnUpdatePlayer();
-  renderAuctionSection();
   var banLbl=document.getElementById('collection-banner-label');
   if(banLbl)banLbl.innerHTML=lang==='ka'?'// <span>გამორჩეული</span> კოლექცია':lang==='en'?'// <span>FEATURED</span> COLLECTION':'// <span>ХИТЫ</span> КОЛЛЕКЦИИ';
   document.getElementById('hero-sub').textContent=t('hero_sub');
@@ -1822,7 +1950,6 @@ function applyLang(){
   var secGamesLbl=document.getElementById('sec-games-label');if(secGamesLbl)secGamesLbl.textContent=lang==='ka'?'თამაშები':lang==='en'?'GAMES':'ИГРЫ';
   var secAccLbl=document.getElementById('sec-acc-label');if(secAccLbl)secAccLbl.textContent=lang==='ka'?'აქსესუარები':lang==='en'?'ACCESSORIES':'АКСЕССУАРЫ';
   if(typeof sbUpdateTab==='function')sbUpdateTab();
-  if(typeof gcUpdateTab==='function')gcUpdateTab();
   var secConsLbl=document.getElementById('sec-consoles-label');if(secConsLbl)secConsLbl.textContent=lang==='ka'?'კონსოლები':lang==='en'?'CONSOLES':'КОНСОЛИ';
   var fbAll=document.getElementById('fb-all');if(fbAll)fbAll.textContent=lang==='ka'?'ყველა':lang==='en'?'ALL':'ВСЕ';
   var si=document.getElementById('search-inp');if(si)si.placeholder=t('search');
@@ -2024,272 +2151,7 @@ function openBundleSite(id){
     }
   };
 }
-// ===== ПОДАРОЧНЫЕ КАРТЫ (сайт) =====
-var giftProducts={};
-var appliedGift=null; // {code,balance,expiresAt}
-function gcL(ru,ka,en){return lang==='ka'?ka:lang==='en'?(en||ru):ru;}
-var GC_THEMES={pink:'linear-gradient(135deg,#ff006e,#7c6df0)',cyan:'linear-gradient(135deg,#00b4ff,#7c6df0)',gold:'linear-gradient(135deg,#ff9f1c,#e4572e)',green:'linear-gradient(135deg,#00c9a7,#0072ff)',dark:'linear-gradient(135deg,#232526,#5b5f66)'};
-function gcFmt(n){n=parseFloat(n)||0;return (Math.round(n*100)/100).toFixed(Math.abs(n-Math.round(n))<0.005?0:2);}
-function gcDate(ts){return ts?new Date(ts).toLocaleDateString(lang==='ka'?'ka-GE':lang==='en'?'en-GB':'ru-RU',{day:'2-digit',month:'2-digit',year:'numeric'}):'—';}
-function gcCss(){
-  if(document.getElementById('gc-css'))return;
-  var st=document.createElement('style');st.id='gc-css';
-  st.textContent=''
-  +'.gc-card{position:relative;aspect-ratio:1.62;border-radius:16px;padding:16px 18px;color:#fff;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 10px 30px rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.18)}'
-  +'.gc-card:before{content:"";position:absolute;right:-40px;top:-40px;width:150px;height:150px;border-radius:50%;background:rgba(255,255,255,.14)}'
-  +'.gc-card:after{content:"";position:absolute;left:-30px;bottom:-60px;width:170px;height:170px;border-radius:50%;background:rgba(255,255,255,.09)}'
-  +'.gc-card>*{position:relative;z-index:1}'
-  +'.gc-logo{font-family:var(--font-display);font-weight:900;letter-spacing:2px;font-size:13px}'
-  +'.gc-amt{font-family:var(--font-display);font-weight:900;font-size:38px;line-height:1}'
-  +'.gc-sub{font-size:11px;letter-spacing:2px;opacity:.9;font-weight:700}'
-  +'.gc-tile{cursor:pointer;display:flex;flex-direction:column;gap:10px;transition:transform .2s}.gc-tile:hover{transform:translateY(-3px)}'
-  +'.gc-tile .gc-btn{background:var(--bg3);border:1px solid rgba(255,0,110,.4);color:#fff;border-radius:10px;padding:10px;font-family:var(--font-display);font-size:11px;letter-spacing:2px;font-weight:700;cursor:pointer}'
-  +'.gc-tile:hover .gc-btn{background:linear-gradient(135deg,#ff006e,#7c6df0)}'
-  +'.gc-seg{display:flex;gap:8px;margin:10px 0}.gc-seg button{flex:1;padding:10px;border-radius:10px;border:1px solid var(--border);background:var(--bg3);color:var(--text);cursor:pointer;font-weight:700;font-size:12px}.gc-seg button.on{border-color:#ff006e;background:rgba(255,0,110,.15)}'
-  +'.gc-row{background:var(--bg3);border-radius:12px;padding:10px 12px;margin-bottom:8px;display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;font-size:12px}'
-  +'.gc-code{font-family:monospace;font-weight:800;letter-spacing:1px;font-size:14px}'
-  +'.gc-row button{padding:5px 10px;font-size:12px;border-radius:8px;border:1px solid var(--border);background:var(--bg2);color:var(--text);cursor:pointer}'
-  +'#sec-gifts{background:linear-gradient(135deg,rgba(255,159,28,.25),rgba(228,87,46,.25));border-color:rgba(255,159,28,.6);color:#fff}#sec-gifts.active{background:linear-gradient(135deg,#ff9f1c,#e4572e)}'
-  +'#gifts-showcase .sbs-wrap{border-color:rgba(255,159,28,.5);background:radial-gradient(ellipse at 15% 0%,rgba(255,159,28,.2),transparent 55%),radial-gradient(ellipse at 90% 100%,rgba(124,109,240,.2),transparent 55%),var(--bg2)}'
-  +'.gc-row-scroll{display:flex;gap:14px;overflow-x:auto;padding:4px 2px 10px}.gc-row-scroll .gc-tile{flex:0 0 250px}'
-  +'.gc-apply{display:flex;gap:8px}.gc-apply input{flex:1;text-transform:uppercase;letter-spacing:1px}.gc-apply button{padding:0 14px;border-radius:10px;border:none;background:linear-gradient(135deg,#ff006e,#7c6df0);color:#fff;font-weight:700;cursor:pointer}'
-  +'@media(max-width:768px){.gc-row-scroll .gc-tile{flex-basis:215px}.gc-amt{font-size:32px}}';
-  document.head.appendChild(st);
-}
-function gcProducts(){
-  return Object.entries(giftProducts||{}).filter(function(e){return e[1]&&e[1].active!==false&&parseFloat(e[1].amount)>0;}).map(function(e){return Object.assign({id:e[0]},e[1]);}).sort(function(a,b){return (parseFloat(a.amount)||0)-(parseFloat(b.amount)||0);});
-}
-function gcTitle(p){return (lang==='ka'?p.title_ka:lang==='en'?p.title_en:p.title_ru)||gcL('ПОДАРОЧНАЯ КАРТА','სასაჩუქრე ბარათი','GIFT CARD');}
-function gcCardHtml(p,amountOnly){
-  return '<div class="gc-card" style="background:'+(GC_THEMES[p.theme]||GC_THEMES.pink)+'"><div style="display:flex;justify-content:space-between;align-items:center"><div class="gc-logo">ND GAMES</div><div style="font-size:22px">🎁</div></div>'
-    +'<div><div class="gc-amt">'+gcFmt(p.amount)+' ₾</div><div class="gc-sub">'+escapeHtml(String(gcTitle(p)).toUpperCase())+'</div></div></div>';
-}
-function gcTileHtml(p){
-  return '<div class="gc-tile" data-gid="'+escapeHtml(p.id)+'">'+gcCardHtml(p)+'<button class="gc-btn">'+gcL('КУПИТЬ','ყიდვა','BUY')+'</button></div>';
-}
-function gcUpdateTab(){
-  gcCss();
-  var el=document.getElementById('sec-gifts');
-  var list=gcProducts();
-  var lbl=document.getElementById('sec-gifts-label');if(lbl)lbl.textContent=gcL('ПОДАРОЧНЫЕ КАРТЫ','სასაჩუქრე ბარათები','GIFT CARDS');
-  if(el){el.style.display=list.length?'':'none';}
-  if(!list.length&&activeSection==='gifts'){setSection('games');return;}
-  var sec=document.getElementById('gifts-showcase'),box=document.getElementById('gifts-showcase-box');
-  if(!sec||!box)return;
-  if(!list.length){sec.style.display='none';box.innerHTML='';return;}
-  sec.style.display='block';
-  box.innerHTML='<div class="sbs-wrap"><div class="sbs-head"><div><div class="sbs-eyebrow">🎁 '+gcL('ПОДАРИ ИГРЫ','აჩუქე თამაშები','GIVE GAMES')+'</div>'
-    +'<div class="sbs-title"><span>'+gcL('ПОДАРОЧНЫЕ КАРТЫ','სასაჩუქრე ბარათები','GIFT CARDS')+'</span></div>'
-    +'<div class="sbs-sub">'+gcL('Купи себе или в подарок — получатель сам выберет игры. Оплата онлайн.','იყიდე შენთვის ან საჩუქრად — მიმღები თავად აირჩევს თამაშებს. ონლაინ გადახდა.','Buy for yourself or as a gift — the recipient picks the games. Pay online.')+'</div></div>'
-    +'<button class="sbs-all" style="background:linear-gradient(135deg,#ff9f1c,#e4572e)" onclick="openMyGifts()">'+gcL('МОИ КАРТЫ','ჩემი ბარათები','MY CARDS')+'</button></div>'
-    +'<div class="gc-row-scroll" id="gc-scroll">'+list.map(gcTileHtml).join('')+'</div></div>';
-  var sc=document.getElementById('gc-scroll');
-  if(sc)sc.onclick=function(e){var t0=e.target.closest('[data-gid]');if(t0)openGiftBuy(t0.dataset.gid);};
-}
-function gcRenderSection(){
-  gcCss();
-  var grid=document.getElementById('game-grid');if(!grid)return;
-  var list=gcProducts();
-  grid.innerHTML='<div style="grid-column:1/-1;display:flex;gap:8px;flex-wrap:wrap;margin-bottom:6px"><button class="sbs-all" style="background:linear-gradient(135deg,#ff9f1c,#e4572e)" onclick="openMyGifts()">🎁 '+gcL('МОИ КАРТЫ','ჩემი ბარათები','MY CARDS')+'</button><button class="sbs-all" style="background:var(--bg3);border:1px solid var(--border)" onclick="openGiftCheck()">'+gcL('ПРОВЕРИТЬ БАЛАНС','ბალანსის შემოწმება','CHECK BALANCE')+'</button></div>'
-    +list.map(gcTileHtml).join('');
-  grid.onclick=function(e){var t0=e.target.closest('[data-gid]');if(t0)openGiftBuy(t0.dataset.gid);};
-}
-// ── Покупка ──
-var _gcBuy={pid:null,forWho:'self'};
-function openGiftBuy(pid){
-  var p=giftProducts[pid];if(!p)return;
-  if(!currentUser){showToast('🎁 '+gcL('Войдите в аккаунт, чтобы купить подарочную карту','შედით ანგარიშში ბარათის საყიდლად','Sign in to buy a gift card'));openAuthModal();return;}
-  _gcBuy={pid:pid,forWho:'self'};
-  var coverWrap=document.getElementById('pm-cover-wrap'),body=document.getElementById('product-modal-body');
-  if(!coverWrap||!body)return;
-  coverWrap.innerHTML='<div style="height:100%;display:flex;align-items:center;justify-content:center;padding:18px;box-sizing:border-box;background:radial-gradient(ellipse at 50% 30%,rgba(255,159,28,.18),var(--bg3))"><div style="width:100%;max-width:300px">'+gcCardHtml(Object.assign({id:pid},p))+'</div></div>';
-  var nm=(currentLoyalty&&currentLoyalty.name)||currentUser.displayName||'';
-  var ph=(currentLoyalty&&currentLoyalty.phone)||'';
-  var days=parseInt(p.days)||365;
-  body.innerHTML='<div style="padding-top:44px"></div>'
-   +'<div class="pm-platform">🎁 '+gcL('ПОДАРОЧНАЯ КАРТА','სასაჩუქრე ბარათი','GIFT CARD')+'</div>'
-   +'<div class="pm-title">'+gcFmt(p.amount)+' ₾</div>'
-   +'<p class="pm-desc">'+gcL('Код придёт сразу после оплаты. Тратится на любые покупки на сайте, можно частями — остаток сохраняется. Срок действия: ','კოდი მოვა გადახდისთანავე. იხარჯება საიტზე ნებისმიერ შეძენაზე, შეიძლება ნაწილ-ნაწილ — ნაშთი ინახება. ვადა: ','The code arrives right after payment. Spend it on anything on the site, in parts — the balance stays. Valid for ')+days+gcL(' дн.',' დღე',' days.')+'</p>'
-   +'<div class="gc-seg"><button class="on" id="gc-self" onclick="gcSetFor(\'self\')">'+gcL('Себе','ჩემთვის','For me')+'</button><button id="gc-gift" onclick="gcSetFor(\'gift\')">🎁 '+gcL('В подарок','საჩუქრად','As a gift')+'</button></div>'
-   +'<div id="gc-gift-fields" style="display:none"><div class="form-field"><label class="form-label">'+gcL('Имя получателя','მიმღების სახელი','Recipient name')+'</label><input class="form-inp" id="gc-rname"></div>'
-   +'<div class="form-field"><label class="form-label">'+gcL('Пожелание (необяз.)','სურვილი (არასავალდებულო)','Message (optional)')+'</label><textarea class="form-inp" id="gc-msg" rows="2" style="resize:none"></textarea></div></div>'
-   +'<div class="form-field"><label class="form-label">'+t('name')+' *</label><input class="form-inp" id="gc-name" value="'+escapeHtml(nm)+'"></div>'
-   +'<div class="form-field"><label class="form-label">'+t('phone')+' *</label><input class="form-inp" id="gc-phone" type="tel" placeholder="+995..." value="'+escapeHtml(ph)+'"></div>'
-   +'<div style="font-size:11px;color:var(--text3);margin-bottom:8px">💳 '+gcL('Оплата картой онлайн (Visa/Mastercard).','ონლაინ გადახდა ბარათით (Visa/Mastercard).','Online card payment (Visa/Mastercard).')+'</div>'
-   +'<button class="pm-add-btn" id="gc-pay-btn" onclick="submitGiftOrder()" style="margin-top:auto">💳 '+gcL('ОПЛАТИТЬ','გადახდა','PAY')+' — '+gcFmt(p.amount)+' ₾</button>';
-  var ov=document.getElementById('product-modal-overlay');
-  if(!ov.classList.contains('open')){pushModalHist();lockBodyScroll();}
-  ov.classList.add('open');
-  var modal=document.getElementById('product-modal');if(modal)modal.onclick=null;
-}
-function gcSetFor(w){
-  _gcBuy.forWho=w;
-  document.getElementById('gc-self').classList.toggle('on',w==='self');
-  document.getElementById('gc-gift').classList.toggle('on',w==='gift');
-  document.getElementById('gc-gift-fields').style.display=w==='gift'?'block':'none';
-}
-function submitGiftOrder(){
-  if(!currentUser){openAuthModal();return;}
-  var p=giftProducts[_gcBuy.pid];if(!p)return;
-  var name=(document.getElementById('gc-name')||{}).value.trim(),phone=(document.getElementById('gc-phone')||{}).value.trim();
-  if(!name||!phone){showToast('⚠ '+t('fill_req'));return;}
-  if(_gcBuy.forWho==='gift'&&!((document.getElementById('gc-rname')||{}).value||'').trim()){showToast('⚠ '+gcL('Укажите имя получателя','მიუთითეთ მიმღების სახელი','Enter the recipient name'));return;}
-  if(typeof inAppCardAbort==='function'&&inAppCardAbort())return;
-  var amount=parseFloat(p.amount)||0;if(amount<=0)return;
-  var id='order_'+Date.now();
-  var rn=_gcBuy.forWho==='gift'?(document.getElementById('gc-rname').value||'').trim():'';
-  var msg=_gcBuy.forWho==='gift'?(document.getElementById('gc-msg').value||'').trim():'';
-  var orderData={id:id,type:'giftcard',uid:currentUser.uid,userEmail:currentUser.email||'',name:name,phone:phone,
-    giftProductId:_gcBuy.pid,giftAmount:amount,giftDays:parseInt(p.days)||365,forWho:_gcBuy.forWho,recipientName:rn||null,giftMessage:msg||null,
-    items:[{id:'gift_'+_gcBuy.pid,title:'🎁 '+gcL('Подарочная карта','სასაჩუქრე ბარათი','Gift card')+' '+gcFmt(amount)+' ₾',price:amount,platform:''}],
-    total:amount,paymentMethod:'card',paymentStatus:'pending',status:'pending_payment',createdAt:Date.now()};
-  var btn=document.getElementById('gc-pay-btn');if(btn){btn.disabled=true;}
-  db.ref('orders/'+id).set(orderData).then(function(){
-    closeProduct();
-    startCardPayment(id,amount);
-  }).catch(function(e){
-    if(btn)btn.disabled=false;
-    showToast('⚠ '+(e&&e.message?e.message:'error'));
-  });
-}
-// ── Код: выдача после оплаты (страница возврата из Flitt) ──
-function gcRandCode(){
-  var A='23456789ABCDEFGHJKLMNPQRSTUVWXYZ',out='',buf=new Uint32Array(12);
-  (window.crypto||window.msCrypto).getRandomValues(buf);
-  for(var i=0;i<12;i++){out+=A[buf[i]%A.length];if(i%4===3&&i<11)out+='-';}
-  return 'NDG-'+out;
-}
-function gcIssueForOrder(o){
-  var oid=o.id,markRef=db.ref('giftIssued/'+oid);
-  return markRef.once('value').then(function(ms){
-    var existing=ms.val();
-    var code=existing||gcRandCode();
-    var step=existing?Promise.resolve(true):markRef.transaction(function(cur){return cur?undefined:code;}).then(function(r){
-      if(r&&r.committed)return true;
-      return markRef.once('value').then(function(s2){code=s2.val();return false;});
-    });
-    return step.then(function(){
-      return db.ref('giftcards/'+code).once('value').then(function(cs){
-        if(cs.exists())return {code:code,card:cs.val(),isNew:false};
-        var now=Date.now(),amount=parseFloat(o.giftAmount)||parseFloat(o.total)||0,days=parseInt(o.giftDays)||365;
-        var card={code:code,amount:amount,balance:amount,createdAt:now,expiresAt:now+days*86400000,orderId:oid,buyerUid:o.uid||null,buyerName:o.name||null,buyerPhone:o.phone||null,buyerEmail:o.userEmail||null,recipientName:o.recipientName||null,message:o.giftMessage||null,source:'online'};
-        var upd={};upd['giftcards/'+code]=card;
-        if(o.uid)upd['userGifts/'+o.uid+'/'+code]={amount:amount,expiresAt:card.expiresAt,orderId:oid,createdAt:now};
-        return db.ref().update(upd).then(function(){
-          try{sendTelegramMessage('🎁 <b>ПОДАРОЧНАЯ КАРТА КУПЛЕНА</b>\n'+gcFmt(amount)+' ₾ · '+code+'\n👤 '+(o.name||'')+' · '+(o.phone||'')+(o.recipientName?'\n→ '+o.recipientName:''));}catch(e){}
-          return {code:code,card:card,isNew:true};
-        });
-      });
-    });
-  });
-}
-function gcShareText(code,card){
-  return '🎁 ND Games — '+gcL('подарочная карта на ','სასაჩუქრე ბარათი ','gift card for ')+gcFmt(card.amount)+' ₾\n'+gcL('Код: ','კოდი: ','Code: ')+code+'\n'+gcL('Действует до ','მოქმედებს ','Valid until ')+gcDate(card.expiresAt)+'\n'+gcL('Введите код при оформлении заказа на ','შეიყვანეთ კოდი შეკვეთისას ','Enter the code at checkout on ')+'https://ndgames.ge'+(card.message?'\n\n'+card.message:'');
-}
-function gcCopy(code){
-  try{navigator.clipboard.writeText(code);showToast('✓ '+gcL('Код скопирован','კოდი დაკოპირდა','Code copied'));}catch(e){prompt('Code:',code);}
-}
-function gcShareWa(code){
-  var c=window._gcCards&&window._gcCards[code];if(!c)return;
-  window.open('https://wa.me/?text='+encodeURIComponent(gcShareText(code,c)),'_blank');
-}
-function showGiftIssued(res,o){
-  var el=document.getElementById('pay-result-overlay');if(!el)return;
-  window._gcCards=window._gcCards||{};window._gcCards[res.code]=res.card;
-  el.innerHTML='<div class="pay-result-card"><div class="pay-result-icon">🎁</div><div class="pay-result-title ok">'+gcL('Подарочная карта готова!','სასაჩუქრე ბარათი მზადაა!','Your gift card is ready!')+'</div>'
-    +'<div style="margin:14px 0;max-width:300px;margin-left:auto;margin-right:auto">'+gcCardHtml({amount:res.card.amount,theme:(giftProducts[o&&o.giftProductId]||{}).theme||'pink'})+'</div>'
-    +'<div class="gc-code" style="font-size:20px;margin:6px 0">'+escapeHtml(res.code)+'</div>'
-    +'<div class="pay-result-sub">'+gcL('Действует до ','მოქმედებს ','Valid until ')+gcDate(res.card.expiresAt)+'. '+gcL('Сохраните код — он также будет в разделе «Мои карты».','შეინახეთ კოდი — ის ასევე იქნება „ჩემი ბარათები“ განყოფილებაში.','Save the code — it is also in “My cards”.')+'</div>'
-    +'<button class="btn-primary" style="width:100%;justify-content:center" onclick="gcCopy(\''+res.code+'\')">📋 '+gcL('Копировать код','კოდის კოპირება','Copy code')+'</button>'
-    +'<button class="btn-primary" style="width:100%;justify-content:center;margin-top:10px;background:transparent;border:1px solid var(--cyan);color:var(--cyan)" onclick="gcShareWa(\''+res.code+'\')">💬 '+gcL('Отправить в WhatsApp','WhatsApp-ით გაგზავნა','Send via WhatsApp')+'</button>'
-    +'<button class="btn-primary" style="width:100%;justify-content:center;margin-top:10px;background:transparent;border:1px solid var(--border);color:var(--text2)" onclick="closePayResult()">'+t('pay_continue')+'</button></div>';
-  if(!el.classList.contains('open'))pushModalHist();
-  el.classList.add('open');
-}
-// ── Мои карты / проверка баланса ──
-function gcOverlay(inner){
-  var m=document.getElementById('order-modal-inner');
-  m.innerHTML='<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px"><div class="modal-title">🎁 '+inner.title+'</div><button class="modal-close" onclick="closeOrder()">✕</button></div>'+inner.html;
-  if(!document.getElementById('order-modal').classList.contains('open'))pushModalHist();
-  document.getElementById('order-modal').classList.add('open');lockBodyScroll();
-}
-function gcCardRow(code,c){
-  window._gcCards=window._gcCards||{};window._gcCards[code]=c;
-  var now=Date.now(),bal=parseFloat(c.balance)||0,st=bal<=0?gcL('использована','გამოყენებულია','used up'):(c.expiresAt&&now>=c.expiresAt?gcL('истекла','ვადაგასული','expired'):gcL('активна','აქტიური','active'));
-  var col=(bal<=0||(c.expiresAt&&now>=c.expiresAt))?'var(--text3)':'#3ecf8e';
-  return '<div class="gc-row"><span class="gc-code">'+escapeHtml(code)+'</span><span style="color:'+col+';font-weight:700">'+st+'</span>'
-    +'<span><b>'+gcFmt(bal)+'</b> / '+gcFmt(c.amount)+' ₾</span><span style="color:var(--text3)">'+gcL('до ','','until ')+gcDate(c.expiresAt)+'</span>'
-    +'<span style="margin-left:auto;display:flex;gap:6px"><button onclick="gcCopy(\''+code+'\')">📋</button><button onclick="gcShareWa(\''+code+'\')">💬</button></span></div>';
-}
-function openMyGifts(){
-  if(!currentUser){showToast('🎁 '+gcL('Войдите в аккаунт','შედით ანგარიშში','Sign in'));openAuthModal();return;}
-  gcOverlay({title:gcL('Мои подарочные карты','ჩემი სასაჩუქრე ბარათები','My gift cards'),html:'<div id="gc-my-list" style="color:var(--text3);font-size:13px">…</div><div style="margin-top:16px">'+gcCheckFormHtml()+'</div>'});
-  db.ref('userGifts/'+currentUser.uid).once('value').then(function(s){
-    var codes=Object.keys(s.val()||{}),box=document.getElementById('gc-my-list');if(!box)return;
-    if(!codes.length){box.innerHTML=gcL('Пока нет карт. Купить можно в разделе «Подарочные карты».','ბარათები ჯერ არ გაქვთ. შეგიძლიათ იყიდოთ „სასაჩუქრე ბარათები“ განყოფილებაში.','No cards yet. You can buy one in the “Gift cards” section.');return;}
-    Promise.all(codes.map(function(c){return db.ref('giftcards/'+c).once('value').then(function(x){return [c,x.val()];});})).then(function(rows){
-      box.innerHTML=rows.filter(function(r){return r[1];}).map(function(r){return gcCardRow(r[0],r[1]);}).join('')||'—';
-    });
-  }).catch(function(){var b=document.getElementById('gc-my-list');if(b)b.textContent=gcL('Не удалось загрузить','ჩატვირთვა ვერ მოხერხდა','Could not load');});
-}
-function gcCheckFormHtml(){
-  return '<div class="form-label" style="margin-bottom:6px">'+gcL('Проверить карту по коду','ბარათის შემოწმება კოდით','Check a card by code')+'</div><div class="gc-apply"><input class="form-inp" id="gc-check-code" placeholder="NDG-XXXX-XXXX-XXXX"><button onclick="gcCheckRun()">'+gcL('Проверить','შემოწმება','Check')+'</button></div><div id="gc-check-res" style="margin-top:10px"></div>';
-}
-function openGiftCheck(){
-  if(!currentUser){showToast('🎁 '+gcL('Войдите в аккаунт','შედით ანგარიშში','Sign in'));openAuthModal();return;}
-  gcOverlay({title:gcL('Баланс карты','ბარათის ბალანსი','Card balance'),html:gcCheckFormHtml()});
-}
-function gcNormCode(v){return String(v||'').toUpperCase().replace(/\s+/g,'').replace(/[^A-Z0-9-]/g,'');}
-function gcFetch(code){
-  return db.ref('giftcards/'+code).once('value').then(function(s){return s.val();});
-}
-function gcCheckRun(){
-  var code=gcNormCode((document.getElementById('gc-check-code')||{}).value),res=document.getElementById('gc-check-res');
-  if(!code){return;}
-  gcFetch(code).then(function(c){
-    if(!res)return;
-    res.innerHTML=c?gcCardRow(code,c):'<div style="color:#f06060;font-size:13px">'+gcL('Карта с таким кодом не найдена','ასეთი კოდით ბარათი ვერ მოიძებნა','No card with this code')+'</div>';
-  }).catch(function(){if(res)res.textContent=gcL('Ошибка проверки','შემოწმების შეცდომა','Check failed');});
-}
-// ── Использование при заказе ──
-function gcOrderBlockHtml(){
-  appliedGift=null;
-  return '<div class="form-field"><label class="form-label">🎁 '+gcL('Код подарочной карты','სასაჩუქრე ბარათის კოდი','Gift card code')+'</label>'
-    +'<div class="gc-apply"><input class="form-inp" id="o-gift-code" placeholder="NDG-XXXX-XXXX-XXXX"><button type="button" onclick="gcApplyToOrder()">'+gcL('Применить','გამოყენება','Apply')+'</button></div>'
-    +'<div id="o-gift-msg" style="font-size:12px;margin-top:6px"></div></div>';
-}
-function gcApplyToOrder(){
-  var msg=document.getElementById('o-gift-msg');
-  if(!currentUser){showToast('🎁 '+gcL('Войдите в аккаунт, чтобы использовать карту','შედით ანგარიშში ბარათის გამოსაყენებლად','Sign in to use a gift card'));openAuthModal();return;}
-  var code=gcNormCode((document.getElementById('o-gift-code')||{}).value);if(!code)return;
-  gcFetch(code).then(function(c){
-    var now=Date.now(),bad=null;
-    if(!c)bad=gcL('Карта не найдена','ბარათი ვერ მოიძებნა','Card not found');
-    else if(c.expiresAt&&now>=c.expiresAt)bad=gcL('Срок действия карты истёк','ბარათის ვადა ამოიწურა','This card has expired');
-    else if((parseFloat(c.balance)||0)<=0)bad=gcL('На карте нет остатка','ბარათზე ნაშთი არ არის','No balance left on this card');
-    if(bad){appliedGift=null;if(msg){msg.style.color='#f06060';msg.textContent=bad;}updateOrderTotalDisplay();return;}
-    appliedGift={code:code,balance:parseFloat(c.balance)||0,expiresAt:c.expiresAt};
-    if(msg){msg.style.color='#3ecf8e';msg.textContent='✓ '+gcL('Карта применена. Остаток: ','ბარათი გამოყენებულია. ნაშთი: ','Card applied. Balance: ')+gcFmt(appliedGift.balance)+' ₾';}
-    updateOrderTotalDisplay();
-  }).catch(function(){if(msg){msg.style.color='#f06060';msg.textContent=gcL('Не удалось проверить карту','ბარათის შემოწმება ვერ მოხერხდა','Could not check the card');}});
-}
-function gcOrderAmounts(){
-  var tot=getCartTotal().total+calcDeliveryFee();
-  var use=appliedGift?Math.min(appliedGift.balance,tot):0;
-  use=Math.round(use*100)/100;
-  return {total:tot,use:use,payable:Math.round((tot-use)*100)/100};
-}
-// Списать с карты перед созданием заказа (транзакция). cb(true/false)
-function gcCharge(code,amount,cb){
-  db.ref('giftcards/'+code).transaction(function(cur){
-    if(!cur)return cur;
-    var bal=parseFloat(cur.balance)||0;
-    if(bal+1e-9<amount||(cur.expiresAt&&Date.now()>=cur.expiresAt))return;
-    cur.balance=Math.round((bal-amount)*100)/100;
-    return cur;
-  },function(err,committed){cb(!err&&!!committed);},false);
-}
-db.ref('settings/giftProducts').on('value',function(s){giftProducts=s.val()||{};try{gcUpdateTab();if(activeSection==='gifts')renderGames();}catch(e){}},function(){});
+function gcL(ru,ka,en){return lang==='ka'?ka:lang==='en'?(en||ru):ru;} // language helper
 function findConsolePackageRefs(gameId,withSoft){
   var refs=[];
   Object.values(games).forEach(function(g){
@@ -2398,17 +2260,16 @@ function setSection(sec){
   activeAccCat = '';
   var gEl=document.getElementById('sec-games'), cEl=document.getElementById('sec-consoles'), aEl=document.getElementById('sec-accessories'), bEl=document.getElementById('sec-bundles');
   if(bEl) bEl.classList.toggle('active', sec==='bundles');
-  var gfEl=document.getElementById('sec-gifts');if(gfEl)gfEl.classList.toggle('active', sec==='gifts');
   if(gEl) gEl.classList.toggle('active', sec==='games');
   if(cEl) cEl.classList.toggle('active', sec==='consoles');
   if(aEl) aEl.classList.toggle('active', sec==='accessories');
   var gt=document.getElementById('genres-title');
   var genresSection=document.getElementById('genres-grid');
-  if(genresSection)genresSection.style.display=(sec==='consoles'||sec==='bundles'||sec==='gifts')?'none':'';
+  if(genresSection)genresSection.style.display=(sec==='consoles'||sec==='bundles')?'none':'';
   if(gt) gt.innerHTML = sec==='accessories'
     ? ('// '+(lang==='ka'?'კატეგ<span style="color:var(--pink)">ორიები</span>':lang==='en'?'CATEG<span style="color:var(--pink)">ORIES</span>':'КАТЕГ<span style="color:var(--pink)">ОРИИ</span>'))
     : ('// '+(lang==='ka'?'ჟან<span style="color:var(--pink)">რები</span>':lang==='en'?'GEN<span style="color:var(--pink)">RES</span>':'ЖА<span style="color:var(--pink)">НРЫ</span>'));
-  if(gt)gt.style.display=(sec==='consoles'||sec==='bundles'||sec==='gifts')?'none':'';
+  if(gt)gt.style.display=(sec==='consoles'||sec==='bundles')?'none':'';
   renderGenres();
   renderGames();
 }
@@ -2599,6 +2460,7 @@ function renderBanners(force){
   box.addEventListener('keydown',function(e){if(e.key==='ArrowLeft')bcGo(_bcIndex-1,true);else if(e.key==='ArrowRight')bcGo(_bcIndex+1,true);});
   renderBanners(true);
   try{db.ref('settings/bannersOff').on('value',function(sn){BANNER_OFF=sn.val()||{};renderBanners(true);});}catch(e){}
+  try{db.ref('settings/introOff').on('value',function(sn){try{localStorage.setItem('ndIntroOff',sn.val()?'1':'0');}catch(e){}});}catch(e){}
 })();
 
 function filterByAccCat(catId){
@@ -2929,18 +2791,6 @@ auth.onAuthStateChanged(function(user){
   } else {
     currentLoyalty=null;
   }
-  if(window._myCreditsRef){window._myCreditsRef.off();window._myCreditsRef=null;}
-  if(user){
-    window._myCreditsRef=db.ref('userCredits/'+user.uid);
-    window._myCreditsRef.on('value',function(snap){
-      myCredits=snap.val()||{gel:0,monthlyUntil:null};
-      if(typeof renderAuctionSection==='function')renderAuctionSection();
-      if(typeof updateNavBalanceDisplay==='function')updateNavBalanceDisplay();
-    });
-  } else {
-    myCredits={gel:0,monthlyUntil:null};
-  }
-  if(typeof renderAuctionSection==='function')renderAuctionSection();
 });
 
 function updateNavAuth(){
@@ -2949,16 +2799,13 @@ function updateNavAuth(){
   if(currentUser){
     var initials=(currentUser.displayName||currentUser.email||'U').charAt(0).toUpperCase();
     area.innerHTML='<div class="user-menu-wrap">'
-      +'<button class="nav-balance-btn" onclick="openBalanceModal()" id="nav-balance-btn">\ud83d\udcb0 <span id="nav-balance-val">0 \u20be</span></button>'
       +'<button class="user-avatar-btn" onclick="toggleUserMenu()" id="user-avatar-btn">'+initials+'</button>'
       +'<div class="user-dropdown" id="user-dropdown">'
       +'<div class="user-dd-name">'+(currentUser.displayName||currentUser.email)+'</div>'
       +'<div class="user-dd-item" onclick="openProfile()">🎴 '+(lang==='ka'?'ჩემი ბარათი':lang==='en'?'My Card':'Моя карта')+'</div>'
-      +'<div class="user-dd-item" onclick="openBalanceModal()">\ud83d\udcb0 '+(lang==='ka'?'ბალანსი':lang==='en'?'Balance':'Баланс')+'</div>'
       +'<div class="user-dd-item" onclick="openProfile(\'orders\')">📋 '+(lang==='ka'?'შეკვეთები':lang==='en'?'Orders':'Мои заказы')+'</div>'
       +'<div class="user-dd-item red" onclick="signOut()">↩ '+(lang==='ka'?'გამოსვლა':lang==='en'?'Sign out':'Выйти')+'</div>'
       +'</div></div>';
-    updateNavBalanceDisplay();
   } else {
     var loginLabel=lang==='ka'?'შესვლა':lang==='en'?'SIGN IN':'ВОЙТИ';
     area.innerHTML='<button class="auth-btn" onclick="openAuthModal()" id="auth-login-btn">'+loginLabel+'</button>';
@@ -3932,8 +3779,6 @@ document.addEventListener('click',function(e){
 function renderGames(){
   updateSaleUI();
   sbUpdateTab();
-  try{gcUpdateTab();}catch(e){}
-  if(activeSection==='gifts'&&!saleOnly){gcRenderSection();return;}
   var q=(document.getElementById('search-inp')||{value:''}).value.toLowerCase();
   var list=Object.values(games).filter(function(g){
     if(g.status!=='available')return false;
@@ -4186,7 +4031,7 @@ function removeFromCart(id){
 var deliveryMode='pickup';   // 'pickup' | 'courier'
 var deliveryZone='batumi';   // 'batumi' | 'region' (производное от выбранного района, для портала)
 var payWhen='now';           // 'now' (Flitt/баланс) | 'courier' (курьеру при получении)
-var payMethod='cash';        // cash | card | balance | courier
+var payMethod='cash';        // cash | card | courier
 // ── Доставка по тарифу курьерской службы Unibox ──
 var DELIVERY_MARKUP=0;       // надбавка к тарифу, ₾ (0 = клиент платит ровно тариф)
 var DELIVERY_FALLBACK=10;    // цена, если список зон не загрузился
@@ -4308,10 +4153,8 @@ function ordPayOptions(){
   var o=[];
   if(deliveryMode==='pickup'){
     o.push({k:'cash',i:'💵',l:t('pay_cash')},{k:'card',i:'💳',l:t('pay_card')});
-    if(currentUser)o.push({k:'balance',i:'💰',l:t('pay_balance')});
   }else if(payWhen==='now'){
     o.push({k:'card',i:'💳',l:t('pay_card')});
-    if(currentUser)o.push({k:'balance',i:'💰',l:t('pay_balance')});
   }
   return o;
 }
@@ -4329,7 +4172,6 @@ function renderPayOpts(){
   var hint=document.getElementById('o-pay-hint');
   if(hint){
     var h='';
-    if(payMethod==='balance')h=t('pay_balance_hint')+': '+(parseFloat(myCredits.gel)||0).toFixed(2)+' ₾';
     hint.textContent=h;hint.style.display=h?'block':'none';
   }
 }
@@ -4364,11 +4206,7 @@ function updateOrderTotalDisplay(){
   if(feeRow)feeRow.style.display=fee>0?'flex':'none';
   var feeVal=document.getElementById('o-fee-val');
   if(feeVal)feeVal.textContent=fee.toFixed(2)+' ₾';
-  var a=gcOrderAmounts();
-  if(totRow)totRow.textContent=a.total.toFixed(2)+' ₾';
-  var gr=document.getElementById('o-gift-row'),pr=document.getElementById('o-pay-row');
-  if(gr){gr.style.display=a.use>0?'flex':'none';var gv=document.getElementById('o-gift-val');if(gv)gv.textContent='−'+a.use.toFixed(2)+' ₾';}
-  if(pr){pr.style.display=a.use>0?'flex':'none';var pv=document.getElementById('o-pay-val');if(pv)pv.textContent=a.payable.toFixed(2)+' ₾';}
+  if(totRow)totRow.textContent=(getCartTotal().total+fee).toFixed(2)+' ₾';
 }
 function openOrder(){
   closeCart();
@@ -4383,8 +4221,6 @@ function openOrder(){
     +cart.map(function(c){return '<div class="order-sum-item"><span>'+c.title+'</span><span>'+c.price+' ₾</span></div>';}).join('')
     +'<div class="order-sum-item" id="o-fee-row" style="display:none"><span>'+t('delivery_fee_label')+'</span><span id="o-fee-val">0 ₾</span></div>'
     +'<div class="order-sum-item"><span>'+t('total')+'</span><span id="o-total-row-val">'+total+' ₾</span></div>'
-    +'<div class="order-sum-item" id="o-gift-row" style="display:none;color:#3ecf8e"><span>🎁 '+gcL('Подарочная карта','სასაჩუქრე ბარათი','Gift card')+'</span><span id="o-gift-val">0 ₾</span></div>'
-    +'<div class="order-sum-item" id="o-pay-row" style="display:none;font-weight:800"><span>'+gcL('К оплате','გადასახდელი','To pay')+'</span><span id="o-pay-val">0 ₾</span></div>'
     +'</div>'
     +'<div class="form-field"><label class="form-label">'+t('name')+' *</label><input class="form-inp" id="o-name" placeholder="'+t('name')+'..."></div>'
     +'<div class="form-field"><label class="form-label">'+t('phone')+' *</label><input class="form-inp" id="o-phone" type="tel" placeholder="+995..."></div>'
@@ -4414,7 +4250,6 @@ function openOrder(){
     +'<div class="delivery-opts" id="o-pay-opts"></div>'
     +'<div id="o-pay-hint" style="font-size:11px;color:var(--text3);margin-top:6px;display:none"></div>'
     +'</div>'
-    +gcOrderBlockHtml()
     +'<div class="form-field"><label class="form-label">'+t('comment')+'</label><textarea class="form-inp" id="o-comment" rows="2" style="resize:none;line-height:1.5"></textarea></div>'
     +'<button class="submit-btn" id="order-submit-btn" onclick="submitOrder()">'+t('submit')+'</button>';
   if(!document.getElementById('order-modal').classList.contains('open'))pushModalHist();
@@ -4436,26 +4271,9 @@ function submitOrder(){
     if(!((document.getElementById('o-address')||{}).value||'').trim()){showToast('⚠ '+t('fill_req'));return;}
     if(!ubReady()){showToast('⚠ '+t('fill_req'));return;}
   }
-  if(!appliedGift){submitOrderCore(null);return;}
-  var a=gcOrderAmounts();
-  if(a.use<=0){submitOrderCore(null);return;}
-  if(payMethod==='card'&&a.payable>0&&inAppCardAbort())return;
-  var btn=document.getElementById('order-submit-btn');
-  if(btn){btn.disabled=true;}
-  gcCharge(appliedGift.code,a.use,function(ok){
-    if(!ok){
-      if(btn)btn.disabled=false;
-      var m=document.getElementById('o-gift-msg');
-      if(m){m.style.color='#f06060';m.textContent=gcL('Карта недействительна или на ней недостаточно средств. Проверьте код.','ბარათი არასწორია ან ნაშთი არ არის საკმარისი.','The card is invalid or has insufficient balance.');}
-      appliedGift=null;updateOrderTotalDisplay();
-      return;
-    }
-    var info={code:appliedGift.code,use:a.use};
-    appliedGift=null;
-    submitOrderCore(info);
-  });
+  submitOrderCore();
 }
-function submitOrderCore(giftInfo){
+function submitOrderCore(){
   var name=(document.getElementById('o-name')||{}).value.trim();
   var phone=(document.getElementById('o-phone')||{}).value.trim();
   if(!name||!phone){showToast('⚠ '+t('fill_req'));return;}
@@ -4469,9 +4287,6 @@ function submitOrderCore(giftInfo){
   var totals=getCartTotal();
   var deliveryFee=calcDeliveryFee();
   var grandTotal=totals.total+deliveryFee;
-  var giftUse=giftInfo?giftInfo.use:0;
-  var payable=Math.round((grandTotal-giftUse)*100)/100;
-  if(giftInfo&&payable<=0.004){payable=0;payMethod='giftcard';}
   var orderData={
     id:id,
     name:name,
@@ -4502,20 +4317,18 @@ function submitOrderCore(giftInfo){
     status:payMethod==='card'?'pending_payment':'new',
     createdAt:Date.now()
   };
-  if(giftInfo){orderData.giftCode=giftInfo.code;orderData.giftUsed=giftUse;orderData.payable=payable;if(payMethod==='giftcard')orderData.paymentStatus='paid_by_gift';}
   db.ref('orders/'+id).set(orderData);
   (function(){
     function escTg(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
     var itemsList=orderData.items.map(function(c){return '\u2022 '+escTg(c.title)+(c.platform?' ('+escTg(c.platform)+')':'');}).join('\n');
     var delivLabel=deliveryMode==='courier'?'\ud83d\ude9a \u0414\u043e\u0441\u0442\u0430\u0432\u043a\u0430 ('+escTg(orderData.city||'')+', '+deliveryFee.toFixed(2)+' \u20be)':'\ud83c\udfea \u0421\u0430\u043c\u043e\u0432\u044b\u0432\u043e\u0437';
-    var payLabel=payMethod==='courier'?'\ud83d\udcb5\ud83d\udcb3 \u041a\u0443\u0440\u044c\u0435\u0440\u0443 \u043f\u0440\u0438 \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u0438\u0438 (\u043a\u0430\u0440\u0442\u0430 \u0438\u043b\u0438 \u043d\u0430\u043b\u0438\u0447\u043d\u044b\u0435)':payMethod==='courier_cash'?'\ud83d\udcb5 \u041a\u0443\u0440\u044c\u0435\u0440\u0443 \u043d\u0430\u043b\u0438\u0447\u043d\u044b\u043c\u0438 (\u043e\u043f\u043b\u0430\u0442\u0430 \u043f\u0440\u0438 \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u0438\u0438)':payMethod==='courier_card'?'\ud83d\udcb3 \u041a\u0443\u0440\u044c\u0435\u0440\u0443 \u043a\u0430\u0440\u0442\u043e\u0439 (\u043e\u043f\u043b\u0430\u0442\u0430 \u043f\u0440\u0438 \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u0438\u0438)':payMethod==='giftcard'?'\ud83c\udf81 \u041f\u043e\u0434\u0430\u0440\u043e\u0447\u043d\u0430\u044f \u043a\u0430\u0440\u0442\u0430':payMethod==='card'?'\ud83d\udcb3 \u041a\u0430\u0440\u0442\u0430':'\ud83d\udcb5 \u041d\u0430\u043b\u0438\u0447\u043d\u044b\u0435';
+    var payLabel=payMethod==='courier'?'\ud83d\udcb5\ud83d\udcb3 \u041a\u0443\u0440\u044c\u0435\u0440\u0443 \u043f\u0440\u0438 \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u0438\u0438 (\u043a\u0430\u0440\u0442\u0430 \u0438\u043b\u0438 \u043d\u0430\u043b\u0438\u0447\u043d\u044b\u0435)':payMethod==='courier_cash'?'\ud83d\udcb5 \u041a\u0443\u0440\u044c\u0435\u0440\u0443 \u043d\u0430\u043b\u0438\u0447\u043d\u044b\u043c\u0438 (\u043e\u043f\u043b\u0430\u0442\u0430 \u043f\u0440\u0438 \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u0438\u0438)':payMethod==='courier_card'?'\ud83d\udcb3 \u041a\u0443\u0440\u044c\u0435\u0440\u0443 \u043a\u0430\u0440\u0442\u043e\u0439 (\u043e\u043f\u043b\u0430\u0442\u0430 \u043f\u0440\u0438 \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u0438\u0438)':payMethod==='card'?'\ud83d\udcb3 \u041a\u0430\u0440\u0442\u0430':'\ud83d\udcb5 \u041d\u0430\u043b\u0438\u0447\u043d\u044b\u0435';
     var msg='\ud83d\udd14 <b>\u041d\u041e\u0412\u042b\u0419 \u0417\u0410\u041a\u0410\u0417</b>\n\n'
       +'\ud83d\udc64 '+escTg(orderData.name)+' \u00b7 \ud83d\udcde '+escTg(orderData.phone)+'\n'
       +(orderData.city?'\ud83d\udccd '+escTg(orderData.city)+(orderData.address?', '+escTg(orderData.address):'')+'\n':'')
       +delivLabel+' \u00b7 '+payLabel+'\n\n'
       +itemsList+'\n\n'
       +'\ud83d\udcb0 <b>'+orderData.total.toFixed(2)+' \u20be</b>'
-      +(giftInfo?'\n\ud83c\udf81 \u041a\u0430\u0440\u0442\u0430 '+escTg(giftInfo.code)+': \u2212'+giftUse.toFixed(2)+' \u20be, \u043a \u043e\u043f\u043b\u0430\u0442\u0435 '+payable.toFixed(2)+' \u20be':'')
       +(orderData.comment?'\n\n\ud83d\udcac '+escTg(orderData.comment):'');
     sendTelegramMessage(msg);
   })();
@@ -4526,25 +4339,6 @@ function submitOrderCore(giftInfo){
     db.ref('loyalty/'+currentUser.uid).update({totalSpent:newSpent,discountPct:newLevel.pct,level:newLevel.label});
     currentLoyalty.totalSpent=newSpent;
     currentLoyalty.discountPct=newLevel.pct;
-  }
-  if(payMethod==='balance'){
-    var btn0=document.getElementById('order-submit-btn');
-    if(btn0){btn0.disabled=true;btn0.textContent=(lang==='ka'?'მუშავდება...':lang==='en'?'Processing...':'Обработка...');}
-    db.ref('userCredits/'+currentUser.uid+'/gel').transaction(function(cur){
-      cur=parseFloat(cur)||0;
-      if(cur<payable)return;
-      return Math.round((cur-payable)*100)/100;
-    },function(err,committed){
-      if(err||!committed){
-        showToast('\u26a0 '+t('pay_balance_insufficient'));
-        db.ref('orders/'+id).remove();
-        if(btn0){btn0.disabled=false;btn0.textContent=t('submit');}
-        return;
-      }
-      db.ref('orders/'+id).update({paymentStatus:'approved',status:'new'});
-      finishOrderSuccess(orderData);
-    });
-    return;
   }
   if(payMethod==='card'){
     startCardPayment(id, payable);
@@ -4671,456 +4465,6 @@ function hideLoaderSoon(){
   loader.classList.add('hide');
   setTimeout(function(){var x=loader.querySelectorAll('.ny-santa,.ny-lflake');for(var i=0;i<x.length;i++)x[i].remove();},800);
 }
-var auctions={};
-var myCredits={gel:0,monthlyUntil:null};
-var TOPUP_PACKAGES=[
-  {key:'p5',gel:5,price:5},
-  {key:'p10',gel:10,price:10},
-  {key:'p20',gel:20,price:20},
-  {key:'monthly',gel:0,monthly:true,price:100}
-];
-var AUCTION_TICKET_PRICE=5;
-db.ref('auctions').on('value',function(snap){
-  auctions=snap.val()||{};
-  renderAuctionPromo();
-  renderSaleBanner();
-  if(typeof nyRender==='function')nyRender();
-  if(typeof wnUpdatePlayer==='function')wnUpdatePlayer();
-  renderAuctionSection();
-});
-setInterval(function(){
-  if(getCurrentAuction())renderAuctionSection();
-},1000);
-
-// ── AUCTION ─────────────────────────────────────────────
-function getAuctionsToShow(){
-  var list=Object.entries(auctions).filter(function(e){return e[1].published;}).map(function(e){return Object.assign({},e[1],{id:e[0]});});
-  var now=Date.now();
-  var active=list.filter(function(a){var st=auctionStatusClient(a);return st==='live'||st==='waiting_quorum';}).sort(function(a,b){return a.startsAt-b.startsAt;});
-  var scheduled=list.filter(function(a){return now<a.startsAt;}).sort(function(a,b){return a.startsAt-b.startsAt;});
-  var ended=list.filter(function(a){return now>=a.endsAt&&(now-a.endsAt)<3*86400000;}).sort(function(a,b){return b.endsAt-a.endsAt;});
-  return active.concat(scheduled,ended);
-}
-function getCurrentAuction(){
-  var list=getAuctionsToShow();
-  return list.length?list[0]:null;
-}
-function auctionParticipantCount(a){
-  return Object.keys(a.tickets||{}).length;
-}
-function auctionStatusClient(a){
-  var now=Date.now();
-  if(now>=a.endsAt)return'ended';
-  if(now<a.startsAt)return'scheduled';
-  var minP=parseInt(a.minParticipants)||20;
-  if(auctionParticipantCount(a)<minP)return'waiting_quorum';
-  return'live';
-}
-function fmtAucDate(ts){
-  if(!ts)return'\u2014';
-  var loc=lang==='ka'?'ka-GE':lang==='en'?'en-US':'ru-RU';
-  return new Date(ts).toLocaleDateString(loc,{weekday:'short',day:'numeric',month:'short'})+', '+new Date(ts).toLocaleTimeString(loc,{hour:'2-digit',minute:'2-digit'});
-}
-function fmtCountdown(ms){
-  if(ms<0)ms=0;
-  var s=Math.floor(ms/1000);
-  var d=Math.floor(s/86400);s-=d*86400;
-  var h=Math.floor(s/3600);s-=h*3600;
-  var m=Math.floor(s/60);s-=m*60;
-  function p(n){return String(n).padStart(2,'0');}
-  var dLabel=lang==='ka'?'დ':lang==='en'?'d':'д';
-  return d>0?(d+dLabel+' '+p(h)+':'+p(m)+':'+p(s)):(p(h)+':'+p(m)+':'+p(s));
-}
-function renderAuctionPromo(){
-  var list=getAuctionsToShow();
-  var promoSec=document.getElementById('auction-promo-section');
-  var listBox=document.getElementById('auction-promo-list');
-  var navLink=document.getElementById('nav-auction-link');
-  var navDot=document.getElementById('nav-auction-dot');
-  if(navLink)navLink.style.display='inline-block';
-  if(promoSec)promoSec.style.display='block';
-  var anyLive=list.some(function(a){return auctionStatusClient(a)==='live';});
-  if(navDot)navDot.style.display=anyLive?'inline-block':'none';
-  if(!listBox)return;
-  if(!list.length){
-    listBox.innerHTML='<a href="#auction-section" class="auction-promo-card" onclick="event.preventDefault();document.getElementById(\'auction-section\').scrollIntoView({behavior:\'smooth\'})">'
-      +'<div class="auction-promo-left"><div class="auction-promo-badge">\ud83c\udfc6 '+t('auc_promo_badge')+'</div>'
-      +'<div class="auction-promo-name">'+t('auc_none_title')+'</div>'
-      +'<div class="auction-promo-sub">'+t('auc_none_sub')+'</div></div>'
-      +'<div class="auction-promo-right">'+auctionPromoIconSvg()+'<div class="auction-promo-cta">'+t('auc_promo_cta')+'</div></div>'
-      +'</a>';
-    return;
-  }
-  listBox.innerHTML=list.map(function(a,i){
-    var st=auctionStatusClient(a);
-    var pCount=auctionParticipantCount(a),minP=parseInt(a.minParticipants)||20,maxP=parseInt(a.maxParticipants)||50;
-    var sub=st==='live'?(t('auc_live_now')+' \u00b7 \ud83d\udc65 '+pCount+'/'+maxP):st==='waiting_quorum'?(t('auc_waiting_quorum')+' ('+pCount+'/'+minP+')'):st==='scheduled'?t('auc_status_scheduled'):t('auc_ended');
-    var datesLine=t('auc_starts_at')+fmtAucDate(a.startsAt)+' \u00b7 '+t('auc_ends_at')+fmtAucDate(a.endsAt);
-    var noteHtml='';
-    if(st==='scheduled')noteHtml='<div class="auction-promo-note warn">'+t('auc_promo_buy_ahead')+'</div>';
-    else if(st==='live'||st==='waiting_quorum')noteHtml='<div class="auction-promo-note closed">'+t('auc_promo_closed')+'</div>';
-    return '<a href="#auction-block-'+a.id+'" class="auction-promo-card st-'+st+'" onclick="event.preventDefault();var el=document.getElementById(\'auction-block-'+a.id+'\');if(el)el.scrollIntoView({behavior:\'smooth\'});">'
-      +'<div class="auction-promo-left">'+(list.length>1?'<div class="auction-promo-index">'+(i+1)+' / '+list.length+'</div>':'')+'<div class="auction-promo-badge">\ud83c\udfc6 '+t('auc_promo_badge')+'</div>'
-      +'<div class="auction-promo-name">'+escapeHtml(a.name||'')+'</div>'
-      +'<div class="auction-promo-sub">'+sub+'</div>'
-      +'<div class="auction-promo-dates">\ud83d\udcc5 '+datesLine+'</div>'
-      +noteHtml
-      +'</div>'
-      +'<div class="auction-promo-right">'+auctionPromoIconSvg()+'<div class="auction-promo-cta">'+t('auc_promo_cta')+'</div></div>'
-      +'</a>';
-  }).join('');
-}
-function auctionPromoIconSvg(){
-  return '<div class="auction-promo-icon"><svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">'
-    +'<path d="M32 22h56c14 0 22 12 20 26l-3 18c-1.5 8-9 12-15 7l-11-9a10 10 0 00-6-2H43a10 10 0 00-6 2l-11 9c-6 5-13.5 1-15-7l-3-18C6 34 14 22 28 22z" stroke="#ff3b3b" stroke-width="4" stroke-linejoin="round"/>'
-    +'<circle cx="34" cy="42" r="9" stroke="#ff3b3b" stroke-width="3.5"/>'
-    +'<circle cx="86" cy="42" r="9" stroke="#ff3b3b" stroke-width="3.5"/>'
-    +'<path d="M53 36h14M60 29v14" stroke="#ff3b3b" stroke-width="3.5" stroke-linecap="round"/>'
-    +'</svg></div>';
-}
-function renderAuctionSection(){
-  var sec=document.getElementById('auction-section');
-  var inner=document.getElementById('auction-section-inner');
-  if(!sec||!inner)return;
-  sec.style.display='block';
-  if(!currentUser){
-    inner.innerHTML='<div class="empty-state" style="padding:50px 20px"><div class="empty-icon">🔒</div><div class="empty-text">'+t('auc_login_required')+'</div>'
-      +'<button class="auction-ticket-btn" style="margin-top:16px" onclick="openAuthModal()">'+t('auc_login_to_join')+'</button></div>';
-    return;
-  }
-  var list=getAuctionsToShow();
-  if(!list.length){
-    inner.innerHTML='<div class="empty-state" style="padding:50px 20px"><div class="empty-icon">🏆</div><div class="empty-text">'+t('auc_none_sub')+'</div></div>';
-    return;
-  }
-  var blocksHtml=list.map(function(a,i){return '<div id="auction-block-'+a.id+'" class="auction-full-block st-'+auctionStatusClient(a)+'">'+(list.length>1?'<div class="auction-block-index">'+(i+1)+' / '+list.length+'</div>':'')+renderOneAuctionBlock(a)+'</div>';}).join('');
-
-  var contactHtml='<div class="auction-contact-box"><div class="auction-contact-sub">'+t('auc_contact_sub')+'</div>'
-    +'<div class="auction-contact-badges">'
-    +'<a class="auction-contact-badge" href="https://wa.me/995574188525" target="_blank">💬 WhatsApp</a>'
-    +'<a class="auction-contact-badge" href="https://www.facebook.com/profile.php?id=61591467959010" target="_blank">📘 Facebook</a>'
-    +'<a class="auction-contact-badge" href="https://www.instagram.com/ndgames.ge" target="_blank">📷 Instagram</a>'
-    +'</div></div>';
-
-  inner.innerHTML=blocksHtml+contactHtml;
-}
-function renderOneAuctionBlock(a){
-  var st=auctionStatusClient(a);
-  var lots=Object.entries(a.lots||{}).map(function(e){return Object.assign({},e[1],(a.lotBids&&a.lotBids[e[0]])||{},{id:e[0]});});
-  var myTicket=currentUser&&a.tickets&&a.tickets[currentUser.uid]&&a.tickets[currentUser.uid].paid;
-  var pCount=auctionParticipantCount(a),minP=parseInt(a.minParticipants)||20,maxP=parseInt(a.maxParticipants)||50;
-  var entryOpen=(st==='scheduled'||st==='waiting_quorum');
-
-  var heroHtml='<div class="auction-hero"><div class="auction-hero-name">'+escapeHtml(a.name||'')+'</div>'
-    +'<div class="auction-hero-status '+st+'">'+(st==='live'?t('auc_status_live'):st==='waiting_quorum'?t('auc_status_waiting'):st==='scheduled'?t('auc_status_scheduled'):t('auc_status_ended'))+'</div>'
-    +'<div class="auction-hero-dates">'+t('auc_starts_at')+fmtAucDate(a.startsAt)+' \u00b7 '+t('auc_ends_at')+fmtAucDate(a.endsAt)+'</div>';
-  if(st!=='ended'){
-    heroHtml+='<div class="auction-participants">\ud83d\udc65 '+pCount+' / '+maxP+' '+t('auc_participants')+(st==='waiting_quorum'?(' \u00b7 '+t('auc_quorum_needed')+': '+minP):'')+'</div>';
-    if(st==='waiting_quorum'){
-      var pct=Math.min(100,Math.round(pCount/minP*100));
-      heroHtml+='<div class="auction-quorum-bar"><div class="auction-quorum-fill" style="width:'+pct+'%"></div></div>';
-    }
-  }
-  if(st==='scheduled'){
-    heroHtml+='<div class="auction-countdown" id="auc-countdown-'+a.id+'">'+fmtCountdown(a.startsAt-Date.now())+'</div><div class="auction-countdown-label">'+t('auc_until_start')+'</div>';
-  } else if(st==='live'){
-    heroHtml+='<div class="auction-countdown" id="auc-countdown-'+a.id+'">'+fmtCountdown(a.endsAt-Date.now())+'</div><div class="auction-countdown-label">'+t('auc_until_end')+'</div>';
-  }
-  if(entryOpen){
-    if(myTicket){
-      heroHtml+='<div class="auction-ticket-box"><div class="auction-ticket-ok">'+t('auc_you_joined')+'</div></div>';
-    } else {
-      var full=pCount>=maxP;
-      var hasMonthly=myCredits.monthlyUntil&&myCredits.monthlyUntil>Date.now();
-      var price=AUCTION_TICKET_PRICE;
-      heroHtml+='<div class="auction-ticket-box">'
-        +(full?'<div class="auction-note" style="color:#ff3b3b;font-weight:700">'+t('auc_full')+'</div>':
-          ('<div class="auction-ticket-row">'
-          +'<button class="auction-ticket-btn" onclick="this.disabled=true;this.style.opacity=0.6;enterAuctionFromBalance(\''+a.id+'\')">\ud83d\udcb0 '+(hasMonthly?t('auc_enter_btn'):(t('auc_enter_balance_btn')+' ('+price+' \u20be)'))+'</button>'
-          +'<button class="auction-ticket-btn outline" onclick="this.disabled=true;this.style.opacity=0.6;enterAuctionDirect(\''+a.id+'\',\'card\')">\ud83d\udcb3 '+price+' \u20be</button>'
-          +'</div>'
-          +'<div class="auction-topup-link" onclick="openBalanceModal()">\ud83d\udcb0 '+t('auc_topup_link')+'</div>'
-          +'<div class="auction-topup-link" onclick="enterAuctionDirect(\''+a.id+'\',\'transfer\')">\ud83c\udfe6 '+t('auc_by_transfer')+'</div>'))
-        +'<div class="auction-note">'+t('auc_ticket_note')+'</div>'
-        +'</div>';
-    }
-  } else if(st==='live'){
-    heroHtml+='<div class="auction-hero-status closed" style="margin-top:10px">'+t('auc_promo_closed')+'</div>';
-  }
-  heroHtml+='</div>';
-
-  var lotsHtml='';
-  if(st==='live'||st==='ended'){
-    lotsHtml='<div class="auction-lots-grid">'+lots.map(function(l){return renderAuctionLotCard(a,l,st,myTicket);}).join('')+'</div>';
-  } else if(lots.length){
-    lotsHtml='<div class="auction-lots-grid">'+lots.map(function(l){return renderAuctionLotPreview(l);}).join('')+'</div>';
-  }
-  return heroHtml+lotsHtml;
-}
-function renderAuctionLotPreview(l){
-  var isPhoto=l.photos&&l.photos.length;
-  var covers=isPhoto?l.photos.slice(0,3).map(function(p){return '<img src="'+p+'">';}).join(''):(l.gameIds||[]).slice(0,3).map(function(gid){var g=games[gid];return g&&g.cover?('<img src="'+g.cover+'">'):'';}).join('');
-  return '<div class="auction-lot-card"><div class="auction-lot-covers'+(isPhoto?' real-photo':'')+'">'+covers+'</div><div class="auction-lot-body">'
-    +'<div class="auction-lot-title">'+escapeHtml(l.title||'')+'</div>'
-    +'<div class="auction-lot-meta">'+(l.gameIds||[]).length+' '+t('auc_items_count')+'</div>'
-    +'<div class="auction-lot-bid-row"><div><div class="auction-lot-bid-label">'+t('auc_start_price')+'</div><div class="auction-lot-bid-val" style="color:var(--text)">'+parseFloat(l.startPrice||0).toFixed(0)+' ₾</div></div></div>'
-    +'</div></div>';
-}
-function renderAuctionLotCard(a,l,st,myTicket){
-  var isPhoto=l.photos&&l.photos.length;
-  var covers=isPhoto?l.photos.slice(0,3).map(function(p){return '<img src="'+p+'">';}).join(''):(l.gameIds||[]).slice(0,3).map(function(gid){var g=games[gid];return g&&g.cover?('<img src="'+g.cover+'">'):'';}).join('');
-  var hasBid=(l.bidCount||0)>0;
-  var curBid=parseFloat(l.currentBid||0);
-  var minNext=hasBid?(curBid+1):parseFloat(l.startPrice||0);
-  var html='<div class="auction-lot-card"><div class="auction-lot-covers'+(isPhoto?' real-photo':'')+'">'+covers+'</div><div class="auction-lot-body">'
-    +'<div class="auction-lot-title">'+escapeHtml(l.title||'')+'</div>'
-    +'<div class="auction-lot-meta">'+(l.gameIds||[]).length+' '+t('auc_items_count')+'</div>'
-    +'<div class="auction-lot-bid-row"><div><div class="auction-lot-bid-label">'+(hasBid?t('auc_current_bid'):t('auc_start'))+'</div><div class="auction-lot-bid-val">'+(hasBid?curBid.toFixed(0):parseFloat(l.startPrice||0).toFixed(0))+' ₾</div></div>'
-    +'<div style="font-size:10.5px;color:var(--text3)">'+(l.bidCount||0)+' '+t('auc_bids_count')+'</div></div>'
-    +(hasBid?'<div class="auction-lot-bidder">'+t('auc_leading')+escapeHtml(l.currentBidName||'?')+(currentUser&&l.currentBidUid===currentUser.uid?t('auc_thats_you'):'')+'</div>':'');
-  if(l.resultStatus==='sold'){
-    var won=currentUser&&l.currentBidUid===currentUser.uid;
-    html+=won?('<div class="auction-lot-won">'+t('auc_you_won')+curBid.toFixed(0)+' ₾!<br><div style="display:flex;gap:8px;justify-content:center;margin-top:8px"><button class="auction-ticket-btn" style="padding:9px 16px" onclick="payAuctionWin(\''+a.id+'\',\''+l.id+'\',\'card\')">💳 '+t('auc_pay')+'</button><button class="auction-ticket-btn outline" style="padding:9px 16px" onclick="payAuctionWin(\''+a.id+'\',\''+l.id+'\',\'transfer\')">'+t('auc_by_transfer')+'</button></div></div>')
-      :('<div class="auction-lot-sold-badge">'+t('auc_sold_for')+curBid.toFixed(0)+' ₾</div>');
-  } else if(l.resultStatus==='unsold'){
-    html+='<div class="auction-lot-unsold-badge">'+t('auc_no_bids')+'</div>';
-  } else if(st==='live'&&myTicket){
-    var incs=[5,10,15,20,30,40,50];
-    html+='<div class="auction-quick-bids">'+incs.map(function(inc){return '<button type="button" class="auction-quick-bid-btn" onclick="quickPlaceBid(\''+a.id+'\',\''+l.id+'\','+(minNext+inc)+')">+'+inc+' ('+(minNext+inc).toFixed(0)+'₾)</button>';}).join('')+'</div>'
-      +'<div class="auction-lot-bid-form"><input type="number" step="1" min="'+minNext+'" id="bid-inp-'+l.id+'" placeholder="'+t('auc_own_amount')+minNext.toFixed(0)+' ₾">'
-      +'<button onclick="placeBid(\''+a.id+'\',\''+l.id+'\')">'+t('auc_bid_btn')+'</button></div>';
-  } else if(st==='live'&&!myTicket){
-    html+='<div class="auction-note" style="margin-top:8px">'+t('auc_tickets_closed')+'</div>';
-  }
-  html+='</div></div>';
-  return html;
-}
-function openBalanceModal(){
-  if(!currentUser){openAuthModal();return;}
-  var hasMonthly=myCredits.monthlyUntil&&myCredits.monthlyUntil>Date.now();
-  var balanceText=hasMonthly?(t('auc_balance_monthly')+' '+new Date(myCredits.monthlyUntil).toLocaleDateString(lang==='ka'?'ka-GE':lang==='en'?'en-US':'ru-RU')):(t('auc_balance_credits')+': <b>'+(parseFloat(myCredits.gel)||0).toFixed(2)+' \u20be</b>');
-  var pendingPkg=Object.values(window._myPackageOrders||{}).some(function(o){return o.paymentMethod==='transfer'&&o.paymentStatus!=='approved';});
-  var monthlyPkg=null; // «Безлимит на месяц» скрыт из окна пополнения (пакет остаётся в TOPUP_PACKAGES для старых заказов и активных подписок)
-  var html='<div class="pay-result-card" style="max-width:420px">'
-    +'<div style="font-size:16px;font-weight:800;margin-bottom:10px">\ud83d\udcb0 '+t('nav_balance_title')+'</div>'
-    +'<div class="auction-balance-text" style="font-size:17px">'+balanceText+'</div>'
-    +(pendingPkg?'<div class="auction-ticket-ok" style="color:var(--cyan);margin-top:6px">'+t('auc_ticket_pending')+'</div>':'')
-    +'<div class="auction-note" style="margin-top:6px">'+t('balance_use_note')+'</div>'
-    +'<div class="auction-packages-label">'+t('topup_amount_label')+'</div>'
-    +'<div class="balance-topup-row">'
-    +'<input type="number" id="balance-custom-amount" min="1" step="0.01" placeholder="'+t('topup_amount_ph')+'">'
-    +'<button class="auction-ticket-btn" style="padding:10px 14px" onclick="buyCustomTopup(\'card\')">\ud83d\udcb3</button>'
-    +'<button class="auction-ticket-btn outline" style="padding:10px 14px" onclick="buyCustomTopup(\'transfer\')">\ud83c\udfe6</button>'
-    +'</div>'
-    +(monthlyPkg?('<div class="balance-monthly-row"><div><div class="balance-monthly-title">\ud83c\udfc6 '+t('auc_pkg_monthly')+'</div><div class="balance-monthly-sub">'+t('auc_pkg_monthly_sub')+'</div></div>'
-      +'<div style="display:flex;align-items:center;gap:8px"><b>'+monthlyPkg.price+' \u20be</b>'
-      +'<button class="auction-ticket-btn" style="padding:8px 10px" onclick="buyTopup(\'monthly\',\'card\')">\ud83d\udcb3</button>'
-      +'<button class="auction-ticket-btn outline" style="padding:8px 10px" onclick="buyTopup(\'monthly\',\'transfer\')">\ud83c\udfe6</button></div></div>'):'')
-    +'<button class="btn-primary" style="width:100%;justify-content:center;margin-top:14px" onclick="closeBalanceModal()">OK</button>'
-    +'</div>';
-  var el=document.getElementById('pay-result-overlay');
-  if(!el)return;
-  el.innerHTML=html;
-  if(!el.classList.contains('open'))pushModalHist();
-  el.classList.add('open');
-}
-function closeBalanceModal(){
-  var el=document.getElementById('pay-result-overlay');
-  if(el){el.classList.remove('open');setTimeout(function(){el.innerHTML='';},400);}
-}
-function updateNavBalanceDisplay(){
-  var el=document.getElementById('nav-balance-val');
-  if(!el)return;
-  var hasMonthly=myCredits.monthlyUntil&&myCredits.monthlyUntil>Date.now();
-  el.textContent=hasMonthly?'\u221e':(parseFloat(myCredits.gel)||0).toFixed(0)+' \u20be';
-}
-function renderTopupPackageCard(pkg){
-  var title=pkg.monthly?t('auc_pkg_monthly'):('+'+pkg.gel+' \u20be');
-  var sub=pkg.monthly?t('auc_pkg_monthly_sub'):t('topup_sub');
-  return '<div class="auction-pkg-card'+(pkg.monthly?' featured':'')+'">'
-    +(pkg.monthly?'<div class="auction-pkg-badge">'+t('auc_pkg_best')+'</div>':'')
-    +'<div class="auction-pkg-title">'+title+'</div>'
-    +'<div class="auction-pkg-sub">'+sub+'</div>'
-    +'<div class="auction-pkg-price">'+pkg.price+' \u20be</div>'
-    +'<div class="auction-pkg-buttons">'
-    +'<button onclick="buyTopup(\''+pkg.key+'\',\'card\')">\ud83d\udcb3</button>'
-    +'<button onclick="buyTopup(\''+pkg.key+'\',\'transfer\')">\ud83c\udfe6</button>'
-    +'</div></div>';
-}
-function buyCustomTopup(method){
-  if(!currentUser){openAuthModal();return;}
-  var inp=document.getElementById('balance-custom-amount');
-  var amount=Math.round((parseFloat(inp?inp.value:0)||0)*100)/100;
-  if(!amount||amount<=0){showToast('\u26a0 '+t('enter_topup_amount'));return;}
-  var id='order_'+Date.now();
-  var orderData={
-    id:id,type:'auction_package',packageKey:'custom',status:'new',
-    uid:currentUser.uid,userEmail:currentUser.email,
-    name:(currentLoyalty&&currentLoyalty.name)||currentUser.displayName||currentUser.email.split('@')[0],
-    total:amount,paymentMethod:method,paymentStatus:'pending',createdAt:Date.now()
-  };
-  db.ref('orders/'+id).set(orderData);
-  window._myPackageOrders=window._myPackageOrders||{};
-  window._myPackageOrders[id]=orderData;
-  if(method==='card'){
-    startCardPayment(id,amount);
-  } else {
-    showBankDetailsModal(amount);
-  }
-}
-function buyTopup(packageKey,method){
-  if(!currentUser){openAuthModal();return;}
-  var pkg=TOPUP_PACKAGES.find(function(p){return p.key===packageKey;});if(!pkg)return;
-  var id='order_'+Date.now();
-  var orderData={
-    id:id,type:'auction_package',packageKey:packageKey,status:'new',
-    uid:currentUser.uid,userEmail:currentUser.email,
-    name:(currentLoyalty&&currentLoyalty.name)||currentUser.displayName||currentUser.email.split('@')[0],
-    total:pkg.price,paymentMethod:method,paymentStatus:'pending',createdAt:Date.now()
-  };
-  db.ref('orders/'+id).set(orderData);
-  window._myPackageOrders=window._myPackageOrders||{};
-  window._myPackageOrders[id]=orderData;
-  if(method==='card'){
-    startCardPayment(id,pkg.price);
-  } else {
-    showBankDetailsModal(pkg.price);
-  }
-}
-function enterAuctionDirect(auctionId,method){
-  if(!currentUser){openAuthModal();return;}
-  var a=auctions[auctionId];if(!a)return;
-  if(a.tickets&&a.tickets[currentUser.uid]&&a.tickets[currentUser.uid].paid)return;
-  var pCount=auctionParticipantCount(a),maxP=parseInt(a.maxParticipants)||50;
-  if(pCount>=maxP){showToast(t('auc_full'));return;}
-  var price=AUCTION_TICKET_PRICE;
-  var id='order_'+Date.now();
-  var orderData={
-    id:id,type:'auction_ticket',auctionId:auctionId,status:'new',
-    uid:currentUser.uid,userEmail:currentUser.email,
-    name:(currentLoyalty&&currentLoyalty.name)||currentUser.displayName||currentUser.email.split('@')[0],
-    total:price,paymentMethod:method,paymentStatus:'pending',createdAt:Date.now()
-  };
-  db.ref('orders/'+id).set(orderData);
-  window._myAuctionOrders=window._myAuctionOrders||{};
-  window._myAuctionOrders[id]=orderData;
-  if(method==='card'){
-    startCardPayment(id,price);
-  } else {
-    showBankDetailsModal(price);
-    renderAuctionSection();
-  }
-}
-function enterAuctionFromBalance(auctionId){
-  if(!currentUser){openAuthModal();return;}
-  var a=auctions[auctionId];if(!a)return;
-  if(a.tickets&&a.tickets[currentUser.uid]&&a.tickets[currentUser.uid].paid)return;
-  var pCount=auctionParticipantCount(a),maxP=parseInt(a.maxParticipants)||50;
-  if(pCount>=maxP){showToast(t('auc_full'));return;}
-  var name=(currentLoyalty&&currentLoyalty.name)||currentUser.displayName||currentUser.email.split('@')[0];
-  var hasMonthly=myCredits.monthlyUntil&&myCredits.monthlyUntil>Date.now();
-  if(hasMonthly){
-    db.ref('auctions/'+auctionId+'/tickets/'+currentUser.uid).set({paid:true,paidAt:Date.now(),method:'monthly',name:name});
-    showToast('\u2713 '+t('auc_entered'));
-    return;
-  }
-  var price=AUCTION_TICKET_PRICE;
-  // Atomic decrement — two "Войти" clicks (different auctions, same page, or a fast
-  // double-click) must never both succeed off the same balance.
-  db.ref('userCredits/'+currentUser.uid+'/gel').transaction(function(cur){
-    cur=parseFloat(cur)||0;
-    if(cur<price)return;
-    return Math.round((cur-price)*100)/100;
-  },function(err,committed){
-    if(err||!committed){showToast(t('auc_need_package'));openBalanceModal();return;}
-    db.ref('auctions/'+auctionId+'/tickets/'+currentUser.uid).set({paid:true,paidAt:Date.now(),method:'balance',name:name});
-    showToast('\u2713 '+t('auc_entered'));
-  });
-}
-function payAuctionWin(auctionId,lotId,method){
-  var a=auctions[auctionId];var l=a&&a.lots&&a.lots[lotId];if(!l)return;
-  if(!currentUser||l.currentBidUid!==currentUser.uid)return;
-  var id='order_'+Date.now();
-  var orderData={
-    id:id,type:'auction_win',auctionId:auctionId,lotId:lotId,status:'new',
-    uid:currentUser.uid,userEmail:currentUser.email,
-    name:(currentLoyalty&&currentLoyalty.name)||currentUser.displayName||currentUser.email.split('@')[0],
-    total:parseFloat(l.currentBid||0),paymentMethod:method,paymentStatus:'pending',createdAt:Date.now()
-  };
-  db.ref('orders/'+id).set(orderData);
-  if(method==='transfer'){
-    showBankDetailsModal(orderData.total);
-  } else {
-    startCardPayment(id,orderData.total);
-  }
-}
-function showBankDetailsModal(amount){
-  var html='<div class="pay-result-card" style="max-width:400px">'
-    +'<div style="font-size:16px;font-weight:800;margin-bottom:6px">🏦 '+t('auc_by_transfer')+'</div>'
-    +'<div style="font-size:12px;color:var(--text3);margin-bottom:16px">'+t('auc_bank_sum')+' <b style="color:var(--text)">'+amount.toFixed(2)+' ₾</b></div>'
-    +bankRow('საქართველოს ბანკი','GE98BG0000000613136046')
-    +bankRow('TBC Bank','GE62TB7230036010100038')
-    +'<div style="font-size:11.5px;color:var(--text3);margin-top:14px;line-height:1.5">'+t('auc_bank_note')+'</div>'
-    +'<a class="auction-contact-badge" style="margin-top:14px;justify-content:center" href="https://wa.me/995574188525" target="_blank">💬 WhatsApp</a>'
-    +'<button class="btn-primary" style="width:100%;justify-content:center;margin-top:10px" onclick="closeBankDetailsModal()">OK</button>'
-    +'</div>';
-  var el=document.getElementById('pay-result-overlay');
-  if(!el)return;
-  el.innerHTML=html;
-  if(!el.classList.contains('open'))pushModalHist();
-  el.classList.add('open');
-}
-function bankRow(bank,iban){
-  return '<div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:10px 12px;margin-bottom:8px">'
-    +'<div style="font-size:11px;color:var(--text3)">'+escapeHtml(bank)+'</div>'
-    +'<div style="display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:3px">'
-    +'<span style="font-family:var(--font-mono);font-size:13px;font-weight:700;letter-spacing:0.3px">'+iban+'</span>'
-    +'<button type="button" style="background:transparent;border:1px solid var(--border2);color:var(--text2);border-radius:6px;padding:4px 8px;font-size:11px;cursor:pointer" onclick="copyIban(\''+iban+'\',this)">📋</button>'
-    +'</div></div>';
-}
-function copyIban(iban,btn){
-  if(navigator.clipboard&&navigator.clipboard.writeText){
-    navigator.clipboard.writeText(iban).then(function(){if(btn){btn.textContent='✓';setTimeout(function(){btn.textContent='📋';},1500);}});
-  }
-}
-function closeBankDetailsModal(){
-  var el=document.getElementById('pay-result-overlay');
-  if(el){el.classList.remove('open');setTimeout(function(){el.innerHTML='';},400);}
-}
-function placeBid(auctionId,lotId){
-  if(!currentUser)return;
-  var inp=document.getElementById('bid-inp-'+lotId);
-  var amount=parseFloat(inp?inp.value:0);
-  if(!amount||amount<=0){showToast(t('auc_enter_amount'));return;}
-  placeBidAmount(auctionId,lotId,amount);
-}
-function quickPlaceBid(auctionId,lotId,amount){
-  placeBidAmount(auctionId,lotId,amount);
-}
-function placeBidAmount(auctionId,lotId,amount){
-  if(!currentUser)return;
-  var name=(currentLoyalty&&currentLoyalty.name)||currentUser.displayName||currentUser.email.split('@')[0];
-  var lotMeta=(auctions[auctionId]&&auctions[auctionId].lots&&auctions[auctionId].lots[lotId])||{};
-  var startPrice=parseFloat(lotMeta.startPrice||0);
-  var ref=db.ref('auctions/'+auctionId+'/lotBids/'+lotId);
-  ref.transaction(function(bid){
-    bid=bid||{currentBid:0,currentBidUid:null,currentBidName:null,bidCount:0};
-    var curBid=parseFloat(bid.currentBid||0);
-    var minNext=(bid.bidCount||0)>0?(curBid+1):startPrice;
-    if(amount<minNext)return;
-    bid.currentBid=amount;
-    bid.currentBidUid=currentUser.uid;
-    bid.currentBidName=name;
-    bid.bidCount=(bid.bidCount||0)+1;
-    return bid;
-  },function(err,committed,snap){
-    if(err||!committed){showToast(t('auc_bid_too_low'));renderAuctionSection();return;}
-    showToast(t('auc_bid_accepted'));
-    db.ref('auctions/'+auctionId+'/lots/'+lotId+'/bidHistory').push({uid:currentUser.uid,name:name,amount:amount,at:Date.now()});
-  });
-}
-
-// ── INVOICE ─────────────────────────────────────────────
 function buildInvoiceHtml(order){
   var dateStr=order.createdAt?new Date(order.createdAt).toLocaleDateString(lang==='ka'?'ka-GE':lang==='en'?'en-US':'ru-RU'):'';
   var groups={},groupOrder=[];
@@ -5392,31 +4736,6 @@ function checkFlittReturn(){
     db.ref('orders/'+orderId).once('value').then(function(snap){
       var o=snap.val();
       if(o&&o.paymentStatus==='approved'){
-        if(o.type==='auction_ticket'){
-          db.ref('auctions/'+o.auctionId+'/tickets/'+o.uid).set({paid:true,paidAt:Date.now(),method:'card',name:o.name||''});
-        }
-        if(o.type==='auction_package'){
-          db.ref('userCredits/'+o.uid+'/appliedOrders/'+orderId).once('value').then(function(appliedSnap){
-            if(appliedSnap.exists())return;
-            var isCustom=o.packageKey==='custom';
-            var pkg=isCustom?{gel:parseFloat(o.total)||0,monthly:false}:TOPUP_PACKAGES.find(function(p){return p.key===o.packageKey;});
-            if(!pkg)return;
-            db.ref('userCredits/'+o.uid).once('value').then(function(csnap){
-              var cur=csnap.val()||{gel:0,monthlyUntil:null};
-              if(pkg.monthly){
-                var base=(cur.monthlyUntil&&cur.monthlyUntil>Date.now())?cur.monthlyUntil:Date.now();
-                db.ref('userCredits/'+o.uid+'/monthlyUntil').set(base+30*86400000);
-              } else {
-                db.ref('userCredits/'+o.uid+'/gel').set(Math.round(((parseFloat(cur.gel)||0)+pkg.gel)*100)/100);
-              }
-              db.ref('userCredits/'+o.uid+'/appliedOrders/'+orderId).set(true);
-            });
-          });
-        }
-        if(o.type==='giftcard'){
-          gcIssueForOrder(o).then(function(res){showGiftIssued(res,o);}).catch(function(e){console.error(e);showPayResult('ok',o);});
-          return;
-        }
         if(!o.type){cart=[];cartSave();updateCartCount();}
         showPayResult('ok',o);return;
       }
@@ -5842,6 +5161,50 @@ window.addEventListener('load',function(){
     if(e.target===this)closeOrder();
   });
 });
+</script>
+
+<script>
+// ═════ SKIN v2: texts + hero cover fan (no business logic here) ═════
+var SKT={
+ ka:{eyebrow:'PS4 · PS5 · ბათუმი',sub:'ახალი და მეორადი თამაშები ხელმისაწვდომ ფასად. მიტანა მთელ საქართველოში.',pt1:'მიტანა მთელ საქართველოში',pt2:'ახალი და მეორადი',pt3:'ონლაინ ან ნაღდი ანგარიშსწორება',
+  tr1t:'მიტანა მთელ საქართველოში',tr1s:'კურიერით კარამდე',tr2t:'მოსახერხებელი გადახდა',tr2s:'ონლაინ ან კურიერთან — ბარათით ან ნაღდით',tr3t:'მდგომარეობა მითითებულია',tr3s:'ახალი თუ მეორადი — ყველა ბარათზე ჩანს',tr4t:'პასუხობთ WhatsApp-ში',tr4s:'გირჩევთ თამაშს და გაგიფორმებთ შეკვეთას',
+  how_title:'როგორ <span>შევუკვეთოთ</span>',h1t:'აირჩიე თამაში',h1s:'იპოვე კატალოგში ძიებით ან ჟანრით და დაამატე კალათაში.',h2t:'გააფორმე შეკვეთა',h2s:'შეავსე მისამართი საიტზე ან მოგვწერე WhatsApp-ში — დაგეხმარებით.',h3t:'მიიღე კურიერით',h3s:'მივიტანთ საქართველოს მასშტაბით. გადახდა ონლაინ ან მიღებისას.',
+  cta_t:'ვერ იპოვე სასურველი თამაში?',cta_s:'მოგვწერე — გეტყვით არის თუ არა მარაგში ან გზაში.',cta_wa:'მოგვწერეთ WhatsApp-ზე'},
+ ru:{eyebrow:'PS4 · PS5 · БАТУМИ',sub:'Новые и б/у диски для PS4 и PS5 по выгодным ценам. Доставка по всей Грузии.',pt1:'Доставка по всей Грузии',pt2:'Новые и б/у',pt3:'Оплата онлайн или курьеру',
+  tr1t:'Доставка по всей Грузии',tr1s:'Курьером до двери',tr2t:'Удобная оплата',tr2s:'Онлайн или курьеру — картой или наличными',tr3t:'Состояние указано',tr3s:'Новый или б/у — видно на каждой карточке',tr4t:'Отвечаем в WhatsApp',tr4s:'Подскажем игру и поможем оформить заказ',
+  how_title:'КАК <span>ЗАКАЗАТЬ</span>',h1t:'Выбери игру',h1s:'Найди в каталоге через поиск или жанр и добавь в корзину.',h2t:'Оформи заказ',h2s:'Укажи адрес на сайте или напиши нам в WhatsApp — поможем.',h3t:'Получи курьером',h3s:'Привезём по всей Грузии. Оплата онлайн или при получении.',
+  cta_t:'Не нашли нужную игру?',cta_s:'Напишите нам — подскажем, есть ли она в наличии или в пути.',cta_wa:'Написать в WhatsApp'},
+ en:{eyebrow:'PS4 · PS5 · BATUMI',sub:'New and used PS4 & PS5 discs at great prices. Delivery across Georgia.',pt1:'Delivery across Georgia',pt2:'New and used',pt3:'Pay online or to the courier',
+  tr1t:'Delivery across Georgia',tr1s:'By courier to your door',tr2t:'Flexible payment',tr2s:'Online or to the courier — card or cash',tr3t:'Condition shown',tr3s:'New or used, stated on every card',tr4t:'We reply on WhatsApp',tr4s:'We will help you pick a game and place the order',
+  how_title:'HOW TO <span>ORDER</span>',h1t:'Pick a game',h1s:'Find it in the catalog by search or genre and add it to the cart.',h2t:'Place the order',h2s:'Enter your address on the site or message us on WhatsApp — we will help.',h3t:'Get it by courier',h3s:'We deliver across Georgia. Pay online or on delivery.',
+  cta_t:"Can't find the game you want?",cta_s:'Message us — we will tell you if it is in stock or on the way.',cta_wa:'Message us on WhatsApp'}
+};
+function skinApply(){
+  var d=SKT[lang]||SKT.ru;
+  document.querySelectorAll('[data-sk]').forEach(function(el){var v=d[el.getAttribute('data-sk')];if(v!=null)el.textContent=v;});
+  document.querySelectorAll('[data-skh]').forEach(function(el){var v=d[el.getAttribute('data-skh')];if(v!=null)el.innerHTML=v;});
+  var e=document.getElementById('hero-eyebrow');if(e)e.textContent=d.eyebrow;
+  var s=document.getElementById('hero-sub');if(s)s.textContent=d.sub;
+}
+function skinHero(){
+  var box=document.getElementById('hero-visual'),grid=document.getElementById('hero-grid');if(!box)return;
+  var seen={},list=[];
+  Object.keys(games||{}).map(function(k){return games[k];}).filter(function(g){return g&&g.status==='available'&&g.cover&&!g.auctionId&&(!g.itemType||g.itemType==='disc');})
+    .sort(function(a,b){return (b.addedAt||0)-(a.addedAt||0);}).forEach(function(g){var k=(g.title||'')+'|'+(g.platform||'');if(seen[k])return;seen[k]=1;list.push(g);});
+  list=list.slice(0,4);
+  if(list.length<3){box.className='hero-visual empty';if(grid)grid.className='hero-grid no-vis';return;}
+  box.className='hero-visual';if(grid)grid.className='hero-grid';
+  var sig=list.map(function(g){return g.id;}).join(',');if(box.getAttribute('data-sig')===sig)return;box.setAttribute('data-sig',sig);
+  box.innerHTML=list.map(function(g){
+    var p=parseFloat(g.price||0);
+    return '<div class="hv-card" onclick="var c=document.getElementById(\'catalog\');if(c)c.scrollIntoView({behavior:\'smooth\'})"><img src="'+g.cover.replace(/"/g,'&quot;')+'" alt="" loading="lazy"><div class="hv-info"><div class="hv-t">'+String(g.title||'').replace(/</g,'&lt;')+'</div>'+(p>0?'<div class="hv-p">'+p+' ₾</div>':'')+'</div></div>';
+  }).join('');
+}
+(function(){
+  var _al=applyLang;applyLang=function(){_al.apply(this,arguments);try{skinApply();}catch(e){}};
+  var _rg=renderGames;renderGames=function(){var r=_rg.apply(this,arguments);try{skinHero();}catch(e){}return r;};
+  try{skinApply();skinHero();}catch(e){}
+})();
 </script>
 </body>
 </html>
