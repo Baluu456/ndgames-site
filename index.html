@@ -2282,8 +2282,8 @@ function winterSlideHtml(){
    +'<div class="w-art" aria-hidden="true">🎮</div>'
    +'<div class="w-txt"><span class="w-tag">'+x.tag+'</span><div class="w-title">'+x.title+'</div><div class="w-sub">'+x.sub+'</div><span class="w-cta">'+x.cta+' ›</span></div>';
 }
-function winterGoCatalog(){var c=document.getElementById('catalog');if(c)c.scrollIntoView({behavior:'smooth',block:'start'});}
-function bfGoCatalog(){var c=document.getElementById('catalog');if(c)c.scrollIntoView({behavior:'smooth',block:'start'});}
+function winterGoCatalog(){openSale();}
+function bfGoCatalog(){openSale();}
 var BANNER_OFF={}; // settings/bannersOff/{id}=true — banner switched off from the portal
 var BANNERS = [
   {id:'bf',   type:'img', img:{ka:'banner-blackfriday-ka.jpg',ru:'banner-blackfriday-ru.jpg',en:'banner-blackfriday-en.jpg'}, alt:'Black Friday', go:bfGoCatalog},
