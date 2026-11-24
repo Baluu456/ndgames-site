@@ -928,123 +928,6 @@ body:has(.collection-banner-section:not([style*="display: none"]):not([style*="d
 </style>
 </head>
 <body>
-<!-- INTRO (gamer silhouette → disc shot → logo). Plays once per session; switch in portal: settings/introOff -->
-<style>
-#nd-intro{position:fixed;inset:0;z-index:1200;background:#030308;display:flex;align-items:center;justify-content:center;transition:opacity .7s ease}
-#nd-intro.out{opacity:0;pointer-events:none}
-#nd-intro::before{content:'';position:absolute;inset:0;background:radial-gradient(60% 60% at 50% 50%,rgba(0,212,255,.12),transparent 70%),radial-gradient(40% 40% at 85% 85%,rgba(255,0,110,.16),transparent 70%)}
-.ni-ring{position:relative;width:min(80vmin,580px);height:min(80vmin,580px);border-radius:50%;overflow:hidden;background:radial-gradient(circle,#fff 0%,#eef9ff 55%,#bfe9ff 100%);border:6px solid #00d4ff;box-shadow:0 0 0 3px rgba(255,0,110,.7),0 0 60px rgba(0,212,255,.6),0 0 120px rgba(255,0,110,.35);transition:transform .9s cubic-bezier(.7,0,.3,1),opacity .6s}
-.ni-ring svg{position:absolute;inset:0;width:100%;height:100%}
-#nd-intro .sil{fill:#05050a}
-#nd-intro .ni-ground{stroke:rgba(5,5,10,.18);stroke-width:3}
-#ni-side{animation:niwalk 2s linear forwards}
-@keyframes niwalk{from{transform:translateX(-330px)}to{transform:translateX(0)}}
-.ni-leg,.ni-arm{transform-box:fill-box;transform-origin:50% 4%;animation:niswing .42s ease-in-out infinite alternate}
-.ni-leg.b,.ni-arm.a{animation-direction:alternate-reverse}
-@keyframes niswing{from{transform:rotate(-30deg)}to{transform:rotate(30deg)}}
-#ni-side,#ni-front{transition:opacity .12s}
-#ni-front{opacity:0;transform-origin:200px 330px}
-.turn #ni-side{opacity:0;animation-play-state:paused}
-.turn #ni-front{opacity:1}
-.ni-farm{transform-box:fill-box;transform-origin:50% 5%;transition:transform .5s cubic-bezier(.2,.9,.3,1)}
-.raise .ni-farm{transform:rotate(-120deg)}
-.raise #ni-front{animation:nipush .9s ease-out forwards}
-@keyframes nipush{from{transform:scale(1)}to{transform:scale(1.18)}}
-#ni-disc{position:absolute;left:50%;top:50%;width:14%;aspect-ratio:1;margin:-7% 0 0 -7%;border-radius:50%;opacity:0;background:conic-gradient(from 20deg,#bfe9ff,#fff 10%,#00d4ff 22%,#ff006e 36%,#fff 48%,#bfe9ff 60%,#00d4ff 74%,#ff006e 88%,#bfe9ff);box-shadow:0 0 30px rgba(0,212,255,.9),0 0 60px rgba(255,0,110,.6)}
-#ni-disc::after{content:'';position:absolute;inset:36%;border-radius:50%;background:#05050a}
-.throw #ni-disc{opacity:1;animation:nithrow .55s cubic-bezier(.5,0,.9,.4) forwards}
-@keyframes nithrow{from{transform:translate(215%,-110%) scale(.8) rotate(0)}to{transform:translate(0,0) scale(14) rotate(900deg)}}
-.ni-flash{position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none}
-.flash .ni-flash{animation:niflash .5s ease-out forwards}
-@keyframes niflash{0%{opacity:0}30%{opacity:1}100%{opacity:1}}
-.ni-logo{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:radial-gradient(circle,#10102a,#05050a 75%);opacity:0;transform:scale(.7);transition:opacity .5s,transform .7s cubic-bezier(.2,.9,.3,1)}
-.logo .ni-logo{opacity:1;transform:scale(1)}
-.logo .ni-flash{animation:niflashout .6s ease-out forwards}
-@keyframes niflashout{from{opacity:1}to{opacity:0}}
-.ni-logo img{width:36%;border-radius:50%;box-shadow:0 0 40px rgba(0,212,255,.6)}
-.ni-logo b{font-family:Orbitron,sans-serif;font-size:clamp(26px,6vmin,46px);font-weight:900;letter-spacing:4px;color:#00d4ff;text-shadow:0 0 22px rgba(0,212,255,.8)}
-.ni-logo b span{color:#ff006e;text-shadow:0 0 22px rgba(255,0,110,.8)}
-.open .ni-ring{transform:scale(7);opacity:0}
-.ni-skip{position:absolute;right:18px;bottom:18px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.25);color:#fff;font:600 13px Inter,sans-serif;padding:9px 16px;border-radius:30px;cursor:pointer;letter-spacing:1px}
-</style>
-<div id="nd-intro" style="display:none" aria-hidden="true">
-  <div class="ni-ring" id="ni-ring">
-    <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice">
-      <line class="ni-ground" x1="0" y1="334" x2="400" y2="334"/>
-      <g id="ni-side">
-        <ellipse cx="200" cy="336" rx="48" ry="5" fill="rgba(5,5,10,.15)"/>
-        <rect class="sil ni-arm a" x="193" y="178" width="14" height="80" rx="7"/>
-        <rect class="sil ni-leg a" x="191" y="258" width="18" height="76" rx="8"/>
-        <path class="sil" d="M178 170 Q200 160 224 170 L218 264 L182 264 Z"/>
-        <circle class="sil" cx="203" cy="132" r="25"/>
-        <path d="M180 128 A24 24 0 0 1 226 126" fill="none" stroke="#05050a" stroke-width="7"/>
-        <rect class="sil" x="196" y="122" width="14" height="22" rx="7"/>
-        <rect class="sil ni-leg b" x="191" y="258" width="18" height="76" rx="8"/>
-        <rect class="sil ni-arm b" x="193" y="178" width="14" height="80" rx="7"/>
-      </g>
-      <g id="ni-front">
-        <ellipse cx="200" cy="336" rx="64" ry="6" fill="rgba(5,5,10,.15)"/>
-        <rect class="sil" x="159" y="266" width="34" height="68" rx="9"/><rect class="sil" x="207" y="266" width="34" height="68" rx="9"/>
-        <rect class="sil" x="141" y="174" width="16" height="96" rx="8"/>
-        <path class="sil" d="M156 172 Q200 160 244 172 L248 272 L152 272 Z"/>
-        <circle class="sil" cx="200" cy="130" r="27"/>
-        <path d="M168 130 A32 32 0 0 1 232 130" fill="none" stroke="#05050a" stroke-width="8"/>
-        <rect class="sil" x="161" y="122" width="10" height="26" rx="5"/><rect class="sil" x="229" y="122" width="10" height="26" rx="5"/>
-        <rect class="sil ni-farm" x="244" y="172" width="16" height="96" rx="8"/>
-      </g>
-    </svg>
-    <video id="ni-vid" muted playsinline preload="auto" style="display:none;position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></video>
-    <div id="ni-disc"></div>
-    <div class="ni-logo"><img src="logo-256.png" alt=""><b>ND<span>GAMES</span></b></div>
-    <div class="ni-flash"></div>
-  </div>
-  <button class="ni-skip" id="ni-skip" type="button">SKIP ›</button>
-</div>
-<script>
-(function(){
-  var el=document.getElementById('nd-intro');if(!el)return;
-  var skip=false;try{
-    if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)skip=true;
-    if(localStorage.getItem('ndIntroOff')==='1')skip=true;
-    if(sessionStorage.getItem('ndIntroSeen')==='1')skip=true;
-    if(/[?&]nointro/.test(location.search))skip=true;
-  }catch(e){}
-  if(skip){el.parentNode.removeChild(el);return;}
-  try{sessionStorage.setItem('ndIntroSeen','1');}catch(e){}
-  el.style.display='flex';
-  var ring=document.getElementById('ni-ring'),T=[],done=false;
-  function at(ms,fn){T.push(setTimeout(fn,ms));}
-  function end(){
-    if(done)return;done=true;T.forEach(clearTimeout);
-    el.classList.add('out');
-    setTimeout(function(){if(el.parentNode)el.parentNode.removeChild(el);},800);
-  }
-  function finish(base){at(base,function(){el.classList.add('flash');});at(base+250,function(){el.classList.add('logo');});at(base+1500,function(){el.classList.add('open');});at(base+2200,end);}
-  function svgMode(){
-    at(2050,function(){el.classList.add('turn');});
-    at(2400,function(){el.classList.add('raise');});
-    at(3050,function(){el.classList.add('throw');});
-    finish(3500);
-  }
-  // Если рядом с сайтом лежит intro.mp4 (своё видео), играем его в круге; иначе — рисованная версия.
-  var vid=document.getElementById('ni-vid'),started=false;
-  function videoMode(){
-    if(started)return;started=true;
-    ring.querySelector('svg').style.display='none';vid.style.display='block';
-    var p=vid.play();if(p&&p.catch)p.catch(function(){});
-    vid.onended=function(){finish(0);};
-    at(Math.min(((vid.duration||5)+1.5)*1000,15000),function(){if(!el.classList.contains('flash'))finish(0);});
-  }
-  vid.addEventListener('loadeddata',videoMode);
-  vid.addEventListener('error',function(){if(!started){started=true;svgMode();}});
-  at(1500,function(){if(!started){started=true;svgMode();}});
-  vid.src='intro.mp4';
-  document.getElementById('ni-skip').onclick=end;
-  document.addEventListener('keydown',function k(e){if(e.key==='Escape'||e.key==='Enter'||e.key===' '){end();document.removeEventListener('keydown',k);}});
-})();
-</script>
-
-
 <!-- MAINTENANCE OVERLAY -->
 <div id="maintenance-overlay" style="display:none;position:fixed;inset:0;z-index:99999;background:#0f0f13;color:#fff;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;font-family:'Inter',sans-serif">
   <div style="font-family:'Orbitron',sans-serif;font-size:22px;letter-spacing:2px;margin-bottom:22px;color:#00d4ff">ND<span style="color:#7c6df0">GAMES</span></div>
@@ -2460,7 +2343,6 @@ function renderBanners(force){
   box.addEventListener('keydown',function(e){if(e.key==='ArrowLeft')bcGo(_bcIndex-1,true);else if(e.key==='ArrowRight')bcGo(_bcIndex+1,true);});
   renderBanners(true);
   try{db.ref('settings/bannersOff').on('value',function(sn){BANNER_OFF=sn.val()||{};renderBanners(true);});}catch(e){}
-  try{db.ref('settings/introOff').on('value',function(sn){try{localStorage.setItem('ndIntroOff',sn.val()?'1':'0');}catch(e){}});}catch(e){}
 })();
 
 function filterByAccCat(catId){
